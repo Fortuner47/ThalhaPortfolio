@@ -148,8 +148,7 @@
   @media (max-width:760px){.skill-groups{grid-template-columns:1fr 1fr;}}
   @media (max-width:480px){.skill-groups{grid-template-columns:1fr;}}
   .skill-group .g-title{font-family:var(--mono);font-size:11.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
-  .soft-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:44px;}
-  @media (max-width:560px){.soft-list{grid-template-columns:1fr;}}
+  .soft-list{display:flex;flex-wrap:wrap;gap:16px 28px;margin-top:36px;}
   .soft-item{font-family:var(--mono);font-size:12.5px;color:var(--text-1);display:flex;gap:10px;align-items:center;}
   .soft-item::before{content:"";width:5px;height:5px;background:var(--amber);flex:none;}
 
@@ -372,17 +371,46 @@
     <div class="sec-head reveal"><div class="eyebrow">05 Recognition</div><h2>Education &amp; awards.</h2></div>
     <div class="two-col reveal">
       <div>
-        <div class="edu-item"><div class="a-title">B.Tech, Artificial Intelligence &amp; Data Science</div><div class="a-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div></div>
-        <div class="edu-item"><div class="a-title">Higher Secondary</div><div class="a-meta">Chettinad Vidyashram High School · 2010–2022</div></div>
-        <div class="award-item" style="border:none;padding-top:0;"><div class="a-title">Smart India Hackathon (SIH)</div><div class="a-meta">Participant</div></div>
+        <div class="g-title" style="font-family:var(--mono);font-size:11.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px;">Education</div>
+        <div class="edu-item">
+          <div class="a-title">B.Tech, Artificial Intelligence &amp; Data Science</div>
+          <div class="a-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div>
+        </div>
+        <div class="edu-item" style="margin-bottom:0;">
+          <div class="a-title">Higher Secondary Education</div>
+          <div class="a-meta">Chettinad Vidyashram High School · 2010–2022</div>
+        </div>
       </div>
       <div>
-        <div class="award-item"><div class="a-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div><div class="a-meta">Primary Author &amp; Developer · Presented at CIMA SCRS Conference · Under review for publication in Springer conference proceedings</div></div>
-        <div class="award-item"><div class="a-title">Data Science and AI/ML Internship Certification</div><div class="a-meta">Ybi Foundation · Nov 2024</div></div>
-        <div class="award-item"><div class="a-title">Java (Basic)</div><div class="a-meta">HackerRank · Apr 2025</div></div>
-        <div class="award-item"><div class="a-title">Arduino Training — Score 95%</div><div class="a-meta">Spoken Tutorial Project, IIT Bombay · Mar 2025</div></div>
-        <div class="award-item"><div class="a-title">English Language for Competitive Exams</div><div class="a-meta">NPTEL Elite, IIT Madras · Jan–Apr 2025</div></div>
-        <div class="award-item"><div class="a-title">E-Business</div><div class="a-meta">NPTEL, IIT Kharagpur · Jul–Oct 2025</div></div>
+        <div class="g-title" style="font-family:var(--mono);font-size:11.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px;">Certifications &amp; Achievements</div>
+        <div class="award-item" style="padding-top:0;">
+          <div class="a-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div>
+          <div class="a-meta">Primary Author &amp; Developer · Presented at CIMA SCRS Conference · Under review for publication in Springer conference proceedings</div>
+        </div>
+        <div class="award-item">
+          <div class="a-title">Smart India Hackathon (SIH)</div>
+          <div class="a-meta">National-level Hackathon Participant · 2024</div>
+        </div>
+        <div class="award-item">
+          <div class="a-title">Data Science and AI/ML Internship Certification</div>
+          <div class="a-meta">Ybi Foundation · Nov 2024</div>
+        </div>
+        <div class="award-item">
+          <div class="a-title">Java (Basic)</div>
+          <div class="a-meta">HackerRank · Apr 2025</div>
+        </div>
+        <div class="award-item">
+          <div class="a-title">Arduino Training — Score 95%</div>
+          <div class="a-meta">Spoken Tutorial Project, IIT Bombay · Mar 2025</div>
+        </div>
+        <div class="award-item">
+          <div class="a-title">English Language for Competitive Exams</div>
+          <div class="a-meta">NPTEL Elite, IIT Madras · Jan–Apr 2025</div>
+        </div>
+        <div class="award-item" style="border:none;">
+          <div class="a-title">E-Business</div>
+          <div class="a-meta">NPTEL, IIT Kharagpur · Jul–Oct 2025</div>
+        </div>
       </div>
     </div>
   </div>
