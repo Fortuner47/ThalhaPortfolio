@@ -176,6 +176,47 @@
   .status-row span b{color:var(--amber);font-weight:500;}
   .status-online{display:flex;align-items:center;gap:6px;}
   .status-online::before{content:"";width:6px;height:6px;border-radius:50%;background:#7bd88f;}
+  /* Modal Styles */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(12, 11, 9, 0.95); backdrop-filter: blur(5px); z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+  .modal-container { background: var(--bg-1); border: 1px solid var(--line); border-radius: 8px; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(20px); transition: transform 0.3s ease; display: flex; flex-direction: column; }
+  .modal-overlay.active .modal-container { transform: translateY(0); }
+  .modal-header { padding: 24px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: var(--bg-1); z-index: 10; }
+  .modal-header h2 { font-size: 24px; margin: 0; }
+  .btn-close { background: none; border: none; color: var(--text-2); cursor: pointer; transition: color 0.2s; padding: 5px; }
+  .btn-close:hover { color: var(--amber); }
+  .modal-body { padding: 24px; display: flex; flex-direction: column; gap: 40px; }
+  
+  /* Sections inside modal */
+  .modal-section-title { font-family: var(--display); font-size: 20px; margin-bottom: 16px; border-left: 3px solid var(--amber); padding-left: 10px; }
+  .video-container { width: 100%; aspect-ratio: 16/9; background: var(--bg-0); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .video-container video { width: 100%; height: 100%; object-fit: cover; }
+  .video-desc { margin-top: 12px; font-size: 14.5px; color: var(--text-1); }
+  
+  /* Screenshot Gallery */
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+  .gallery-item { border: 1px solid var(--line); background: var(--bg-2); border-radius: 4px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+  .gallery-item:hover { border-color: var(--amber); }
+  .gallery-img-wrapper { aspect-ratio: 16/9; background: var(--bg-0); border-bottom: 1px solid var(--line); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .gallery-item:hover .gallery-img-wrapper img { transform: scale(1.05); }
+  .gallery-info { padding: 12px; }
+  .gallery-info h4 { font-family: var(--sans); font-size: 15px; margin-bottom: 4px; color: var(--text-0); }
+  .gallery-info p { font-size: 13px; color: var(--text-2); line-height: 1.4; }
+  .gallery-info .feature { display: inline-block; margin-top: 8px; font-family: var(--mono); font-size: 10px; color: var(--amber); background: var(--amber-dim); padding: 3px 6px; border-radius: 2px; }
+  
+  /* Tech Stack Cards */
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .tech-card { border: 1px solid var(--line); background: var(--bg-2); padding: 16px; border-radius: 4px; }
+  .tech-card-title { font-family: var(--mono); font-size: 11px; color: var(--text-2); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; }
+  .tech-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tech-badge { font-size: 12px; color: var(--text-0); display: flex; align-items: center; gap: 6px; background: var(--bg-0); border: 1px solid var(--line); padding: 4px 8px; border-radius: 2px; }
+  
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .lightbox.active { opacity: 1; pointer-events: auto; }
+  .lightbox img { max-width: 90%; max-height: 90vh; object-fit: contain; border: 1px solid var(--line); }
+  .lightbox-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; cursor: pointer; padding: 10px; }
 </style>
 </head>
 <body>
@@ -286,6 +327,7 @@
             <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener">nutrix-video-recipes ↗</a>
             <a href="https://github.com/Fortuner47/SmartMealplanner" target="_blank" rel="noopener">SmartMealplanner ↗</a>
             <a href="https://github.com/Fortuner47/NLP-Meal-Planner" target="_blank" rel="noopener">NLP-Meal-Planner ↗</a>
+            <button class="btn btn-ghost" style="padding:4px 10px; font-size:11px; cursor:pointer;" onclick="openModal('modal-nutrix')">View Details</button>
           </div>
         </div>
       </div>
@@ -302,7 +344,10 @@
           <div class="sub">Research &amp; Development · Python · OpenCV</div>
           <p class="desc">Designed and built a wearable-free, single-camera hand tracking framework achieving 94% gesture recognition accuracy, ~68ms latency, and 60 FPS. Deployed as a hardware-free interface across interactive STEM education modules. Authored the research paper, presented it at the CIMA SCRS Conference, and currently under review for Springer proceedings.</p>
           <div class="chip-row"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">Real-time CV</span></div>
-          <div class="fig-links"><a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener">HOLORACT ↗</a></div>
+          <div class="fig-links">
+            <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener">HOLORACT ↗</a>
+            <button class="btn btn-ghost" style="padding:4px 10px; font-size:11px; cursor:pointer;" onclick="openModal('modal-holoract')">View Details</button>
+          </div>
         </div>
       </div>
     </div>
@@ -432,6 +477,152 @@
   </div>
 </section>
 
+<!-- Nutrix Modal -->
+<div class="modal-overlay" id="modal-nutrix">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Nutrix AI</h2>
+      <button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h3 class="modal-section-title">Project Overview</h3>
+        <div class="video-container">
+          <video src="./Nutrix_Demo.mp4" controls playsinline>
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showing natural language input parsing, personalized meal plan generation, and conversational AI assistance.</p>
+      </div>
+      
+      <div>
+        <h3 class="modal-section-title">Project Screenshots</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('placeholder.svg')">
+            <div class="gallery-img-wrapper"><img src="./placeholder.svg" alt="Onboarding"></div>
+            <div class="gallery-info">
+              <h4>NLP Onboarding</h4>
+              <p>Users enter their dietary constraints and goals in natural language.</p>
+              <span class="feature">Data Ingestion</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('placeholder.svg')">
+            <div class="gallery-img-wrapper"><img src="./placeholder.svg" alt="Dashboard"></div>
+            <div class="gallery-info">
+              <h4>AI Dashboard</h4>
+              <p>Personalized daily meal plan generated by the LLM recommendation engine.</p>
+              <span class="feature">Core Functionality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="modal-section-title">Tech Stack</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-title">Frontend</div>
+            <div class="tech-badges">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-title">Backend & Auth</div>
+            <div class="tech-badges">
+              <span class="tech-badge">Supabase</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-title">AI Engine</div>
+            <div class="tech-badges">
+              <span class="tech-badge">LLM APIs</span>
+              <span class="tech-badge">NLP Pipeline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOLORACT Modal -->
+<div class="modal-overlay" id="modal-holoract">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>HOLORACT</h2>
+      <button class="btn-close" onclick="closeModal('modal-holoract')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h3 class="modal-section-title">System Demonstration</h3>
+        <div class="video-container">
+          <!-- Placeholder for HOLORACT demo video -->
+          <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#111; color:#555;">Video Placeholder (HOLORACT_Demo.mp4)</div>
+        </div>
+        <p class="video-desc">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking.</p>
+      </div>
+      
+      <div>
+        <h3 class="modal-section-title">System Architecture & Screenshots</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('placeholder.svg')">
+            <div class="gallery-img-wrapper"><img src="./placeholder.svg" alt="Tracking"></div>
+            <div class="gallery-info">
+              <h4>Gesture Recognition</h4>
+              <p>Real-time hand tracking pipeline identifying user interactions.</p>
+              <span class="feature">Computer Vision</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('placeholder.svg')">
+            <div class="gallery-img-wrapper"><img src="./placeholder.svg" alt="Hologram"></div>
+            <div class="gallery-info">
+              <h4>STEM Module</h4>
+              <p>Holographic display showing an interactive 3D model (Chemistry/Physics).</p>
+              <span class="feature">3D Rendering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="modal-section-title">Tech Stack</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-title">Computer Vision</div>
+            <div class="tech-badges">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">MediaPipe</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-title">3D Environment</div>
+            <div class="tech-badges">
+              <span class="tech-badge">Unity</span>
+              <span class="tech-badge">C#</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-title">Integration</div>
+            <div class="tech-badges">
+              <span class="tech-badge">Socket Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+  <img src="" alt="Fullscreen preview" id="lightbox-img">
+</div>
+
 <footer class="status">
   <div class="wrap status-row">
     <span class="status-online">SYSTEM <b>ONLINE</b></span>
@@ -474,6 +665,36 @@
     document.getElementById('lat').textContent=(64+Math.floor(Math.random()*8))+'ms';
     document.getElementById('fps').textContent=58+Math.floor(Math.random()*3);
   },1000);
+
+  // Modal & Lightbox Logic
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+  
+  // Close modal on click outside container
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal(this.id);
+      }
+    });
+  });
+
+  function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lightbox.classList.add('active');
+  }
+  function closeLightbox(e) {
+    if (e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+  }
 </script>
 
 </body>
