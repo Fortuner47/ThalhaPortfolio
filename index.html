@@ -190,7 +190,8 @@
   /* Sections inside modal */
   .modal-section-title { font-family: var(--display); font-size: 20px; margin-bottom: 16px; border-left: 3px solid var(--amber); padding-left: 10px; }
   .video-container { width: 100%; aspect-ratio: 16/9; background: var(--bg-0); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .video-container video { width: 100%; height: 100%; object-fit: cover; }
+  .video-container.portrait { aspect-ratio: 9/16; max-width: 360px; margin: 0 auto; }
+  .video-container video { width: 100%; height: 100%; object-fit: contain; }
   .video-desc { margin-top: 12px; font-size: 14.5px; color: var(--text-1); }
   
   /* Screenshot Gallery */
@@ -487,7 +488,7 @@
     <div class="modal-body">
       <div>
         <h3 class="modal-section-title">Project Overview</h3>
-        <div class="video-container">
+        <div class="video-container portrait">
           <video src="./Nutrix_Demo.mp4" controls playsinline>
             Your browser does not support the video tag.
           </video>
