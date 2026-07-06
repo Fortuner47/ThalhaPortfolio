@@ -377,13 +377,18 @@
       </div>
       <div class="fig">
         <span class="fig-tick tl"></span><span class="fig-tick tr"></span><span class="fig-tick bl"></span><span class="fig-tick br"></span>
-        <div class="media-slot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-8z"/></svg><span>Image pending</span></div>
+        <div class="media-slot" style="padding:0; overflow:hidden;">
+          <img src="./scrapflow_dashboard.png" alt="ScrapFlow Dashboard" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+        </div>
         <div class="fig-body">
           <div class="fig-cap">Fig. 05</div>
           <h3>ScrapFlow</h3>
           <div class="sub">Python · Web Scraping · Data Pipeline</div>
           <p class="desc" style="font-size:13px;">Built an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis.</p>
-          <div class="fig-links"><a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener">Repo ↗</a></div>
+          <div class="fig-links">
+            <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener">Repo ↗</a>
+            <button class="btn btn-ghost" style="padding:4px 10px; font-size:11px; cursor:pointer;" onclick="openModal('modal-scrapflow')">View Details</button>
+          </div>
         </div>
       </div>
     </div>
@@ -631,6 +636,76 @@
             <div class="tech-card-title">Integration</div>
             <div class="tech-badges">
               <span class="tech-badge">Socket Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ScrapFlow Modal -->
+<div class="modal-overlay" id="modal-scrapflow">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>ScrapFlow</h2>
+      <button class="btn-close" onclick="closeModal('modal-scrapflow')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h3 class="modal-section-title">Project Screenshots</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('./scrapflow_dashboard.png')">
+            <div class="gallery-img-wrapper"><img src="./scrapflow_dashboard.png" alt="Dashboard"></div>
+            <div class="gallery-info">
+              <h4>Business Dashboard</h4>
+              <p>Overview of purchases, sales, inventory, and gross profit.</p>
+              <span class="feature">Analytics</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('./scrapflow_purchases.png')">
+            <div class="gallery-img-wrapper"><img src="./scrapflow_purchases.png" alt="Purchases"></div>
+            <div class="gallery-info">
+              <h4>Purchases Management</h4>
+              <p>Add and manage new purchase entries with supplier details.</p>
+              <span class="feature">Operations</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('./scrapflow_inventory.png')">
+            <div class="gallery-img-wrapper"><img src="./scrapflow_inventory.png" alt="Inventory"></div>
+            <div class="gallery-info">
+              <h4>Inventory Tracking</h4>
+              <p>Real-time tracking of current stock and stock thresholds.</p>
+              <span class="feature">Logistics</span>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('./scrapflow_reports.png')">
+            <div class="gallery-img-wrapper"><img src="./scrapflow_reports.png" alt="Reports & Analytics"></div>
+            <div class="gallery-info">
+              <h4>Reports & Analytics</h4>
+              <p>Detailed performance analytics and material distribution.</p>
+              <span class="feature">Insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="modal-section-title">Tech Stack</h3>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-title">Backend</div>
+            <div class="tech-badges">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Web Scraping</span>
+              <span class="tech-badge">Data Pipeline</span>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-title">Frontend</div>
+            <div class="tech-badges">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Tailwind CSS</span>
             </div>
           </div>
         </div>
