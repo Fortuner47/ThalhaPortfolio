@@ -1506,14 +1506,14 @@
           <span class="fig-tick tl"></span><span class="fig-tick tr"></span><span class="fig-tick bl"></span><span
             class="fig-tick br"></span>
           <div class="media-slot" style="padding:0; overflow:hidden;">
-            <img src="./pis_cover.png" alt="Packaging Defect Inspection Simulation"
+            <img src="./pis_cover.png" alt="AI-Powered Industrial Vision Inspection System"
               style="width:100%; height:100%; object-fit:cover; object-position:center;">
           </div>
           <div class="fig-body">
             <div class="fig-cap">Fig. 08</div>
-            <h3>Packaging Defect Inspection</h3>
-            <div class="sub">Unity · C# · Python · OpenCV</div>
-            <p class="desc" style="font-size:13px;">Built an academic simulation of a packaging defect inspection workflow, capturing camera frames from a Unity-simulated packaging line and passing them to a Python OpenCV pipeline for processing.</p>
+            <h3>AI-Powered Industrial Vision Inspection System</h3>
+            <div class="sub">Unity · C# · Python · FastAPI · OpenCV</div>
+            <p class="desc" style="font-size:13px;">A real-time machine vision simulation replicating an industrial conveyor belt inspection station. Combines Unity for digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based PASS/FAIL classification.</p>
             <div class="fig-links">
               <button class="btn btn-ghost" style="padding:4px 10px; font-size:11px; cursor:pointer;"
                 onclick="openModal('modal-pis')">View Details</button>
@@ -2041,7 +2041,7 @@
   <div class="modal-overlay" id="modal-pis">
     <div class="modal-container">
       <div class="modal-header">
-        <h2>Packaging Defect Inspection Simulation</h2>
+        <h2>AI-Powered Industrial Vision Inspection System</h2>
         <button class="btn-close" onclick="closeModal('modal-pis')"><svg width="24" height="24" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -2050,13 +2050,61 @@
       </div>
       <div class="modal-body">
         <div>
-          <h3 class="modal-section-title">Simulation Demonstration</h3>
+          <h3 class="modal-section-title">System Demonstration</h3>
           <div class="video-container">
-            <video src="./PIS.mp4" controls playsinline>
+            <video src="./AI-Powered Industrial Vision Inspection System Demo.mp4" controls playsinline>
               Your browser does not support the video tag.
             </video>
           </div>
-          <p class="video-desc">Demonstration of the packaging defect inspection workflow. Camera frames from a Unity-simulated packaging line are passed to a Python OpenCV pipeline, which implements pass/fail logic and feeds real-time colour-coded visual feedback back to Unity.</p>
+          <div class="video-container" style="margin-top: 16px;">
+            <video src="./AI-Powered Industrial Vision Inspection System Demo 2.mp4" controls playsinline>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="video-desc" style="margin-top: 16px;">
+            AI-Powered Industrial Vision Inspection System is a real-time machine vision simulation that replicates an industrial conveyor belt inspection station used in manufacturing and packaging industries. The system combines Unity for the digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based inspection.<br><br>
+            Packages travel along a conveyor belt where an industrial inspection camera captures images using Unity's RenderTexture system. These images are sent to a Python FastAPI server, where OpenCV analyzes the package and classifies it as PASS or FAIL based on visual inspection. The inspection result is then returned to Unity through a REST API, updating the inspection status in real time.<br><br>
+            Packages that fail inspection are automatically rejected from the conveyor using a simulated reject mechanism, while accepted packages continue through the production line. The system demonstrates a complete industrial machine vision workflow rather than relying on predefined game logic or hardcoded object tags.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background: var(--bg-2); border: 1px solid var(--line); border-radius: 4px; padding: 24px; font-family: var(--mono); font-size: 13px; color: var(--text-1); white-space: pre-wrap; line-height: 1.8; text-align: center;">Package Spawn
+      ↓
+Conveyor Belt
+      ↓
+Industrial Inspection Camera
+      ↓
+RenderTexture Image Capture
+      ↓
+FastAPI Server
+      ↓
+OpenCV Image Processing
+      ↓
+PASS / FAIL Classification
+      ↓
+Inspection Result Sent Back to Unity
+      ↓
+Status Indicator
+      ↓
+Automatic Reject Mechanism</div>
+        </div>
+
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color: var(--text-1); font-size: 14.5px; padding-left: 18px; line-height: 1.8;">
+            <li>Real-time conveyor belt simulation</li>
+            <li>Industrial inspection camera simulation</li>
+            <li>Image capture using Unity RenderTexture</li>
+            <li>Computer vision inspection using OpenCV</li>
+            <li>FastAPI REST API integration</li>
+            <li>Real-time Unity ↔ Python communication</li>
+            <li>Automatic PASS / FAIL classification</li>
+            <li>Automated reject mechanism for defective products</li>
+            <li>Live inspection status visualization</li>
+            <li>Modular architecture for future AI model integration</li>
+          </ul>
         </div>
 
         <div>
@@ -2067,13 +2115,29 @@
               <div class="tech-badges">
                 <span class="tech-badge">Unity</span>
                 <span class="tech-badge">C#</span>
+                <span class="tech-badge">RenderTexture</span>
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-title">Backend & API</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">REST API</span>
               </div>
             </div>
             <div class="tech-card">
               <div class="tech-card-title">Computer Vision</div>
               <div class="tech-badges">
-                <span class="tech-badge">Python</span>
                 <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Machine Vision</span>
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-title">Domain</div>
+              <div class="tech-badges">
+                <span class="tech-badge">Industrial Automation</span>
+                <span class="tech-badge">Computer Vision</span>
               </div>
             </div>
           </div>
