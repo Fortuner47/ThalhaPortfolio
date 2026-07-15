@@ -316,7 +316,31 @@
           <p class="video-desc" style="font-size:15px;margin-top:0;line-height:1.7">Generative AI is powerful, but it hallucinates. When accuracy is paramount, relying on a model's pre-trained memory isn't enough.<br><br><strong>QueryDoc</strong> bridges this gap. By leveraging <strong>Retrieval-Augmented Generation (RAG)</strong>, it allows users to chat directly with their own documents. Instead of generic answers, QueryDoc extracts precise information grounded in the uploaded text, providing transparent source citations for every claim.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Platform Features</h3>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Document Upload
+      ↓
+Text Chunking & Tokenization
+      ↓
+Embedding Generation (OpenAI / HuggingFace)
+      ↓
+Vector Store Indexing (FAISS)
+      ↓
+User Query Input
+      ↓
+Semantic Search & Context Retrieval
+      ↓
+LLM Prompt Generation with Context
+      ↓
+Grounded Response with Citations</div>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
+            <li>End-to-end RAG pipeline for custom documents</li><li>PDF and DOCX automatic text extraction</li><li>Semantic vector search using FAISS</li><li>Context-aware conversational memory</li><li>Adjustable retrieval parameters (chunk size, overlap)</li><li>Source citation for hallucination reduction</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Platform Interface</h3>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./QueryDoc_Documents.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Documents.png" alt="Upload Interface"></div><div class="gallery-info"><h4>Document Processing</h4><p>Upload PDF/DOCX files with automatic text chunking and vector indexing.</p><span class="feature">ETL</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./QueryDoc_Chat.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Chat.png" alt="Chat UI"></div><div class="gallery-info"><h4>Context-Aware Chat</h4><p>Real-time conversational interface with grounded answers and highlighted citations.</p><span class="feature">LLM / RAG</span></div></div>
@@ -341,9 +365,34 @@
       <div class="modal-header"><h2>Nutrix AI</h2><button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <h3 class="modal-section-title">Project Overview</h3>
+          <div style="display:flex;gap:10px;margin-bottom:24px">
+            <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          </div>
+          <h3 class="modal-section-title">System Demonstration</h3>
           <div class="video-container portrait"><video src="./Nutrix_Demo.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showing natural language input parsing, personalized meal plan generation, and conversational AI assistance.</p>
+          <p class="video-desc" style="margin-top:16px">Demonstration of the Nutrix AI diet planning workflow, showcasing natural language input parsing, personalized meal plan generation, and conversational AI assistance. Built as an end-to-end platform spanning web and mobile.</p>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">User Input (Natural Language)
+      ↓
+NLP Entity & Intent Extraction Pipeline
+      ↓
+Structured User Profile (Supabase DB)
+      ↓
+LLM Recommendation Engine
+      ↓
+Personalized Daywise Meal Plan Generation
+      ↓
+React Native Mobile / React Web Dashboard
+      ↓
+Conversational AI Real-Time Adjustments</div>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
+            <li>Cross-platform support (Web & Mobile Apps)</li><li>Natural Language to Dietary Profile parsing</li><li>AI-powered day-by-day meal planning</li><li>Automated macronutrient calculation & tracking</li><li>Real-time chat assistant for dietary substitutions</li><li>Social exploration for recipes and creator feeds</li>
+          </ul>
         </div>
         <div>
           <h3 class="modal-section-title">Project Screenshots</h3>
@@ -370,13 +419,38 @@
       <div class="modal-header"><h2>HOLORACT</h2><button class="btn-close" onclick="closeModal('modal-holoract')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
+          <div style="display:flex;gap:10px;margin-bottom:24px">
+            <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          </div>
           <h3 class="modal-section-title">System Demonstration</h3>
           <div class="video-container"><video src="./Holoract Demo_1.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
           <div class="video-container" style="margin-top:16px"><video src="./Holoract Demo_2.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking and holographic projection.</p>
+          <p class="video-desc" style="margin-top:16px">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking and holographic projection. Achieved 94% gesture recognition accuracy at approximately 68ms latency and 60 FPS.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">System Architecture & Screenshots</h3>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Standard RGB Camera Input
+      ↓
+MediaPipe Hand Landmark Detection
+      ↓
+Custom Python Gesture Recognition Model
+      ↓
+Real-time Socket Data Transmission
+      ↓
+Unity 3D Physics Engine
+      ↓
+Holographic Object Manipulation
+      ↓
+User Visual Feedback</div>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
+            <li>Wearable-free hardware setup (standard camera only)</li><li>94% recognition accuracy via custom tracking models</li><li>Low-latency (~68ms) local network communication</li><li>Interactive 3D STEM holographic rendering</li><li>Robust hand tracking across diverse lighting conditions</li><li>Published research pipeline validation</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="modal-section-title">System Interface & Rendering</h3>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./holoract_interface.png')"><div class="gallery-img-wrapper"><img src="./holoract_interface.png" alt="System Interface"></div><div class="gallery-info"><h4>System Interface</h4><p>Real-time hand tracking UI with integrated camera feed and interactive modules.</p><span class="feature">Computer Vision</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./holoract_hologram.png')"><div class="gallery-img-wrapper"><img src="./holoract_hologram.png" alt="Holographic Display"></div><div class="gallery-info"><h4>Holographic Display</h4><p>3D projection showing interactive educational content.</p><span class="feature">3D Rendering</span></div></div>
@@ -400,7 +474,36 @@
       <div class="modal-header"><h2>ScrapFlow</h2><button class="btn-close" onclick="closeModal('modal-scrapflow')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <h3 class="modal-section-title">Project Screenshots</h3>
+          <div style="display:flex;gap:10px;margin-bottom:24px">
+            <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          </div>
+          <h3 class="modal-section-title">Project Overview</h3>
+          <p class="video-desc" style="font-size:15px;margin-top:0;line-height:1.7">ScrapFlow is an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. It features a full business dashboard for intuitive data exploration and management.</p>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Target Web Sources
+      ↓
+Python Automated Scrapers (BeautifulSoup/Selenium)
+      ↓
+Data Cleaning & Normalization Layer
+      ↓
+Structured Relational Database
+      ↓
+React Frontend Dashboard
+      ↓
+Inventory & Purchase Analytics Visualization
+      ↓
+Clean Datasets Export for ML Pipelines</div>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
+            <li>Automated periodic web data scraping</li><li>Dynamic data cleaning and structuring</li><li>Real-time dashboard for inventory & purchase tracking</li><li>Supplier and supply chain management features</li><li>Performance analytics and data visualization</li><li>Export-ready formatting for machine learning models</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Platform Interface</h3>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./scrapflow_dashboard.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_dashboard.png" alt="Dashboard"></div><div class="gallery-info"><h4>Business Dashboard</h4><p>Overview of purchases, sales, inventory, and gross profit.</p><span class="feature">Analytics</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./scrapflow_purchases.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_purchases.png" alt="Purchases"></div><div class="gallery-info"><h4>Purchases Management</h4><p>Add and manage new purchase entries with supplier details.</p><span class="feature">Operations</span></div></div>
@@ -425,9 +528,34 @@
       <div class="modal-header"><h2>YOLO Video Object Detection</h2><button class="btn-close" onclick="closeModal('modal-yolo')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <h3 class="modal-section-title">Object Detection Output</h3>
+          <div style="display:flex;gap:10px;margin-bottom:24px">
+            <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          </div>
+          <h3 class="modal-section-title">System Demonstration</h3>
           <div class="video-container"><video src="./yolo_output.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Demonstration of YOLO object detection on a video stream, identifying and drawing bounding boxes around various objects.</p>
+          <p class="video-desc" style="margin-top:16px">Demonstration of YOLO object detection on a video stream, tracking and identifying objects in real-time. Capable of classifying multiple objects concurrently with high frame-rate output.</p>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Architecture</h3>
+          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Raw Video Stream Input
+      ↓
+OpenCV Frame Extraction & Preprocessing
+      ↓
+YOLOv8 Neural Network Inference
+      ↓
+Bounding Box & Confidence Score Calculation
+      ↓
+Non-Maximum Suppression (NMS) Filtering
+      ↓
+Annotation Overlay
+      ↓
+Real-time Output Video Stream</div>
+        </div>
+        <div>
+          <h3 class="modal-section-title">Key Features</h3>
+          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
+            <li>High-speed object detection for video streams</li><li>Multi-class object identification and localization</li><li>Real-time bounding box and label overlay</li><li>Integration with standard webcam feeds or video files</li><li>Highly optimized OpenCV pipeline</li>
+          </ul>
         </div>
         <div>
           <h3 class="modal-section-title">Tech Stack</h3>
