@@ -7,51 +7,70 @@
   <meta name="description" content="AI Engineer portfolio — Computer Vision, NLP, LLM Systems. Projects in real-time CV, RAG pipelines, and industrial automation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Ambient particle canvas (full-page background) -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- ===== NAVIGATION ===== -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo"><span class="dot"></span>THALHA<span style="color:var(--text-2)">// AI-ENGINEER</span></div>
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none">
+          <polygon points="12,2 22,20 2,20" stroke="url(#logo-grad)" stroke-width="2" fill="none"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8052ff"/>
+              <stop offset="100%" stop-color="#15846e"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Thalha
+      </a>
       <nav class="nav-links">
-        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="nav-gh" href="https://github.com/Fortuner47" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="nav-cta" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
+        GitHub
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
     </div>
   </header>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="hero-tag">$ system.init() → <b>models online, weights verified</b></div>
+        <div class="hero-label">AI Engineer</div>
         <h1>Thalha Ahamed<br>builds systems that<br><em>see and understand.</em></h1>
-        <div class="role">AI Engineer — Computer Vision · NLP · LLM Systems</div>
-        <p class="pitch">Recent B.Tech Graduate in Artificial Intelligence &amp; Data Science (Class of 2026) who designs and deploys end-to-end systems — from real-time computer vision models to production-grade, LLM-powered platforms.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#projects">View projects</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <p class="hero-body">Recent B.Tech Graduate in Artificial Intelligence &amp; Data Science (Class of 2026) who designs and deploys end-to-end systems — from real-time computer vision models to production-grade, LLM-powered platforms.</p>
+        <div class="hero-role">Computer Vision · NLP · LLM Systems</div>
+        <div class="hero-cta-row">
+          <a class="btn-primary" href="#projects">View projects</a>
+          <a class="btn-ghost" href="#contact">Get in touch</a>
         </div>
       </div>
-      <div class="profile-card">
-        <div class="hud-topbar"><span>PORTFOLIO // THALHA_AHAMED</span><span class="rec">ACTIVE</span></div>
-        <div class="profile-img-container">
-          <img src="./thalha_profile_avatar.png" alt="Thalha Ahamed" class="profile-img">
-          <div class="scanner-line"></div>
-        </div>
-        <div class="hud-readout">
-          <div><span class="lbl">SYS_STATUS</span> <span id="sys-status" style="color:var(--green)">IDLE</span> &nbsp; <span class="lbl">API_LAT</span> <span id="api-lat">24ms</span></div>
-          <div><span class="lbl">LAST_COMMIT</span> <span id="last-commit">INIT_SUCCESS</span></div>
+      <div class="hero-visual">
+        <canvas id="constellation-canvas"></canvas>
+        <div class="hero-profile">
+          <img src="./thalha_profile_avatar.png" alt="Thalha Ahamed">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
   <section id="about" class="section">
     <div class="wrap">
-      <div class="sec-label reveal">01 About</div>
-      <h2 class="sec-title reveal">Concept to deployment.</h2>
+      <div class="section-label reveal">About</div>
+      <h2 class="section-title reveal">Concept to deployment.</h2>
       <div class="about-grid reveal">
         <div>
           <p><strong>Thalha</strong> is an AI &amp; Data Science undergraduate with hands-on experience building applied AI/ML systems across computer vision and natural language processing.</p>
@@ -59,19 +78,29 @@
           <p>Proficient in Python, machine learning fundamentals, and LLM-based system design, with a track record of taking projects from concept to working product, and a genuine interest in growing as an AI/ML engineer.</p>
         </div>
         <div>
-          <div class="stat-box"><div class="n">94%</div><div class="l">Gesture recognition accuracy — HOLORACT</div></div>
-          <div class="stat-box"><div class="n">60 FPS</div><div class="l">Real-time CV pipeline, ~68ms latency</div></div>
-          <div class="stat-box"><div class="n">1</div><div class="l">Research Paper Under Review — Springer / CIMA SCRS</div></div>
+          <div class="stat-block">
+            <div class="stat-number">94%</div>
+            <div class="stat-label">Gesture recognition accuracy — HOLORACT</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-number">60 FPS</div>
+            <div class="stat-label">Real-time CV pipeline, ~68ms latency</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Research Paper Under Review — Springer / CIMA SCRS</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== EXPERIENCE ===== -->
   <section id="experience" class="section">
     <div class="wrap">
-      <div class="sec-label reveal">02 Experience</div>
-      <h2 class="sec-title reveal">Where he's worked.</h2>
-      <div class="tl reveal">
+      <div class="section-label reveal">Experience</div>
+      <h2 class="section-title reveal">Where he's worked.</h2>
+      <div class="timeline reveal">
         <div class="tl-item">
           <div class="tl-date">Aug 2025 – Sep 2025</div>
           <h3>Southern Alloys</h3>
@@ -93,70 +122,71 @@
             <li>Built a movie recommendation system as the program's capstone project, applying data preprocessing and recommendation algorithm concepts learned during the internship</li>
             <li>Worked through guided exercises and assignments to reinforce practical machine learning and data analysis skills</li>
           </ul>
-          <div class="tl-impact">→ Demonstrated strong analytical and problem-solving skills, completing all project tasks with a high level of professionalism, and successfully delivered the capstone project for internship certification</div>
+          <div class="tl-impact">→ Demonstrated strong analytical and problem-solving skills, completing all project tasks with a high level of professionalism</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== PROJECTS ===== -->
   <section id="projects" class="section">
     <div class="wrap">
-      <div class="sec-label reveal">03 Projects</div>
-      <h2 class="sec-title reveal">Featured work.</h2>
-      <p class="sec-sub reveal">Eight builds spanning computer vision, NLP, LLM platforms, and full-stack product engineering.</p>
+      <div class="section-label reveal">Projects</div>
+      <h2 class="section-title reveal">Featured work.</h2>
+      <p class="section-subtitle reveal">Eight builds spanning computer vision, NLP, LLM platforms, and full-stack product engineering.</p>
       <div class="proj-list">
 
         <!-- 1. Nutrix -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./nutrix_logo.png" alt="Nutrix"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./nutrix_logo.png" alt="Nutrix"></div>
           <div class="proj-content">
             <div class="proj-num">Project 01</div>
             <h3>Nutrix — AI Diet Planning Startup</h3>
-            <div class="proj-tagline">Founder-built AI platform for personalized nutrition planning across web & mobile.</div>
-            <p class="proj-desc">Architected an end-to-end AI-powered diet planning platform with web (React + TypeScript) and mobile (React Native) apps, using AI-assisted coding tools to accelerate development and debugging. Broke down complex product requirements into structured feature flows, designing an NLP pipeline that converts free-form natural language into structured dietary profiles. Implemented LLM-based intent detection and entity extraction powering a recommendation engine for personalised, daywise meal plans. Built a conversational AI assistant for real-time follow-up queries and plan adjustments.</p>
+            <div class="proj-tagline">Founder-built AI platform for personalized nutrition planning across web &amp; mobile.</div>
+            <p class="proj-desc">Architected an end-to-end AI-powered diet planning platform with web (React + TypeScript) and mobile (React Native) apps. Designed an NLP pipeline that converts free-form natural language into structured dietary profiles. Implemented LLM-based intent detection and entity extraction powering a recommendation engine for personalised, daywise meal plans.</p>
             <div class="proj-chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">Supabase</span><span class="chip">LLM APIs</span><span class="chip">NLP</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-nutrix')">View Details</button>
+              <button onclick="openModal('modal-nutrix')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 2. HOLORACT -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./holoract_interface.png" alt="HOLORACT Interface"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./holoract_interface.png" alt="HOLORACT Interface"></div>
           <div class="proj-content">
             <div class="proj-num">Project 02</div>
             <h3>HOLORACT — Gesture-Based Holographic System</h3>
             <div class="proj-tagline">Wearable-free hand tracking framework for interactive STEM education.</div>
-            <p class="proj-desc">Developed a wearable-free hand tracking system using a single standard RGB camera, requiring no depth sensors or specialised hardware. Achieved 94% gesture recognition accuracy at approximately 68ms latency and 60 FPS through iterative testing, debugging, and performance tuning. Submitted as a paper to SCRS CIMA Conference (Springer), currently under review, documenting the framework's design and real-time performance results.</p>
+            <p class="proj-desc">Developed a wearable-free hand tracking system using a single standard RGB camera, requiring no depth sensors or specialised hardware. Achieved 94% gesture recognition accuracy at approximately 68ms latency and 60 FPS. Submitted as a paper to SCRS CIMA Conference (Springer), currently under review.</p>
             <div class="proj-chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">MediaPipe</span><span class="chip">Unity</span><span class="chip">Real-time CV</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-holoract')">View Details</button>
+              <button onclick="openModal('modal-holoract')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 3. QueryDoc -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./QueryDoc_Chat.png" alt="QueryDoc"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./QueryDoc_Chat.png" alt="QueryDoc"></div>
           <div class="proj-content">
             <div class="proj-num">Project 03</div>
             <h3>QueryDoc — RAG Document Intelligence Platform</h3>
             <div class="proj-tagline">RAG-powered document Q&amp;A with source-grounded answers and semantic search.</div>
-            <p class="proj-desc">Built a Retrieval-Augmented Generation (RAG) pipeline using LangChain to answer questions over custom documents, using AI-assisted tools to speed up development. Implemented document chunking, embedding generation, and semantic search using a vector store for accurate context retrieval. Integrated an LLM to generate context-grounded answers from retrieved chunks, reducing hallucination compared to standalone LLM responses.</p>
+            <p class="proj-desc">Built a Retrieval-Augmented Generation (RAG) pipeline using LangChain to answer questions over custom documents. Implemented document chunking, embedding generation, and semantic search using a vector store for accurate context retrieval. Integrated an LLM to generate context-grounded answers from retrieved chunks.</p>
             <div class="proj-chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">FAISS</span><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">Vector Search</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-querydoc')">View Details</button>
+              <button onclick="openModal('modal-querydoc')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 4. AI-Powered Industrial Vision -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./pis_cover.png" alt="AI-Powered Industrial Vision"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./pis_cover.png" alt="AI-Powered Industrial Vision"></div>
           <div class="proj-content">
             <div class="proj-num">Project 04</div>
             <h3>AI-Powered Industrial Vision Inspection System</h3>
@@ -165,15 +195,18 @@
             <div class="proj-chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenCV</span><span class="chip">REST API</span><span class="chip">Machine Vision</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-pis')">View Details</button>
+              <button onclick="openModal('modal-pis')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 5. AI Video Recipe Extraction -->
-        <div class="proj-card reveal">
-          <div class="proj-media">
-            <div class="proj-media-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg><span>Preview</span></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image">
+            <div class="proj-image-placeholder">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
+              <span>Preview</span>
+            </div>
           </div>
           <div class="proj-content">
             <div class="proj-num">Project 05</div>
@@ -188,8 +221,8 @@
         </div>
 
         <!-- 6. ScrapFlow -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./scrapflow_dashboard.png" alt="ScrapFlow Dashboard"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./scrapflow_dashboard.png" alt="ScrapFlow Dashboard"></div>
           <div class="proj-content">
             <div class="proj-num">Project 06</div>
             <h3>ScrapFlow — Business Intelligence Platform</h3>
@@ -198,14 +231,14 @@
             <div class="proj-chips"><span class="chip">Python</span><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">Web Scraping</span><span class="chip">Data Pipeline</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-scrapflow')">View Details</button>
+              <button onclick="openModal('modal-scrapflow')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 7. YOLO Video Object Detection -->
-        <div class="proj-card reveal">
-          <div class="proj-media"><img src="./yolo_thumbnail.png" alt="YOLO Detection"></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image"><img src="./yolo_thumbnail.png" alt="YOLO Detection"></div>
           <div class="proj-content">
             <div class="proj-num">Project 07</div>
             <h3>YOLO Video Object Detection</h3>
@@ -214,15 +247,18 @@
             <div class="proj-chips"><span class="chip">Python</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Computer Vision</span></div>
             <div class="proj-actions">
               <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-yolo')">View Details</button>
+              <button onclick="openModal('modal-yolo')">View Details →</button>
             </div>
           </div>
         </div>
 
         <!-- 8. Text Emotion Detection -->
-        <div class="proj-card reveal">
-          <div class="proj-media">
-            <div class="proj-media-placeholder"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Preview</span></div>
+        <div class="proj-entry reveal">
+          <div class="proj-image">
+            <div class="proj-image-placeholder">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span>Preview</span>
+            </div>
           </div>
           <div class="proj-content">
             <div class="proj-num">Project 08</div>
@@ -240,41 +276,70 @@
     </div>
   </section>
 
+  <!-- ===== SKILLS ===== -->
   <section id="skills" class="section">
     <div class="wrap">
-      <div class="sec-label reveal">04 Skills</div>
-      <h2 class="sec-title reveal">Toolkit.</h2>
+      <div class="section-label reveal">Skills</div>
+      <h2 class="section-title reveal">Toolkit.</h2>
       <div class="skill-groups reveal">
-        <div class="skill-group"><div class="g-title">Programming</div><div class="chip-row"><span class="chip">Python</span><span class="chip">MySQL</span><span class="chip">C</span><span class="chip">R</span></div></div>
-        <div class="skill-group"><div class="g-title">AI / ML</div><div class="chip-row"><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">NLP</span><span class="chip">Transformers</span><span class="chip">YOLO</span><span class="chip">LLMs</span></div></div>
-        <div class="skill-group"><div class="g-title">Frameworks &amp; Tools</div><div class="chip-row"><span class="chip">TensorFlow</span><span class="chip">HuggingFace</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span><span class="chip">LangChain</span></div></div>
-        <div class="skill-group"><div class="g-title">AI-Assisted Dev</div><div class="chip-row"><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">LLM Debugging</span><span class="chip">Workflow Automation</span></div></div>
-        <div class="skill-group"><div class="g-title">Web &amp; Mobile</div><div class="chip-row"><span class="chip">React</span><span class="chip">React Native</span><span class="chip">TypeScript</span></div></div>
-        <div class="skill-group"><div class="g-title">Cloud &amp; Databases</div><div class="chip-row"><span class="chip">Google Cloud</span><span class="chip">Supabase</span><span class="chip">MySQL</span><span class="chip">Git</span></div></div>
+        <div class="skill-group">
+          <div class="skill-group-title">Programming</div>
+          <div class="chip-row"><span class="chip">Python</span><span class="chip">MySQL</span><span class="chip">C</span><span class="chip">R</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">AI / ML</div>
+          <div class="chip-row"><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">NLP</span><span class="chip">Transformers</span><span class="chip">YOLO</span><span class="chip">LLMs</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Frameworks &amp; Tools</div>
+          <div class="chip-row"><span class="chip">TensorFlow</span><span class="chip">HuggingFace</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span><span class="chip">LangChain</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">AI-Assisted Dev</div>
+          <div class="chip-row"><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">LLM Debugging</span><span class="chip">Workflow Automation</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Web &amp; Mobile</div>
+          <div class="chip-row"><span class="chip">React</span><span class="chip">React Native</span><span class="chip">TypeScript</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Cloud &amp; Databases</div>
+          <div class="chip-row"><span class="chip">Google Cloud</span><span class="chip">Supabase</span><span class="chip">MySQL</span><span class="chip">Git</span></div>
+        </div>
       </div>
-      <div class="soft-list reveal">
-        <div class="soft-item">Problem Solving &amp; Analytical Thinking</div>
-        <div class="soft-item">Communication &amp; Teamwork</div>
-        <div class="soft-item">Ownership &amp; Self-Direction</div>
-        <div class="soft-item">Adaptability</div>
-        <div class="soft-item">Time Management</div>
+      <div class="soft-skills reveal">
+        <div class="soft-skills-title">Soft Skills</div>
+        <div class="soft-list">
+          <span class="soft-item">Problem Solving &amp; Analytical Thinking</span>
+          <span class="soft-item">Communication &amp; Teamwork</span>
+          <span class="soft-item">Ownership &amp; Self-Direction</span>
+          <span class="soft-item">Adaptability</span>
+          <span class="soft-item">Time Management</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== EDUCATION & AWARDS ===== -->
   <section id="awards" class="section">
     <div class="wrap">
-      <div class="sec-label reveal">05 Recognition</div>
-      <h2 class="sec-title reveal">Education &amp; awards.</h2>
+      <div class="section-label reveal">Recognition</div>
+      <h2 class="section-title reveal">Education &amp; awards.</h2>
       <div class="two-col reveal">
         <div>
           <div class="col-label">Education</div>
-          <div class="edu-card"><div class="a-title">B.Tech, Artificial Intelligence &amp; Data Science</div><div class="a-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div></div>
-          <div class="edu-card"><div class="a-title">Higher Secondary Education</div><div class="a-meta">Chettinad Vidyashram High School · 2010–2022</div></div>
+          <div class="edu-item">
+            <div class="a-title">B.Tech, Artificial Intelligence &amp; Data Science</div>
+            <div class="a-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div>
+          </div>
+          <div class="edu-item">
+            <div class="a-title">Higher Secondary Education</div>
+            <div class="a-meta">Chettinad Vidyashram High School · 2010–2022</div>
+          </div>
         </div>
         <div>
           <div class="col-label">Certifications &amp; Achievements</div>
-          <div class="award-item"><div class="a-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div><div class="a-meta">Primary Author &amp; Developer · Presented at CIMA SCRS Conference · Under review for publication in Springer conference proceedings</div></div>
+          <div class="award-item"><div class="a-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div><div class="a-meta">Primary Author &amp; Developer · Presented at CIMA SCRS Conference · Under review for Springer</div></div>
           <div class="award-item"><div class="a-title">Smart India Hackathon (SIH)</div><div class="a-meta">National-level Hackathon Participant · 2024</div></div>
           <div class="award-item"><div class="a-title">Data Science and AI/ML Internship Certification</div><div class="a-meta">Ybi Foundation · Nov 2024</div></div>
           <div class="award-item"><div class="a-title">Java (Basic)</div><div class="a-meta">HackerRank · Apr 2025</div></div>
@@ -286,21 +351,42 @@
     </div>
   </section>
 
-  <section id="contact" class="section" style="border-bottom:none">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact-section">
     <div class="wrap">
-      <div class="contact-inner reveal">
-        <div class="sec-label">06 Contact</div>
-        <h2>Let's build something.</h2>
-        <p>Open to AI Engineer roles and collaborations in computer vision, NLP, and applied ML. Based in Chennai, working with teams anywhere.</p>
-        <div class="contact-links">
-          <a class="c-link" href="mailto:thalhaahamedt@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>thalhaahamedt@gmail.com</a>
-          <a class="c-link" href="tel:+919841879997"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>+91 98418 79997</a>
-          <a class="c-link" href="https://github.com/Fortuner47" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>github.com/Fortuner47</a>
-          <a class="c-link" href="#" onclick="return false;" style="cursor:default"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Chennai, TN, India</a>
-        </div>
+      <div class="section-label reveal">Contact</div>
+      <h2 class="contact-headline reveal">Let's build something.</h2>
+      <p class="contact-body reveal">Open to AI Engineer roles and collaborations in computer vision, NLP, and applied ML. Based in Chennai, working with teams anywhere.</p>
+      <div class="contact-links reveal">
+        <a class="c-link" href="mailto:thalhaahamedt@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          thalhaahamedt@gmail.com
+        </a>
+        <a class="c-link" href="tel:+919841879997">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+          +91 98418 79997
+        </a>
+        <a class="c-link" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>
+          github.com/Fortuner47
+        </a>
+        <span class="c-link" style="cursor:default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Chennai, TN, India
+        </span>
       </div>
     </div>
   </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <span>AI Engineer — Computer Vision · NLP · LLM Systems</span>
+    </div>
+  </footer>
+
+  <!-- ===== MODALS ===== -->
 
   <!-- QueryDoc Modal -->
   <div class="modal-overlay" id="modal-querydoc">
@@ -308,16 +394,15 @@
       <div class="modal-header"><h2>QueryDoc — RAG Platform</h2><button class="btn-close" onclick="closeModal('modal-querydoc')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
-            <a href="#" onclick="alert('Live demo coming soon!');return false;" class="btn btn-primary" style="font-size:13px">Live Demo ↗</a>
+          <div class="modal-actions">
+            <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">Project Overview</h3>
-          <p class="video-desc" style="font-size:15px;margin-top:0;line-height:1.7">Generative AI is powerful, but it hallucinates. When accuracy is paramount, relying on a model's pre-trained memory isn't enough.<br><br><strong>QueryDoc</strong> bridges this gap. By leveraging <strong>Retrieval-Augmented Generation (RAG)</strong>, it allows users to chat directly with their own documents. Instead of generic answers, QueryDoc extracts precise information grounded in the uploaded text, providing transparent source citations for every claim.</p>
+          <div class="modal-section-title">Project Overview</div>
+          <p class="video-desc" style="margin-top:0">Generative AI is powerful, but it hallucinates. When accuracy is paramount, relying on a model's pre-trained memory isn't enough.<br><br><strong>QueryDoc</strong> bridges this gap. By leveraging <strong>Retrieval-Augmented Generation (RAG)</strong>, it allows users to chat directly with their own documents. Instead of generic answers, QueryDoc extracts precise information grounded in the uploaded text, providing transparent source citations for every claim.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Document Upload
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">Document Upload
       ↓
 Text Chunking & Tokenization
       ↓
@@ -334,13 +419,18 @@ LLM Prompt Generation with Context
 Grounded Response with Citations</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>End-to-end RAG pipeline for custom documents</li><li>PDF and DOCX automatic text extraction</li><li>Semantic vector search using FAISS</li><li>Context-aware conversational memory</li><li>Adjustable retrieval parameters (chunk size, overlap)</li><li>Source citation for hallucination reduction</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>End-to-end RAG pipeline for custom documents</li>
+            <li>PDF and DOCX automatic text extraction</li>
+            <li>Semantic vector search using FAISS</li>
+            <li>Context-aware conversational memory</li>
+            <li>Adjustable retrieval parameters (chunk size, overlap)</li>
+            <li>Source citation for hallucination reduction</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">Platform Interface</h3>
+          <div class="modal-section-title">Platform Interface</div>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./QueryDoc_Documents.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Documents.png" alt="Upload Interface"></div><div class="gallery-info"><h4>Document Processing</h4><p>Upload PDF/DOCX files with automatic text chunking and vector indexing.</p><span class="feature">ETL</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./QueryDoc_Chat.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Chat.png" alt="Chat UI"></div><div class="gallery-info"><h4>Context-Aware Chat</h4><p>Real-time conversational interface with grounded answers and highlighted citations.</p><span class="feature">LLM / RAG</span></div></div>
@@ -348,11 +438,11 @@ Grounded Response with Citations</div>
           </div>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
+          <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div class="tech-card"><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">Vanilla JS</span><span class="tech-badge">HTML5/CSS3</span><span class="tech-badge">Vercel (Target)</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">Render (Target)</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LangChain</span><span class="tech-badge">FAISS Vector DB</span><span class="tech-badge">Groq / OpenAI API</span></div></div>
+            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">Vanilla JS</span><span class="tech-badge">HTML5/CSS3</span><span class="tech-badge">Vercel (Target)</span></div></div>
+            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">Render (Target)</span></div></div>
+            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LangChain</span><span class="tech-badge">FAISS Vector DB</span><span class="tech-badge">Groq / OpenAI API</span></div></div>
           </div>
         </div>
       </div>
@@ -365,16 +455,16 @@ Grounded Response with Citations</div>
       <div class="modal-header"><h2>Nutrix AI</h2><button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          <div class="modal-actions">
+            <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">System Demonstration</h3>
+          <div class="modal-section-title">System Demonstration</div>
           <div class="video-container portrait"><video src="./Nutrix_Demo.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc" style="margin-top:16px">Demonstration of the Nutrix AI diet planning workflow, showcasing natural language input parsing, personalized meal plan generation, and conversational AI assistance. Built as an end-to-end platform spanning web and mobile.</p>
+          <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showcasing natural language input parsing, personalized meal plan generation, and conversational AI assistance.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">User Input (Natural Language)
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">User Input (Natural Language)
       ↓
 NLP Entity & Intent Extraction Pipeline
       ↓
@@ -389,24 +479,29 @@ React Native Mobile / React Web Dashboard
 Conversational AI Real-Time Adjustments</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>Cross-platform support (Web & Mobile Apps)</li><li>Natural Language to Dietary Profile parsing</li><li>AI-powered day-by-day meal planning</li><li>Automated macronutrient calculation & tracking</li><li>Real-time chat assistant for dietary substitutions</li><li>Social exploration for recipes and creator feeds</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>Cross-platform support (Web & Mobile Apps)</li>
+            <li>Natural Language to Dietary Profile parsing</li>
+            <li>AI-powered day-by-day meal planning</li>
+            <li>Automated macronutrient calculation & tracking</li>
+            <li>Real-time chat assistant for dietary substitutions</li>
+            <li>Social exploration for recipes and creator feeds</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">Project Screenshots</h3>
+          <div class="modal-section-title">Project Screenshots</div>
           <div class="gallery-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
             <div class="gallery-item" onclick="openLightbox('./nutrix_dashboard.jpg')"><div class="gallery-img-wrapper portrait"><img src="./nutrix_dashboard.jpg" alt="Dashboard"></div><div class="gallery-info"><h4>AI Dashboard</h4><p>Personalized daily meal plan and macronutrient tracking.</p><span class="feature">Core</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./nutrix_explore.jpg')"><div class="gallery-img-wrapper portrait"><img src="./nutrix_explore.jpg" alt="Explore Page"></div><div class="gallery-info"><h4>Social & Discover</h4><p>Explore recipes, communities, and top creators.</p><span class="feature">Community</span></div></div>
           </div>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
+          <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div class="tech-card"><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Tailwind CSS</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Backend & Auth</div><div class="tech-badges"><span class="tech-badge">Supabase</span><span class="tech-badge">PostgreSQL</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LLM APIs</span><span class="tech-badge">NLP Pipeline</span></div></div>
+            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Tailwind CSS</span></div></div>
+            <div><div class="tech-card-title">Backend & Auth</div><div class="tech-badges"><span class="tech-badge">Supabase</span><span class="tech-badge">PostgreSQL</span></div></div>
+            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LLM APIs</span><span class="tech-badge">NLP Pipeline</span></div></div>
           </div>
         </div>
       </div>
@@ -419,17 +514,17 @@ Conversational AI Real-Time Adjustments</div>
       <div class="modal-header"><h2>HOLORACT</h2><button class="btn-close" onclick="closeModal('modal-holoract')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          <div class="modal-actions">
+            <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">System Demonstration</h3>
+          <div class="modal-section-title">System Demonstration</div>
           <div class="video-container"><video src="./Holoract Demo_1.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
           <div class="video-container" style="margin-top:16px"><video src="./Holoract Demo_2.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc" style="margin-top:16px">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking and holographic projection. Achieved 94% gesture recognition accuracy at approximately 68ms latency and 60 FPS.</p>
+          <p class="video-desc">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking and holographic projection. Achieved 94% accuracy at ~68ms latency and 60 FPS.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Standard RGB Camera Input
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">Standard RGB Camera Input
       ↓
 MediaPipe Hand Landmark Detection
       ↓
@@ -444,24 +539,29 @@ Holographic Object Manipulation
 User Visual Feedback</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>Wearable-free hardware setup (standard camera only)</li><li>94% recognition accuracy via custom tracking models</li><li>Low-latency (~68ms) local network communication</li><li>Interactive 3D STEM holographic rendering</li><li>Robust hand tracking across diverse lighting conditions</li><li>Published research pipeline validation</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>Wearable-free hardware setup (standard camera only)</li>
+            <li>94% recognition accuracy via custom tracking models</li>
+            <li>Low-latency (~68ms) local network communication</li>
+            <li>Interactive 3D STEM holographic rendering</li>
+            <li>Robust hand tracking across diverse lighting conditions</li>
+            <li>Published research pipeline validation</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">System Interface & Rendering</h3>
+          <div class="modal-section-title">System Interface & Rendering</div>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./holoract_interface.png')"><div class="gallery-img-wrapper"><img src="./holoract_interface.png" alt="System Interface"></div><div class="gallery-info"><h4>System Interface</h4><p>Real-time hand tracking UI with integrated camera feed and interactive modules.</p><span class="feature">Computer Vision</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./holoract_hologram.png')"><div class="gallery-img-wrapper"><img src="./holoract_hologram.png" alt="Holographic Display"></div><div class="gallery-info"><h4>Holographic Display</h4><p>3D projection showing interactive educational content.</p><span class="feature">3D Rendering</span></div></div>
           </div>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
+          <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div class="tech-card"><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">OpenCV</span><span class="tech-badge">MediaPipe</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">3D Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Integration</div><div class="tech-badges"><span class="tech-badge">Socket Communication</span></div></div>
+            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">OpenCV</span><span class="tech-badge">MediaPipe</span></div></div>
+            <div><div class="tech-card-title">3D Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span></div></div>
+            <div><div class="tech-card-title">Integration</div><div class="tech-badges"><span class="tech-badge">Socket Communication</span></div></div>
           </div>
         </div>
       </div>
@@ -474,15 +574,15 @@ User Visual Feedback</div>
       <div class="modal-header"><h2>ScrapFlow</h2><button class="btn-close" onclick="closeModal('modal-scrapflow')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          <div class="modal-actions">
+            <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">Project Overview</h3>
-          <p class="video-desc" style="font-size:15px;margin-top:0;line-height:1.7">ScrapFlow is an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. It features a full business dashboard for intuitive data exploration and management.</p>
+          <div class="modal-section-title">Project Overview</div>
+          <p class="video-desc" style="margin-top:0">ScrapFlow is an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. It features a full business dashboard for intuitive data exploration and management.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Target Web Sources
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">Target Web Sources
       ↓
 Python Automated Scrapers (BeautifulSoup/Selenium)
       ↓
@@ -497,13 +597,18 @@ Inventory & Purchase Analytics Visualization
 Clean Datasets Export for ML Pipelines</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>Automated periodic web data scraping</li><li>Dynamic data cleaning and structuring</li><li>Real-time dashboard for inventory & purchase tracking</li><li>Supplier and supply chain management features</li><li>Performance analytics and data visualization</li><li>Export-ready formatting for machine learning models</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>Automated periodic web data scraping</li>
+            <li>Dynamic data cleaning and structuring</li>
+            <li>Real-time dashboard for inventory & purchase tracking</li>
+            <li>Supplier and supply chain management features</li>
+            <li>Performance analytics and data visualization</li>
+            <li>Export-ready formatting for machine learning models</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">Platform Interface</h3>
+          <div class="modal-section-title">Platform Interface</div>
           <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('./scrapflow_dashboard.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_dashboard.png" alt="Dashboard"></div><div class="gallery-info"><h4>Business Dashboard</h4><p>Overview of purchases, sales, inventory, and gross profit.</p><span class="feature">Analytics</span></div></div>
             <div class="gallery-item" onclick="openLightbox('./scrapflow_purchases.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_purchases.png" alt="Purchases"></div><div class="gallery-info"><h4>Purchases Management</h4><p>Add and manage new purchase entries with supplier details.</p><span class="feature">Operations</span></div></div>
@@ -512,32 +617,32 @@ Clean Datasets Export for ML Pipelines</div>
           </div>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
+          <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div class="tech-card"><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">Web Scraping</span><span class="tech-badge">Data Pipeline</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">Tailwind CSS</span></div></div>
+            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">Web Scraping</span><span class="tech-badge">Data Pipeline</span></div></div>
+            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">Tailwind CSS</span></div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Yolo Modal -->
+  <!-- YOLO Modal -->
   <div class="modal-overlay" id="modal-yolo">
     <div class="modal-container">
       <div class="modal-header"><h2>YOLO Video Object Detection</h2><button class="btn-close" onclick="closeModal('modal-yolo')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          <div class="modal-actions">
+            <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">System Demonstration</h3>
+          <div class="modal-section-title">System Demonstration</div>
           <div class="video-container"><video src="./yolo_output.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc" style="margin-top:16px">Demonstration of YOLO object detection on a video stream, tracking and identifying objects in real-time. Capable of classifying multiple objects concurrently with high frame-rate output.</p>
+          <p class="video-desc">Demonstration of YOLO object detection on a video stream, tracking and identifying objects in real-time with high frame-rate output.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Raw Video Stream Input
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">Raw Video Stream Input
       ↓
 OpenCV Frame Extraction & Preprocessing
       ↓
@@ -552,14 +657,20 @@ Annotation Overlay
 Real-time Output Video Stream</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>High-speed object detection for video streams</li><li>Multi-class object identification and localization</li><li>Real-time bounding box and label overlay</li><li>Integration with standard webcam feeds or video files</li><li>Highly optimized OpenCV pipeline</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>High-speed object detection for video streams</li>
+            <li>Multi-class object identification and localization</li>
+            <li>Real-time bounding box and label overlay</li>
+            <li>Integration with standard webcam feeds or video files</li>
+            <li>Highly optimized OpenCV pipeline</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
-          <div class="tech-grid"><div class="tech-card"><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">YOLO</span><span class="tech-badge">OpenCV</span></div></div></div>
+          <div class="modal-section-title">Tech Stack</div>
+          <div class="tech-grid">
+            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">YOLO</span><span class="tech-badge">OpenCV</span></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -568,20 +679,20 @@ Real-time Output Video Stream</div>
   <!-- PIS Modal -->
   <div class="modal-overlay" id="modal-pis">
     <div class="modal-container">
-      <div class="modal-header"><h2>AI-Powered Industrial Vision Inspection System</h2><button class="btn-close" onclick="closeModal('modal-pis')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="modal-header"><h2>AI-Powered Industrial Vision</h2><button class="btn-close" onclick="closeModal('modal-pis')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
-          <div style="display:flex;gap:10px;margin-bottom:24px">
-            <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>View on GitHub</a>
+          <div class="modal-actions">
+            <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
-          <h3 class="modal-section-title">System Demonstration</h3>
+          <div class="modal-section-title">System Demonstration</div>
           <div class="video-container"><video src="./AI-Powered Industrial Vision Inspection System Demo.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
           <div class="video-container" style="margin-top:16px"><video src="./AI-Powered Industrial Vision Inspection System Demo 2.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc" style="margin-top:16px">AI-Powered Industrial Vision Inspection System is a real-time machine vision simulation that replicates an industrial conveyor belt inspection station used in manufacturing and packaging industries. The system combines Unity for the digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based inspection.<br><br>Packages travel along a conveyor belt where an industrial inspection camera captures images using Unity's RenderTexture system. These images are sent to a Python FastAPI server, where OpenCV analyzes the package and classifies it as PASS or FAIL based on visual inspection.<br><br>Packages that fail inspection are automatically rejected from the conveyor using a simulated reject mechanism, while accepted packages continue through the production line.</p>
+          <p class="video-desc">AI-Powered Industrial Vision Inspection System is a real-time machine vision simulation that replicates an industrial conveyor belt inspection station. Combines Unity for the digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based inspection.<br><br>Packages travel along a conveyor belt where an industrial inspection camera captures images. These images are sent to a Python FastAPI server, where OpenCV analyzes the package and classifies it as PASS or FAIL. Defective packages are automatically rejected via a simulated reject mechanism.</p>
         </div>
         <div>
-          <h3 class="modal-section-title">Architecture</h3>
-          <div style="background:var(--bg-2);border:2px solid var(--border);border-radius:var(--rad);padding:24px;font-family:var(--font-m);font-size:13px;color:var(--text-1);white-space:pre-wrap;line-height:1.8;text-align:center;box-shadow:var(--comic-shadow-sm)">Package Spawn
+          <div class="modal-section-title">Architecture</div>
+          <div class="arch-diagram">Package Spawn
       ↓
 Conveyor Belt
       ↓
@@ -602,18 +713,27 @@ Status Indicator
 Automatic Reject Mechanism</div>
         </div>
         <div>
-          <h3 class="modal-section-title">Key Features</h3>
-          <ul style="color:var(--text-1);font-size:14.5px;padding-left:18px;line-height:1.8">
-            <li>Real-time conveyor belt simulation</li><li>Industrial inspection camera simulation</li><li>Image capture using Unity RenderTexture</li><li>Computer vision inspection using OpenCV</li><li>FastAPI REST API integration</li><li>Real-time Unity ↔ Python communication</li><li>Automatic PASS / FAIL classification</li><li>Automated reject mechanism for defective products</li><li>Live inspection status visualization</li><li>Modular architecture for future AI model integration</li>
+          <div class="modal-section-title">Key Features</div>
+          <ul class="feature-list">
+            <li>Real-time conveyor belt simulation</li>
+            <li>Industrial inspection camera simulation</li>
+            <li>Image capture using Unity RenderTexture</li>
+            <li>Computer vision inspection using OpenCV</li>
+            <li>FastAPI REST API integration</li>
+            <li>Real-time Unity ↔ Python communication</li>
+            <li>Automatic PASS / FAIL classification</li>
+            <li>Automated reject mechanism for defective products</li>
+            <li>Live inspection status visualization</li>
+            <li>Modular architecture for future AI model integration</li>
           </ul>
         </div>
         <div>
-          <h3 class="modal-section-title">Tech Stack</h3>
+          <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div class="tech-card"><div class="tech-card-title">Simulation Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span><span class="tech-badge">RenderTexture</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Backend & API</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">REST API</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">OpenCV</span><span class="tech-badge">Machine Vision</span></div></div>
-            <div class="tech-card"><div class="tech-card-title">Domain</div><div class="tech-badges"><span class="tech-badge">Industrial Automation</span><span class="tech-badge">Computer Vision</span></div></div>
+            <div><div class="tech-card-title">Simulation Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span><span class="tech-badge">RenderTexture</span></div></div>
+            <div><div class="tech-card-title">Backend & API</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">REST API</span></div></div>
+            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">OpenCV</span><span class="tech-badge">Machine Vision</span></div></div>
+            <div><div class="tech-card-title">Domain</div><div class="tech-badges"><span class="tech-badge">Industrial Automation</span><span class="tech-badge">Computer Vision</span></div></div>
           </div>
         </div>
       </div>
@@ -626,41 +746,251 @@ Automatic Reject Mechanism</div>
     <img src="" alt="Fullscreen preview" id="lightbox-img">
   </div>
 
-  <footer class="status">
-    <div class="wrap status-row">
-      <span class="status-online">SYSTEM <b>ONLINE</b></span>
-      <span>UPTIME <b id="uptime">00:00:00</b></span>
-      <span>LATENCY <b id="lat">68ms</b></span>
-      <span>FPS <b id="fps">60</b></span>
-      <span>© 2026 Thalha Ahamed</span>
-    </div>
-  </footer>
-
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    const items = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
-    items.forEach(el => io.observe(el));
-    const statuses = ['IDLE', 'PROCESSING', 'EVALUATING', 'SYNCING', 'IDLE'];
-    let si = 0;
-    setInterval(() => {
-      si = (si + 1) % statuses.length;
-      const s = document.getElementById('sys-status');
-      if (s) { s.textContent = statuses[si]; s.style.color = statuses[si] === 'IDLE' ? 'var(--green)' : statuses[si] === 'PROCESSING' ? 'var(--accent)' : '#5db3ff'; }
-      const a = document.getElementById('api-lat');
-      if (a) a.textContent = (18 + Math.floor(Math.random() * 12)) + 'ms';
-    }, 3000);
-    const start = Date.now();
-    setInterval(() => {
-      const s = Math.floor((Date.now() - start) / 1000);
-      document.getElementById('uptime').textContent = String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor((s%3600)/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
-      document.getElementById('lat').textContent = (64 + Math.floor(Math.random() * 8)) + 'ms';
-      document.getElementById('fps').textContent = 58 + Math.floor(Math.random() * 3);
-    }, 1000);
-    function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = 'auto'; }
-    document.querySelectorAll('.modal-overlay').forEach(o => { o.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); }); });
-    function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('active'); }
-    function closeLightbox(e) { if (e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) document.getElementById('lightbox').classList.remove('active'); }
+  /* ---- Reveal on Scroll ---- */
+  const revealItems = document.querySelectorAll('.reveal');
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealItems.forEach(el => revealIO.observe(el));
+
+  /* ---- Modal ---- */
+  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = 'auto'; }
+  document.querySelectorAll('.modal-overlay').forEach(o => {
+    o.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); });
+  });
+
+  /* ---- Lightbox ---- */
+  function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('active'); }
+  function closeLightbox(e) { if (e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) document.getElementById('lightbox').classList.remove('active'); }
+
+  /* ---- Active nav link ---- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  sections.forEach(sec => navIO.observe(sec));
+
+  /* ============================================
+     PARTICLE CONSTELLATION SYSTEM
+     ============================================ */
+  (function() {
+    /* ---- Color Palette ---- */
+    const COLORS = [
+      '#8052ff', '#8052ff', '#8052ff',   // violet (dominant)
+      '#ffb829', '#ffb829',               // amber
+      '#15846e',                           // teal
+      '#c44dff',                           // purple
+      '#4d8dff',                           // blue
+      '#ff4d8d',                           // magenta
+      '#00c9a7',                           // cyan
+    ];
+
+    /* ---- Particle class ---- */
+    class Particle {
+      constructor(tx, ty, color, size, isAmbient) {
+        this.tx = tx;
+        this.ty = ty;
+        this.x = tx + (Math.random() - 0.5) * 60;
+        this.y = ty + (Math.random() - 0.5) * 60;
+        this.color = color;
+        this.size = size;
+        this.isAmbient = isAmbient;
+        this.angle = Math.random() * Math.PI * 2;
+        this.speed = 0.0008 + Math.random() * 0.002;
+        this.amplitude = isAmbient ? (3 + Math.random() * 6) : (1 + Math.random() * 2.5);
+        this.opacity = isAmbient ? (0.15 + Math.random() * 0.3) : (0.35 + Math.random() * 0.55);
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.012;
+      }
+
+      update(time) {
+        this.x = this.tx + Math.sin(time * this.speed + this.angle) * this.amplitude;
+        this.y = this.ty + Math.cos(time * this.speed * 0.8 + this.angle) * this.amplitude;
+        this.rotation += this.rotSpeed;
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.opacity;
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        const s = this.size;
+        ctx.moveTo(0, -s);
+        ctx.lineTo(s * 0.866, s * 0.5);
+        ctx.lineTo(-s * 0.866, s * 0.5);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    /* ---- Brain shape test ---- */
+    function isInBrain(x, y, cx, cy, scale) {
+      const nx = (x - cx) / scale;
+      const ny = (y - cy) / scale;
+
+      // Left hemisphere
+      if (Math.pow((nx + 0.24) / 0.44, 2) + Math.pow(ny / 0.52, 2) < 1) return true;
+      // Right hemisphere
+      if (Math.pow((nx - 0.24) / 0.44, 2) + Math.pow(ny / 0.52, 2) < 1) return true;
+      // Frontal connection (top)
+      if (Math.pow(nx / 0.3, 2) + Math.pow((ny + 0.28) / 0.28, 2) < 1) return true;
+      // Brain stem
+      if (Math.pow(nx / 0.12, 2) + Math.pow((ny - 0.42) / 0.16, 2) < 1) return true;
+      return false;
+    }
+
+    /* ---- Photo exclusion zone ---- */
+    function isInPhotoZone(x, y, cx, cy, radius) {
+      const dx = x - cx;
+      const dy = y - cy;
+      return (dx * dx + dy * dy) < (radius * radius);
+    }
+
+    /* ======= HERO CONSTELLATION ======= */
+    const heroCanvas = document.getElementById('constellation-canvas');
+    const heroCtx = heroCanvas.getContext('2d');
+    let heroParticles = [];
+
+    function initHeroConstellation() {
+      const container = heroCanvas.parentElement;
+      const w = container.offsetWidth;
+      const h = container.offsetHeight;
+      heroCanvas.width = w * window.devicePixelRatio;
+      heroCanvas.height = h * window.devicePixelRatio;
+      heroCanvas.style.width = w + 'px';
+      heroCanvas.style.height = h + 'px';
+      heroCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+
+      const cx = w / 2;
+      const cy = h / 2;
+      const brainScale = Math.min(w, h) * 0.9;
+      const photoRadius = 125; // exclusion radius for the profile photo
+
+      heroParticles = [];
+
+      // Brain particles
+      let placed = 0;
+      let attempts = 0;
+      const targetCount = Math.min(1600, Math.floor(w * h / 200));
+      while (placed < targetCount && attempts < targetCount * 10) {
+        attempts++;
+        const px = cx + (Math.random() - 0.5) * brainScale;
+        const py = cy + (Math.random() - 0.5) * brainScale;
+        if (isInBrain(px, py, cx, cy, brainScale) && !isInPhotoZone(px, py, cx, cy, photoRadius)) {
+          heroParticles.push(new Particle(
+            px, py,
+            COLORS[Math.floor(Math.random() * COLORS.length)],
+            1.5 + Math.random() * 2.5,
+            false
+          ));
+          placed++;
+        }
+      }
+
+      // Ambient particles outside the brain
+      for (let i = 0; i < 120; i++) {
+        let px, py;
+        do {
+          px = Math.random() * w;
+          py = Math.random() * h;
+        } while (isInBrain(px, py, cx, cy, brainScale) && Math.random() > 0.1);
+        heroParticles.push(new Particle(
+          px, py,
+          COLORS[Math.floor(Math.random() * COLORS.length)],
+          1 + Math.random() * 2,
+          true
+        ));
+      }
+    }
+
+    /* ======= AMBIENT BACKGROUND ======= */
+    const ambientCanvas = document.getElementById('ambient-canvas');
+    const ambientCtx = ambientCanvas.getContext('2d');
+    let ambientParticles = [];
+
+    function initAmbient() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      ambientCanvas.width = w * window.devicePixelRatio;
+      ambientCanvas.height = h * window.devicePixelRatio;
+      ambientCanvas.style.width = w + 'px';
+      ambientCanvas.style.height = h + 'px';
+      ambientCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+
+      ambientParticles = [];
+      const count = Math.floor((w * h) / 12000);
+      for (let i = 0; i < count; i++) {
+        ambientParticles.push(new Particle(
+          Math.random() * w,
+          Math.random() * h,
+          COLORS[Math.floor(Math.random() * COLORS.length)],
+          1 + Math.random() * 1.5,
+          true
+        ));
+      }
+    }
+
+    /* ---- Animation loop ---- */
+    let startTime = performance.now();
+
+    function animate(now) {
+      const time = now - startTime;
+
+      // Hero constellation
+      if (heroCanvas.offsetParent !== null) {
+        const hw = heroCanvas.width / window.devicePixelRatio;
+        const hh = heroCanvas.height / window.devicePixelRatio;
+        heroCtx.clearRect(0, 0, hw, hh);
+        for (let i = 0; i < heroParticles.length; i++) {
+          heroParticles[i].update(time);
+          heroParticles[i].draw(heroCtx);
+        }
+      }
+
+      // Ambient background
+      const aw = ambientCanvas.width / window.devicePixelRatio;
+      const ah = ambientCanvas.height / window.devicePixelRatio;
+      ambientCtx.clearRect(0, 0, aw, ah);
+      for (let i = 0; i < ambientParticles.length; i++) {
+        ambientParticles[i].update(time);
+        ambientParticles[i].draw(ambientCtx);
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    /* ---- Init ---- */
+    initHeroConstellation();
+    initAmbient();
+    requestAnimationFrame(animate);
+
+    /* ---- Resize handler ---- */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        initHeroConstellation();
+        initAmbient();
+      }, 200);
+    });
+  })();
   </script>
+
 </body>
 </html>
