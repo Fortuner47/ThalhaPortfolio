@@ -141,10 +141,10 @@
           <div class="proj-image"><img src="./nutrix_logo.png" alt="Nutrix"></div>
           <div class="proj-content">
             <div class="proj-num">Project 01</div>
-            <h3>Nutrix — AI Diet Planning Startup</h3>
-            <div class="proj-tagline">Founder-built AI platform for personalized nutrition planning across web &amp; mobile.</div>
-            <p class="proj-desc">Architected an end-to-end AI-powered diet planning platform with web (React + TypeScript) and mobile (React Native) apps. Designed an NLP pipeline that converts free-form natural language into structured dietary profiles. Implemented LLM-based intent detection and entity extraction powering a recommendation engine for personalised, daywise meal plans.</p>
-            <div class="proj-chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">React Native</span><span class="chip">Supabase</span><span class="chip">LLM APIs</span><span class="chip">NLP</span></div>
+            <h3>Nutrix Resynced — AI Diet Planning App</h3>
+            <div class="proj-tagline">Comprehensive AI platform for personalized nutrition planning on mobile.</div>
+            <p class="proj-desc">Architected an end-to-end AI-powered diet planning platform using React Native (Expo) and FastAPI. Engineered a Groq-powered (Llama 3.3 70B) chatbot and dynamic nutritional seeding pipeline integrated with the FatSecret API. Deployed on Render with a robust PostgreSQL and Redis backend.</p>
+            <div class="proj-chips"><span class="chip">React Native</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Groq Llama 3.3</span><span class="chip">Expo</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener">GitHub ↗</a>
               <button onclick="openModal('modal-nutrix')">View Details →</button>
@@ -452,7 +452,7 @@ Grounded Response with Citations</div>
   <!-- Nutrix Modal -->
   <div class="modal-overlay" id="modal-nutrix">
     <div class="modal-container">
-      <div class="modal-header"><h2>Nutrix AI</h2><button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="modal-header"><h2>Nutrix Resynced</h2><button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
           <div class="modal-actions">
@@ -460,33 +460,31 @@ Grounded Response with Citations</div>
           </div>
           <div class="modal-section-title">System Demonstration</div>
           <div class="video-container portrait"><video src="./Nutrix_Demo.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showcasing natural language input parsing, personalized meal plan generation, and conversational AI assistance.</p>
+          <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showcasing personalized meal plan generation, tracking charts, and Groq-powered conversational AI assistance.</p>
         </div>
         <div>
           <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">User Input (Natural Language)
+          <div class="arch-diagram">Mobile Client (Expo / React Native)
       ↓
-NLP Entity & Intent Extraction Pipeline
+Render Load Balancer / Gateway
       ↓
-Structured User Profile (Supabase DB)
+FastAPI Backend Services
       ↓
-LLM Recommendation Engine
+Groq Llama 3.3 API / FatSecret API
       ↓
-Personalized Daywise Meal Plan Generation
+Redis Cache & Rate Limiting
       ↓
-React Native Mobile / React Web Dashboard
-      ↓
-Conversational AI Real-Time Adjustments</div>
+PostgreSQL DB (Async SQLAlchemy)</div>
         </div>
         <div>
           <div class="modal-section-title">Key Features</div>
           <ul class="feature-list">
-            <li>Cross-platform support (Web & Mobile Apps)</li>
-            <li>Natural Language to Dietary Profile parsing</li>
-            <li>AI-powered day-by-day meal planning</li>
-            <li>Automated macronutrient calculation & tracking</li>
-            <li>Real-time chat assistant for dietary substitutions</li>
-            <li>Social exploration for recipes and creator feeds</li>
+            <li>Cross-platform mobile apps via Expo & React Native</li>
+            <li>FastAPI async backend powered by SQLAlchemy and PostgreSQL</li>
+            <li>Groq Llama 3.3 70B integrated Chatbot for dietary advice</li>
+            <li>Dynamic nutritional seeding and verification using FatSecret API</li>
+            <li>Cloudinary integration for OCR and media storage</li>
+            <li>Interactive Charts and animations with Reanimated & Chart Kit</li>
           </ul>
         </div>
         <div>
@@ -499,9 +497,9 @@ Conversational AI Real-Time Adjustments</div>
         <div>
           <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">TypeScript</span><span class="tech-badge">Tailwind CSS</span></div></div>
-            <div><div class="tech-card-title">Backend & Auth</div><div class="tech-badges"><span class="tech-badge">Supabase</span><span class="tech-badge">PostgreSQL</span></div></div>
-            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LLM APIs</span><span class="tech-badge">NLP Pipeline</span></div></div>
+            <div><div class="tech-card-title">Mobile App</div><div class="tech-badges"><span class="tech-badge">Expo</span><span class="tech-badge">React Native</span><span class="tech-badge">Redux</span></div></div>
+            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python / FastAPI</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Redis</span></div></div>
+            <div><div class="tech-card-title">External APIs</div><div class="tech-badges"><span class="tech-badge">Groq (Llama 3.3)</span><span class="tech-badge">FatSecret</span><span class="tech-badge">Cloudinary</span></div></div>
           </div>
         </div>
       </div>
