@@ -13,6 +13,10 @@
 </head>
 <body class="loading">
 
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
   <!-- ===== GRAIN OVERLAY ===== -->
   <svg class="grain-overlay" aria-hidden="true">
     <filter id="grain-filter">
@@ -67,19 +71,26 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
     <div class="container hero-inner">
-      <div class="hero-label">AI Engineer</div>
-      <div class="hero-title-line"><span>Thalha</span></div>
-      <div class="hero-title-line"><span>Ahamed</span></div>
-      <p class="hero-subtitle">Building systems that see, understand, and create. From real-time computer vision to production-grade LLM platforms — designing and deploying end-to-end AI systems.</p>
-      <div class="hero-chips">
-        <span class="hero-chip">Computer Vision</span>
-        <span class="hero-chip">NLP</span>
-        <span class="hero-chip">LLM Systems</span>
+      <div class="hero-content">
+        <div class="hero-label">AI Engineer</div>
+        <div class="hero-title-line"><span>Thalha</span></div>
+        <div class="hero-title-line"><span>Ahamed</span></div>
+        <p class="hero-subtitle">Building systems that see, understand, and create. From real-time computer vision to production-grade LLM platforms — designing and deploying end-to-end AI systems.</p>
+        <div class="hero-chips">
+          <span class="hero-chip">Computer Vision</span>
+          <span class="hero-chip">NLP</span>
+          <span class="hero-chip">LLM Systems</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary magnetic">View Projects</a>
+          <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
+        </div>
       </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary magnetic">View Projects</a>
-        <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
+      
+      <div class="hero-visual reveal" id="hero-visual">
+        <div id="neural-canvas-container" style="width: 100%; height: 500px;"></div>
       </div>
+      
     </div>
     <div class="scroll-indicator" id="scroll-indicator">
       <span class="scroll-text">Scroll</span>
@@ -479,6 +490,7 @@
   </div>
 
   <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
@@ -812,6 +824,246 @@
         },
       });
     });
+
+    /* ========================================================
+       15. CUSTOM CURSOR
+       ======================================================== */
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let outlineX = mouseX;
+    let outlineY = mouseY;
+    
+    if (cursorDot && cursorOutline && window.matchMedia("(pointer: fine)").matches) {
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+      });
+      
+      const renderCursor = () => {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        cursorOutline.style.transform = `translate(calc(${outlineX}px - 50%), calc(${outlineY}px - 50%))`;
+        requestAnimationFrame(renderCursor);
+      };
+      requestAnimationFrame(renderCursor);
+      
+      document.querySelectorAll('a, button, .magnetic, .project-showcase').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursorOutline.classList.add('hovering');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorOutline.classList.remove('hovering');
+        });
+      });
+    }
+
+    /* ========================================================
+       16. BUTTON RIPPLE EFFECT
+       ======================================================== */
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        let x = e.clientX - e.target.getBoundingClientRect().left;
+        let y = e.clientY - e.target.getBoundingClientRect().top;
+        
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        ripples.classList.add('ripple');
+        this.appendChild(ripples);
+        
+        setTimeout(() => {
+          ripples.remove();
+        }, 600);
+      });
+    });
+
+    /* ========================================================
+       17. 3D PERSPECTIVE ON PROJECT CARDS
+       ======================================================== */
+    document.querySelectorAll('.project-showcase').forEach(card => {
+      const wrapper = card.querySelector('.project-image-wrapper');
+      if (!wrapper) return;
+      
+      card.addEventListener('mousemove', (e) => {
+        const rect = wrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const rotateX = (y / rect.height) * -15; // Max 15deg
+        const rotateY = (x / rect.width) * 15;
+        
+        gsap.to(wrapper, {
+          rotationX: rotateX,
+          rotationY: rotateY,
+          transformPerspective: 1200,
+          ease: 'power1.out',
+          duration: 0.4
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(wrapper, {
+          rotationX: 0,
+          rotationY: 0,
+          ease: 'power3.out',
+          duration: 0.8
+        });
+      });
+    });
+
+    /* ========================================================
+       18. THREE.JS NEURAL NETWORK
+       ======================================================== */
+    const container = document.getElementById('neural-canvas-container');
+    if (container && typeof THREE !== 'undefined') {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      const particleCount = 120;
+      const particles = new THREE.BufferGeometry();
+      const particlePositions = new Float32Array(particleCount * 3);
+      const particleVelocities = [];
+
+      const radius = 8;
+      for (let i = 0; i < particleCount; i++) {
+        particlePositions[i * 3] = (Math.random() - 0.5) * radius;
+        particlePositions[i * 3 + 1] = (Math.random() - 0.5) * radius;
+        particlePositions[i * 3 + 2] = (Math.random() - 0.5) * radius;
+        
+        particleVelocities.push({
+          x: (Math.random() - 0.5) * 0.015,
+          y: (Math.random() - 0.5) * 0.015,
+          z: (Math.random() - 0.5) * 0.015
+        });
+      }
+      particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+      // Nodes
+      const pMaterial = new THREE.PointsMaterial({
+        color: 0xe8a045, // amber
+        size: 0.12,
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending
+      });
+      const particleSystem = new THREE.Points(particles, pMaterial);
+      scene.add(particleSystem);
+
+      // Connections Material
+      const lineMaterial = new THREE.LineBasicMaterial({
+        color: 0xe8a045,
+        transparent: true,
+        opacity: 0.15,
+        blending: THREE.AdditiveBlending
+      });
+
+      camera.position.z = 7;
+
+      // Mouse repulsion setup
+      const mouse = new THREE.Vector2(0, 0);
+      const targetMouse = new THREE.Vector2(0, 0);
+
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        mouse.x = 0;
+        mouse.y = 0;
+      });
+
+      const clock = new THREE.Clock();
+      let linesMesh;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const positions = particleSystem.geometry.attributes.position.array;
+        
+        // Smooth mouse movement
+        targetMouse.x += (mouse.x - targetMouse.x) * 0.05;
+        targetMouse.y += (mouse.y - targetMouse.y) * 0.05;
+        
+        // Update nodes
+        for (let i = 0; i < particleCount; i++) {
+          positions[i * 3] += particleVelocities[i].x;
+          positions[i * 3 + 1] += particleVelocities[i].y;
+          positions[i * 3 + 2] += particleVelocities[i].z;
+          
+          // Bounce off imaginary sphere boundaries
+          if (Math.abs(positions[i * 3]) > radius / 2) particleVelocities[i].x *= -1;
+          if (Math.abs(positions[i * 3 + 1]) > radius / 2) particleVelocities[i].y *= -1;
+          if (Math.abs(positions[i * 3 + 2]) > radius / 2) particleVelocities[i].z *= -1;
+          
+          // Repel from mouse projection
+          const px = positions[i * 3];
+          const py = positions[i * 3 + 1];
+          const dx = px - (targetMouse.x * 5);
+          const dy = py - (targetMouse.y * 5);
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 1.8) {
+            positions[i * 3] += (dx / dist) * 0.03;
+            positions[i * 3 + 1] += (dy / dist) * 0.03;
+          }
+        }
+        
+        // Update connections based on distance
+        const linePositions = [];
+        for (let i = 0; i < particleCount; i++) {
+          for (let j = i + 1; j < particleCount; j++) {
+            const dx = positions[i * 3] - positions[j * 3];
+            const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+            const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+            const distSq = dx * dx + dy * dy + dz * dz;
+            
+            if (distSq < 2.5) { 
+              linePositions.push(
+                positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
+                positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
+              );
+            }
+          }
+        }
+        
+        if (linesMesh) scene.remove(linesMesh);
+        if (linePositions.length > 0) {
+          const lineGeo = new THREE.BufferGeometry();
+          lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+          linesMesh = new THREE.LineSegments(lineGeo, lineMaterial);
+          scene.add(linesMesh);
+        }
+        
+        particleSystem.geometry.attributes.position.needsUpdate = true;
+        
+        // Node pulsing
+        const time = clock.getElapsedTime();
+        pMaterial.opacity = 0.5 + Math.sin(time * 3) * 0.4;
+        
+        // Subtle global rotation
+        scene.rotation.y += 0.0015;
+        scene.rotation.x += 0.0005;
+        
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+
+      window.addEventListener('resize', () => {
+        if (!container.clientWidth) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+    }
 
   })();
   </script>
