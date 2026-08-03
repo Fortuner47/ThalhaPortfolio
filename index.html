@@ -170,13 +170,13 @@
 
         <!-- 3. QueryDoc -->
         <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./QueryDoc_Chat.png" alt="QueryDoc"></div>
+          <div class="proj-image"><img src="./QueryDoc_UI_1.png" alt="QueryDoc"></div>
           <div class="proj-content">
             <div class="proj-num">Project 03</div>
-            <h3>QueryDoc — RAG Document Intelligence Platform</h3>
-            <div class="proj-tagline">RAG-powered document Q&amp;A with source-grounded answers and semantic search.</div>
-            <p class="proj-desc">Built a Retrieval-Augmented Generation (RAG) pipeline using LangChain to answer questions over custom documents. Implemented document chunking, embedding generation, and semantic search using a vector store for accurate context retrieval. Integrated an LLM to generate context-grounded answers from retrieved chunks.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">FAISS</span><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">Vector Search</span></div>
+            <h3>QueryDoc — Enterprise RAG System</h3>
+            <div class="proj-tagline">Production-grade AI document intelligence platform for highly accurate, hallucination-free Q&amp;A.</div>
+            <p class="proj-desc">Architected an enterprise Retrieval-Augmented Generation (RAG) pipeline to ingest local files and solve the "hidden 70%" of production AI problems. Features hybrid search retrieval (BM25 + FAISS + RRF), ms-marco cross-encoder reranking, strict citation enforcement, and a custom telemetry tracer for system observability.</p>
+            <div class="proj-chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">Llama 3.1</span><span class="chip">FAISS</span><span class="chip">React</span></div>
             <div class="proj-actions">
               <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener">GitHub ↗</a>
               <button onclick="openModal('modal-querydoc')">View Details →</button>
@@ -407,58 +407,53 @@
   <!-- QueryDoc Modal -->
   <div class="modal-overlay" id="modal-querydoc">
     <div class="modal-container">
-      <div class="modal-header"><h2>QueryDoc — RAG Platform</h2><button class="btn-close" onclick="closeModal('modal-querydoc')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="modal-header"><h2>QueryDoc — Enterprise RAG System</h2><button class="btn-close" onclick="closeModal('modal-querydoc')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
       <div class="modal-body">
         <div>
           <div class="modal-actions">
             <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
           </div>
           <div class="modal-section-title">Project Overview</div>
-          <p class="video-desc" style="margin-top:0">Generative AI is powerful, but it hallucinates. When accuracy is paramount, relying on a model's pre-trained memory isn't enough.<br><br><strong>QueryDoc</strong> bridges this gap. By leveraging <strong>Retrieval-Augmented Generation (RAG)</strong>, it allows users to chat directly with their own documents. Instead of generic answers, QueryDoc extracts precise information grounded in the uploaded text, providing transparent source citations for every claim.</p>
+          <p class="video-desc" style="margin-top:0"><strong>QueryDoc</strong> is a production-grade, AI-powered document intelligence platform designed to ingest local files (PDFs, DOCX, TXT) and provide highly accurate, hallucination-free answers using Retrieval-Augmented Generation (RAG).<br><br>Unlike standard prototype chatbots, QueryDoc was architected to solve the "hidden 70%" of production AI problems, focusing heavily on retrieval precision, strict citations, and system observability.</p>
         </div>
         <div>
           <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Document Upload
+          <div class="arch-diagram">User Query Input
       ↓
-Text Chunking & Tokenization
+Parallel Hybrid Search (FAISS Dense + BM25 Sparse)
       ↓
-Embedding Generation (OpenAI / HuggingFace)
+Reciprocal Rank Fusion (RRF)
       ↓
-Vector Store Indexing (FAISS)
+Cross-Encoder Semantic Reranking (ms-marco)
       ↓
-User Query Input
+LLM Prompting with Strict Citations
       ↓
-Semantic Search & Context Retrieval
-      ↓
-LLM Prompt Generation with Context
-      ↓
-Grounded Response with Citations</div>
+Grounded Response Generation</div>
         </div>
         <div>
           <div class="modal-section-title">Key Features</div>
           <ul class="feature-list">
-            <li>End-to-end RAG pipeline for custom documents</li>
-            <li>PDF and DOCX automatic text extraction</li>
-            <li>Semantic vector search using FAISS</li>
-            <li>Context-aware conversational memory</li>
-            <li>Adjustable retrieval parameters (chunk size, overlap)</li>
-            <li>Source citation for hallucination reduction</li>
+            <li><strong>Hybrid Search Retrieval:</strong> Fuses FAISS vector similarity with BM25 sparse search using RRF to perfectly capture semantic meaning and exact keywords.</li>
+            <li><strong>Cross-Encoder Reranking:</strong> Re-orders the top hybrid results using an ms-marco model to surface the most contextually relevant data.</li>
+            <li><strong>Strict Citation Enforcement:</strong> LLM is aggressively prompted to ground answers exclusively in retrieved context, virtually eliminating hallucinations.</li>
+            <li><strong>Telemetry & Observability:</strong> Custom TelemetryTracer tracking latency, chunk count, token usage, and cost per request.</li>
+            <li><strong>Automated Regression Evaluation:</strong> Gated by CI/CD GitHub Actions testing context retrieval accuracy and answer correctness on every push.</li>
+            <li><strong>Developer-Focused Frontend:</strong> Dense React/Vite SPA architecture with Recharts analytics and a 70/30 split view layout.</li>
           </ul>
         </div>
         <div>
           <div class="modal-section-title">Platform Interface</div>
-          <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('./QueryDoc_Documents.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Documents.png" alt="Upload Interface"></div><div class="gallery-info"><h4>Document Processing</h4><p>Upload PDF/DOCX files with automatic text chunking and vector indexing.</p><span class="feature">ETL</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./QueryDoc_Chat.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Chat.png" alt="Chat UI"></div><div class="gallery-info"><h4>Context-Aware Chat</h4><p>Real-time conversational interface with grounded answers and highlighted citations.</p><span class="feature">LLM / RAG</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./QueryDoc_Settings.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_Settings.png" alt="Settings"></div><div class="gallery-info"><h4>Advanced Controls</h4><p>Fine-tune chunk size, similarity thresholds, and retrieval parameters.</p><span class="feature">Configuration</span></div></div>
+          <div class="gallery-grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr))">
+            <div class="gallery-item" onclick="openLightbox('./QueryDoc_UI_1.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_UI_1.png" alt="Developer-Focused Workspace"></div><div class="gallery-info"><h4>Developer-Focused Workspace</h4><p>Strict 70/30 split view with a persistent document preview and retrieval metadata panel.</p><span class="feature">Interface</span></div></div>
+            <div class="gallery-item" onclick="openLightbox('./QueryDoc_UI_2.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_UI_2.png" alt="Analytics Dashboard"></div><div class="gallery-info"><h4>Telemetry & Analytics</h4><p>Integrated with Recharts visualizing query volume, active users, and system latency.</p><span class="feature">Observability</span></div></div>
           </div>
         </div>
         <div>
           <div class="modal-section-title">Tech Stack</div>
           <div class="tech-grid">
-            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">Vanilla JS</span><span class="tech-badge">HTML5/CSS3</span><span class="tech-badge">Vercel (Target)</span></div></div>
-            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">Render (Target)</span></div></div>
-            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">LangChain</span><span class="tech-badge">FAISS Vector DB</span><span class="tech-badge">Groq / OpenAI API</span></div></div>
+            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">Vite</span><span class="tech-badge">Framer Motion</span><span class="tech-badge">Recharts</span></div></div>
+            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangChain</span><span class="tech-badge">GitHub Actions</span></div></div>
+            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">Llama 3.1 8B (Groq)</span><span class="tech-badge">FAISS</span><span class="tech-badge">PyTorch</span><span class="tech-badge">Cross-Encoders</span></div></div>
           </div>
         </div>
       </div>
