@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OllamaBench — Thalha Ahamed</title>
-  <meta name="description" content="OllamaBench: Full-stack AI benchmarking platform for evaluating local LLMs with automated suites, multi-model comparison, and hardware-aware analysis.">
+  <title>QueryDoc — Thalha Ahamed</title>
+  <meta name="description" content="QueryDoc: Production-grade enterprise RAG system with hybrid search, cross-encoder reranking, and strict citation enforcement for hallucination-free document Q&A.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
         <a href="index.html#projects">All Projects</a>
         <a href="index.html#contact">Contact</a>
       </div>
-      <a class="nav-cta" href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="nav-cta" href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </nav>
 
@@ -40,14 +40,14 @@
   <section class="case-hero">
     <div class="container">
       <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
-      <div class="case-meta reveal">Project 04 · Developer Tools · AI</div>
-      <h1 class="case-title reveal">OllamaBench</h1>
-      <p class="case-tagline reveal">Automated performance and quality evaluation for locally deployed Large Language Models. Multi-model comparison with hardware-aware analysis.</p>
+      <div class="case-meta reveal">Project 01 · Enterprise AI</div>
+      <h1 class="case-title reveal">QueryDoc</h1>
+      <p class="case-tagline reveal">Production-grade AI document intelligence platform for highly accurate, hallucination-free Q&A using Retrieval-Augmented Generation.</p>
       <div class="case-actions reveal">
-        <a href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+        <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
       </div>
       <div class="case-hero-image reveal">
-        <img src="./ollamabench_1.png" alt="OllamaBench Dashboard">
+        <img src="./QueryDoc_UI_1.png" alt="QueryDoc Interface — Developer-Focused Workspace">
       </div>
     </div>
   </section>
@@ -57,9 +57,8 @@
     <div class="container">
       <div class="case-section-title reveal">Overview</div>
       <div class="case-section-content">
-        <p class="reveal"><strong>OllamaBench</strong> is a full-stack AI benchmarking platform built for evaluating locally-deployed Large Language Models (LLMs) through Ollama. It provides automated benchmark suites, multi-model comparison, and hardware-aware performance analysis.</p>
-        <p class="reveal">The platform enables developers to run comprehensive quality and performance evaluations entirely offline, with interactive dashboards for analyzing results and exportable benchmark reports for sharing findings.</p>
-        <p class="reveal">Built with a modern stack — React with TypeScript for the frontend, FastAPI with Python for the backend — OllamaBench bridges the gap between simple model testing and production-grade evaluation infrastructure.</p>
+        <p class="reveal"><strong>QueryDoc</strong> is a production-grade, AI-powered document intelligence platform designed to ingest local files (PDFs, DOCX, TXT) and provide highly accurate, hallucination-free answers using Retrieval-Augmented Generation (RAG).</p>
+        <p class="reveal">Unlike standard prototype chatbots, QueryDoc was architected to solve the "hidden 70%" of production AI problems — focusing heavily on retrieval precision, strict citations, and system observability rather than just LLM prompting.</p>
       </div>
     </div>
   </section>
@@ -68,19 +67,17 @@
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Architecture</div>
-      <div class="case-arch reveal">React + TypeScript Frontend
+      <div class="case-arch reveal">User Query Input
       ↓
-FastAPI REST Backend
+Parallel Hybrid Search (FAISS Dense + BM25 Sparse)
       ↓
-Ollama Local Model Server
+Reciprocal Rank Fusion (RRF)
       ↓
-Benchmark Suite Engine
+Cross-Encoder Semantic Reranking (ms-marco)
       ↓
-Hardware Metrics Collector
+LLM Prompting with Strict Citations
       ↓
-Results Aggregation & Analysis
-      ↓
-Interactive Dashboard & Reports</div>
+Grounded Response Generation</div>
     </div>
   </section>
 
@@ -89,12 +86,12 @@ Interactive Dashboard & Reports</div>
     <div class="container">
       <div class="case-section-title reveal">Key Features</div>
       <ul class="case-features">
-        <li class="reveal"><strong>Automated Benchmark Suites:</strong> Pre-configured test suites covering reasoning, coding, creative writing, and factual accuracy.</li>
-        <li class="reveal"><strong>Multi-Model Comparison:</strong> Side-by-side performance comparison across different locally deployed LLM models.</li>
-        <li class="reveal"><strong>Hardware-Aware Analysis:</strong> Correlates model performance with system hardware metrics including CPU, GPU, and memory utilization.</li>
-        <li class="reveal"><strong>Offline Quality Evaluation:</strong> No cloud dependency — all evaluation runs locally with full data privacy.</li>
-        <li class="reveal"><strong>Interactive Dashboards:</strong> Rich visualization of benchmark results with filtering, sorting, and drill-down capabilities.</li>
-        <li class="reveal"><strong>Exportable Reports:</strong> Generate shareable benchmark reports for team collaboration and model selection decisions.</li>
+        <li class="reveal"><strong>Hybrid Search Retrieval:</strong> Fuses FAISS vector similarity with BM25 sparse search using Reciprocal Rank Fusion to capture both semantic meaning and exact keywords.</li>
+        <li class="reveal"><strong>Cross-Encoder Reranking:</strong> Re-orders the top hybrid results using an ms-marco model to surface the most contextually relevant data.</li>
+        <li class="reveal"><strong>Strict Citation Enforcement:</strong> LLM is aggressively prompted to ground answers exclusively in retrieved context, virtually eliminating hallucinations.</li>
+        <li class="reveal"><strong>Telemetry & Observability:</strong> Custom TelemetryTracer tracking latency, chunk count, token usage, and cost per request.</li>
+        <li class="reveal"><strong>Automated Regression Evaluation:</strong> Gated by CI/CD GitHub Actions testing context retrieval accuracy and answer correctness on every push.</li>
+        <li class="reveal"><strong>Developer-Focused Frontend:</strong> Dense React/Vite SPA with Recharts analytics and a 70/30 split view layout.</li>
       </ul>
     </div>
   </section>
@@ -104,32 +101,32 @@ Interactive Dashboard & Reports</div>
     <div class="container">
       <div class="case-section-title reveal">Platform Interface</div>
       <div class="case-gallery">
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_1.png')">
-          <img src="./ollamabench_1.png" alt="Dashboard Overview" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./QueryDoc_UI_1.png')">
+          <img src="./QueryDoc_UI_1.png" alt="Developer-Focused Workspace" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Dashboard Overview</h5>
-            <p>Main benchmarking dashboard with model selection and test configuration.</p>
+            <h5>Developer-Focused Workspace</h5>
+            <p>70/30 split view with document preview and retrieval metadata panel.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_benchmark.png')">
-          <img src="./ollamabench_benchmark.png" alt="Benchmark Results" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./QueryDoc_UI_2.png')">
+          <img src="./QueryDoc_UI_2.png" alt="Telemetry Dashboard" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Benchmark Results</h5>
-            <p>Detailed performance metrics with response quality scoring.</p>
+            <h5>Telemetry & Analytics</h5>
+            <p>Recharts-powered dashboard visualizing query volume, users, and latency.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_compare.png')">
-          <img src="./ollamabench_compare.png" alt="Model Comparison" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./QueryDoc_Chat.png')">
+          <img src="./QueryDoc_Chat.png" alt="Chat Interface" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Model Comparison</h5>
-            <p>Side-by-side comparison of multiple model performances.</p>
+            <h5>Chat Interface</h5>
+            <p>Grounded conversational Q&A with inline source citations.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_suite.png')">
-          <img src="./ollamabench_suite.png" alt="Test Suites" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./QueryDoc_Documents.png')">
+          <img src="./QueryDoc_Documents.png" alt="Document Management" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Test Suite Configuration</h5>
-            <p>Pre-configured and custom benchmark suite management.</p>
+            <h5>Document Management</h5>
+            <p>Upload, process, and manage document collections.</p>
           </div>
         </div>
       </div>
@@ -145,8 +142,9 @@ Interactive Dashboard & Reports</div>
           <h5>Frontend</h5>
           <div class="case-tech-badges">
             <span class="case-tech-badge">React</span>
-            <span class="case-tech-badge">TypeScript</span>
             <span class="case-tech-badge">Vite</span>
+            <span class="case-tech-badge">Framer Motion</span>
+            <span class="case-tech-badge">Recharts</span>
           </div>
         </div>
         <div class="case-tech-group">
@@ -154,14 +152,17 @@ Interactive Dashboard & Reports</div>
           <div class="case-tech-badges">
             <span class="case-tech-badge">Python</span>
             <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">LangChain</span>
+            <span class="case-tech-badge">GitHub Actions</span>
           </div>
         </div>
         <div class="case-tech-group">
-          <h5>AI Infrastructure</h5>
+          <h5>AI Engine</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">Ollama</span>
-            <span class="case-tech-badge">Local LLMs</span>
-            <span class="case-tech-badge">Benchmark Engine</span>
+            <span class="case-tech-badge">Llama 3.1 8B (Groq)</span>
+            <span class="case-tech-badge">FAISS</span>
+            <span class="case-tech-badge">PyTorch</span>
+            <span class="case-tech-badge">Cross-Encoders</span>
           </div>
         </div>
       </div>
@@ -185,11 +186,13 @@ Interactive Dashboard & Reports</div>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script>
   (function() {
+    // Reveal
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+    // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     window.openLightbox = function(src) { lbImg.src = src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; };
@@ -198,6 +201,7 @@ Interactive Dashboard & Reports</div>
     document.getElementById('lightbox-close').addEventListener('click', (e) => { e.stopPropagation(); closeLb(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
 
+    // Magnetic
     document.querySelectorAll('.magnetic').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const r = btn.getBoundingClientRect();

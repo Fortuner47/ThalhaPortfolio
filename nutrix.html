@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OllamaBench — Thalha Ahamed</title>
-  <meta name="description" content="OllamaBench: Full-stack AI benchmarking platform for evaluating local LLMs with automated suites, multi-model comparison, and hardware-aware analysis.">
+  <title>Nutrix Resynced — Thalha Ahamed</title>
+  <meta name="description" content="Nutrix Resynced: AI-powered diet planning platform built with React Native, FastAPI, and Groq Llama 3.3 for personalized nutrition on mobile.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
         <a href="index.html#projects">All Projects</a>
         <a href="index.html#contact">Contact</a>
       </div>
-      <a class="nav-cta" href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="nav-cta" href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </nav>
 
@@ -40,14 +40,14 @@
   <section class="case-hero">
     <div class="container">
       <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
-      <div class="case-meta reveal">Project 04 · Developer Tools · AI</div>
-      <h1 class="case-title reveal">OllamaBench</h1>
-      <p class="case-tagline reveal">Automated performance and quality evaluation for locally deployed Large Language Models. Multi-model comparison with hardware-aware analysis.</p>
+      <div class="case-meta reveal">Project 03 · Full-Stack AI · Mobile</div>
+      <h1 class="case-title reveal">Nutrix Resynced</h1>
+      <p class="case-tagline reveal">Comprehensive AI platform for personalized nutrition planning on mobile. Groq-powered chatbot, dynamic nutritional seeding, and real-time dietary tracking.</p>
       <div class="case-actions reveal">
-        <a href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+        <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
       </div>
       <div class="case-hero-image reveal">
-        <img src="./ollamabench_1.png" alt="OllamaBench Dashboard">
+        <img src="./nutrix_logo.png" alt="Nutrix Resynced">
       </div>
     </div>
   </section>
@@ -57,10 +57,21 @@
     <div class="container">
       <div class="case-section-title reveal">Overview</div>
       <div class="case-section-content">
-        <p class="reveal"><strong>OllamaBench</strong> is a full-stack AI benchmarking platform built for evaluating locally-deployed Large Language Models (LLMs) through Ollama. It provides automated benchmark suites, multi-model comparison, and hardware-aware performance analysis.</p>
-        <p class="reveal">The platform enables developers to run comprehensive quality and performance evaluations entirely offline, with interactive dashboards for analyzing results and exportable benchmark reports for sharing findings.</p>
-        <p class="reveal">Built with a modern stack — React with TypeScript for the frontend, FastAPI with Python for the backend — OllamaBench bridges the gap between simple model testing and production-grade evaluation infrastructure.</p>
+        <p class="reveal"><strong>Nutrix Resynced</strong> is an end-to-end AI-powered diet planning platform architected with React Native (Expo) for cross-platform mobile and FastAPI for the async backend.</p>
+        <p class="reveal">The platform features a Groq-powered conversational chatbot (Llama 3.3 70B) for dietary advice, a dynamic nutritional seeding pipeline integrated with the FatSecret API, and a robust PostgreSQL + Redis backend deployed on Render.</p>
+        <p class="reveal">The app delivers personalized meal plans, macronutrient tracking, interactive charts, and a social discovery feed — all wrapped in a polished mobile experience with smooth animations powered by Reanimated and Chart Kit.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">System Demonstration</div>
+      <div class="case-video portrait reveal">
+        <video src="./Nutrix_Demo.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal" style="text-align: center;">Demonstration of the Nutrix AI diet planning workflow — personalized meal plan generation, tracking charts, and Groq-powered conversational AI assistance.</p>
     </div>
   </section>
 
@@ -68,19 +79,17 @@
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Architecture</div>
-      <div class="case-arch reveal">React + TypeScript Frontend
+      <div class="case-arch reveal">Mobile Client (Expo / React Native)
       ↓
-FastAPI REST Backend
+Render Load Balancer / Gateway
       ↓
-Ollama Local Model Server
+FastAPI Backend Services
       ↓
-Benchmark Suite Engine
+Groq Llama 3.3 API / FatSecret API
       ↓
-Hardware Metrics Collector
+Redis Cache & Rate Limiting
       ↓
-Results Aggregation & Analysis
-      ↓
-Interactive Dashboard & Reports</div>
+PostgreSQL DB (Async SQLAlchemy)</div>
     </div>
   </section>
 
@@ -89,12 +98,12 @@ Interactive Dashboard & Reports</div>
     <div class="container">
       <div class="case-section-title reveal">Key Features</div>
       <ul class="case-features">
-        <li class="reveal"><strong>Automated Benchmark Suites:</strong> Pre-configured test suites covering reasoning, coding, creative writing, and factual accuracy.</li>
-        <li class="reveal"><strong>Multi-Model Comparison:</strong> Side-by-side performance comparison across different locally deployed LLM models.</li>
-        <li class="reveal"><strong>Hardware-Aware Analysis:</strong> Correlates model performance with system hardware metrics including CPU, GPU, and memory utilization.</li>
-        <li class="reveal"><strong>Offline Quality Evaluation:</strong> No cloud dependency — all evaluation runs locally with full data privacy.</li>
-        <li class="reveal"><strong>Interactive Dashboards:</strong> Rich visualization of benchmark results with filtering, sorting, and drill-down capabilities.</li>
-        <li class="reveal"><strong>Exportable Reports:</strong> Generate shareable benchmark reports for team collaboration and model selection decisions.</li>
+        <li class="reveal"><strong>Cross-Platform Mobile:</strong> React Native (Expo) delivering native-quality experience on both iOS and Android.</li>
+        <li class="reveal"><strong>AI-Powered Chatbot:</strong> Groq Llama 3.3 70B integrated for real-time dietary advice and meal recommendations.</li>
+        <li class="reveal"><strong>Dynamic Nutritional Seeding:</strong> FatSecret API integration for verified nutritional data and food database.</li>
+        <li class="reveal"><strong>Async Backend:</strong> FastAPI with SQLAlchemy async engine and PostgreSQL for high-throughput data operations.</li>
+        <li class="reveal"><strong>Media Processing:</strong> Cloudinary integration for OCR capabilities and cloud media storage.</li>
+        <li class="reveal"><strong>Interactive Visualizations:</strong> Reanimated and Chart Kit for smooth, animated macronutrient tracking charts.</li>
       </ul>
     </div>
   </section>
@@ -102,34 +111,20 @@ Interactive Dashboard & Reports</div>
   <!-- Screenshots -->
   <section class="case-section">
     <div class="container">
-      <div class="case-section-title reveal">Platform Interface</div>
-      <div class="case-gallery">
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_1.png')">
-          <img src="./ollamabench_1.png" alt="Dashboard Overview" loading="lazy">
+      <div class="case-section-title reveal">App Interface</div>
+      <div class="case-gallery" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./nutrix_dashboard.jpg')">
+          <img src="./nutrix_dashboard.jpg" alt="AI Dashboard" loading="lazy" style="aspect-ratio: 9/16;">
           <div class="case-gallery-caption">
-            <h5>Dashboard Overview</h5>
-            <p>Main benchmarking dashboard with model selection and test configuration.</p>
+            <h5>AI Dashboard</h5>
+            <p>Personalized daily meal plan and macronutrient tracking.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_benchmark.png')">
-          <img src="./ollamabench_benchmark.png" alt="Benchmark Results" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./nutrix_explore.jpg')">
+          <img src="./nutrix_explore.jpg" alt="Social & Discover" loading="lazy" style="aspect-ratio: 9/16;">
           <div class="case-gallery-caption">
-            <h5>Benchmark Results</h5>
-            <p>Detailed performance metrics with response quality scoring.</p>
-          </div>
-        </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_compare.png')">
-          <img src="./ollamabench_compare.png" alt="Model Comparison" loading="lazy">
-          <div class="case-gallery-caption">
-            <h5>Model Comparison</h5>
-            <p>Side-by-side comparison of multiple model performances.</p>
-          </div>
-        </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_suite.png')">
-          <img src="./ollamabench_suite.png" alt="Test Suites" loading="lazy">
-          <div class="case-gallery-caption">
-            <h5>Test Suite Configuration</h5>
-            <p>Pre-configured and custom benchmark suite management.</p>
+            <h5>Social & Discover</h5>
+            <p>Explore recipes, communities, and top creators.</p>
           </div>
         </div>
       </div>
@@ -142,26 +137,27 @@ Interactive Dashboard & Reports</div>
       <div class="case-section-title reveal">Tech Stack</div>
       <div class="case-tech-grid reveal">
         <div class="case-tech-group">
-          <h5>Frontend</h5>
+          <h5>Mobile App</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">React</span>
-            <span class="case-tech-badge">TypeScript</span>
-            <span class="case-tech-badge">Vite</span>
+            <span class="case-tech-badge">Expo</span>
+            <span class="case-tech-badge">React Native</span>
+            <span class="case-tech-badge">Redux</span>
           </div>
         </div>
         <div class="case-tech-group">
           <h5>Backend</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">Python</span>
-            <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">Python / FastAPI</span>
+            <span class="case-tech-badge">PostgreSQL</span>
+            <span class="case-tech-badge">Redis</span>
           </div>
         </div>
         <div class="case-tech-group">
-          <h5>AI Infrastructure</h5>
+          <h5>External APIs</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">Ollama</span>
-            <span class="case-tech-badge">Local LLMs</span>
-            <span class="case-tech-badge">Benchmark Engine</span>
+            <span class="case-tech-badge">Groq (Llama 3.3)</span>
+            <span class="case-tech-badge">FatSecret</span>
+            <span class="case-tech-badge">Cloudinary</span>
           </div>
         </div>
       </div>

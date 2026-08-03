@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOLORACT — Thalha Ahamed</title>
+  <meta name="description" content="HOLORACT: Gesture-controlled holographic framework for STEM education using wearable-free hand tracking with 94% accuracy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Grain -->
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <!-- Ambient -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 02 · Computer Vision · Research</div>
+      <h1 class="case-title reveal">HOLORACT</h1>
+      <p class="case-tagline reveal">Wearable-free hand tracking framework for interactive holographic STEM education. 94% accuracy at 60 FPS. Research paper under review at Springer.</p>
+      <div class="case-actions reveal">
+        <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+      </div>
+      <div class="case-hero-image reveal">
+        <img src="./holoract_interface.png" alt="HOLORACT System Interface">
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>HOLORACT</strong> is a gesture-controlled holographic framework designed for interactive STEM education. It enables students to manipulate 3D educational content through natural hand gestures — without requiring any wearable devices, depth sensors, or specialized hardware.</p>
+        <p class="reveal">The system uses a single standard RGB camera for hand landmark detection, a custom Python gesture recognition pipeline, and Unity 3D for holographic rendering — all communicating through low-latency socket connections.</p>
+        <p class="reveal">This project resulted in a research paper submitted to the SCRS CIMA Conference (Springer), currently under review.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <div class="case-arch reveal">Standard RGB Camera Input
+      ↓
+MediaPipe Hand Landmark Detection
+      ↓
+Custom Python Gesture Recognition Model
+      ↓
+Real-time Socket Data Transmission
+      ↓
+Unity 3D Physics Engine
+      ↓
+Holographic Object Manipulation
+      ↓
+User Visual Feedback</div>
+    </div>
+  </section>
+
+  <!-- Demos -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">System Demonstration</div>
+      <div class="case-video reveal">
+        <video src="./Holoract Demo_1.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal">Real-time hand tracking demonstration showing gesture-controlled interaction with 3D holographic content.</p>
+      <div class="case-video reveal" style="margin-top: 32px;">
+        <video src="./Holoract Demo_2.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal">Extended demo showcasing the holographic projection and interactive STEM learning modules.</p>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Wearable-Free Setup:</strong> Requires only a standard RGB camera — no depth sensors, gloves, or specialized hardware.</li>
+        <li class="reveal"><strong>94% Recognition Accuracy:</strong> Custom gesture recognition model achieving high accuracy across diverse hand shapes and lighting conditions.</li>
+        <li class="reveal"><strong>Low-Latency Pipeline:</strong> End-to-end processing at approximately 68ms latency, enabling real-time interaction at 60 FPS.</li>
+        <li class="reveal"><strong>Interactive 3D Rendering:</strong> Unity-based holographic environment for manipulating educational 3D models.</li>
+        <li class="reveal"><strong>Robust Tracking:</strong> MediaPipe hand landmark detection performs reliably across varied lighting conditions.</li>
+        <li class="reveal"><strong>Research Validation:</strong> Full pipeline validated through published research methodology.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">System Interface & Rendering</div>
+      <div class="case-gallery">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./holoract_interface.png')">
+          <img src="./holoract_interface.png" alt="System Interface" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>System Interface</h5>
+            <p>Real-time hand tracking UI with camera feed and interactive modules.</p>
+          </div>
+        </div>
+        <div class="case-gallery-item reveal" onclick="openLightbox('./holoract_hologram.png')">
+          <img src="./holoract_hologram.png" alt="Holographic Display" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Holographic Display</h5>
+            <p>3D projection showing interactive educational content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Results & Metrics</div>
+      <div class="about-stats reveal" style="border-top: none; padding-top: 0; margin-top: 0;">
+        <div class="stat">
+          <div class="stat-value">94%</div>
+          <div class="stat-label">Gesture Recognition Accuracy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">60 FPS</div>
+          <div class="stat-label">Real-time Processing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">~68ms</div>
+          <div class="stat-label">End-to-end Latency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Computer Vision</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python</span>
+            <span class="case-tech-badge">OpenCV</span>
+            <span class="case-tech-badge">MediaPipe</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>3D Environment</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Unity</span>
+            <span class="case-tech-badge">C#</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Integration</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Socket Communication</span>
+            <span class="case-tech-badge">Real-time Pipeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    window.openLightbox = function(src) { lbImg.src = src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    function closeLb() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.getElementById('lightbox-close').addEventListener('click', (e) => { e.stopPropagation(); closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

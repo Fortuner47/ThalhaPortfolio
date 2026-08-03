@@ -4,287 +4,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thalha Ahamed — AI Engineer</title>
-  <meta name="description" content="AI Engineer portfolio — Computer Vision, NLP, LLM Systems. Projects in real-time CV, RAG pipelines, and industrial automation.">
+  <meta name="description" content="Portfolio of Thalha Ahamed — AI Engineer. Building systems that see, understand, and create. Computer Vision, NLP, LLM Systems.">
+  <meta name="author" content="Thalha Ahamed">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="loading">
 
-  <!-- Ambient particle canvas (full-page background) -->
-  <canvas id="ambient-canvas"></canvas>
+  <!-- ===== GRAIN OVERLAY ===== -->
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <!-- ===== AMBIENT LIGHT ===== -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <!-- ===== LOADER ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-name">Thalha Ahamed</div>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+  </div>
 
   <!-- ===== NAVIGATION ===== -->
-  <header class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="logo">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none">
-          <polygon points="12,2 22,20 2,20" stroke="url(#logo-grad)" stroke-width="2" fill="none"/>
-          <defs>
-            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#8052ff"/>
-              <stop offset="100%" stop-color="#15846e"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        Thalha
-      </a>
-      <nav class="nav-links">
+      <a href="#" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-      </nav>
-      <a class="nav-cta" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
-        GitHub
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
+      </div>
+      <a class="nav-cta" href="https://github.com/Fortuner47" target="_blank" rel="noopener">GitHub ↗</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </nav>
+
+  <!-- ===== MOBILE NAV ===== -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/Fortuner47" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="hero-label">AI Engineer</div>
-        <h1>Thalha Ahamed<br>builds systems that<br><em>see and understand.</em></h1>
-        <p class="hero-body">Recent B.Tech Graduate in Artificial Intelligence &amp; Data Science (Class of 2026) who designs and deploys end-to-end systems — from real-time computer vision models to production-grade, LLM-powered platforms.</p>
-        <div class="hero-role">Computer Vision · NLP · LLM Systems</div>
-        <div class="hero-cta-row">
-          <a class="btn-primary" href="#projects">View projects</a>
-          <a class="btn-ghost" href="#contact">Get in touch</a>
-        </div>
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-label">AI Engineer</div>
+      <div class="hero-title-line"><span>Thalha</span></div>
+      <div class="hero-title-line"><span>Ahamed</span></div>
+      <p class="hero-subtitle">Building systems that see, understand, and create. From real-time computer vision to production-grade LLM platforms — designing and deploying end-to-end AI systems.</p>
+      <div class="hero-chips">
+        <span class="hero-chip">Computer Vision</span>
+        <span class="hero-chip">NLP</span>
+        <span class="hero-chip">LLM Systems</span>
       </div>
-      <div class="hero-visual">
-        <canvas id="constellation-canvas"></canvas>
-        <div class="hero-profile">
-          <img src="./thalha_profile_avatar.png" alt="Thalha Ahamed">
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary magnetic">View Projects</a>
+        <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label reveal">About</div>
+      <div class="about-grid">
+        <div class="about-quote reveal">
+          I build systems that <em>see</em> and <em>understand.</em>
+        </div>
+        <div class="about-bio">
+          <p class="reveal"><strong>Thalha</strong> is an AI & Data Science graduate (B.Tech, Class of 2026) with hands-on experience building applied AI/ML systems across computer vision and natural language processing.</p>
+          <p class="reveal">Experienced in developing end-to-end pipelines — from data handling and model development to deployment — including a CNN-based real-time gesture recognition system and a Retrieval-Augmented Generation (RAG) pipeline for grounded document Q&A.</p>
+          <p class="reveal">Proficient in Python, machine learning fundamentals, and LLM-based system design, with a track record of taking projects from concept to working product.</p>
+          <div class="about-stats reveal">
+            <div class="stat">
+              <div class="stat-value" data-target="94" data-suffix="%">0%</div>
+              <div class="stat-label">Gesture Recognition Accuracy</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" data-target="60" data-suffix=" FPS">0 FPS</div>
+              <div class="stat-label">Real-time CV Pipeline</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" data-target="1" data-suffix="">0</div>
+              <div class="stat-label">Research Paper Under Review</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="section">
-    <div class="wrap">
-      <div class="section-label reveal">About</div>
-      <h2 class="section-title reveal">Concept to deployment.</h2>
-      <div class="about-grid reveal">
-        <div>
-          <p><strong>Thalha</strong> is an AI &amp; Data Science undergraduate with hands-on experience building applied AI/ML systems across computer vision and natural language processing.</p>
-          <p>He is experienced in developing end-to-end pipelines, from data handling and model development to deployment, including a CNN-based real-time gesture recognition system and a Retrieval-Augmented Generation (RAG) pipeline for grounded document Q&amp;A.</p>
-          <p>Proficient in Python, machine learning fundamentals, and LLM-based system design, with a track record of taking projects from concept to working product, and a genuine interest in growing as an AI/ML engineer.</p>
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-label reveal">Featured Work</div>
+      <h2 class="section-heading reveal">Selected Projects</h2>
+      <p class="section-desc reveal">Eight builds spanning computer vision, NLP, LLM platforms, and full-stack product engineering.</p>
+
+      <div class="projects-featured">
+
+        <!-- Project 1: QueryDoc -->
+        <div class="project-showcase reveal">
+          <div class="project-image-wrapper">
+            <img src="./QueryDoc_UI_1.png" alt="QueryDoc — Enterprise RAG System" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-meta">01 · Enterprise AI</div>
+            <h3 class="project-name">QueryDoc</h3>
+            <div class="project-tagline">Production-grade AI document intelligence platform for hallucination-free Q&A.</div>
+            <p class="project-desc">Architected an enterprise RAG pipeline with hybrid search retrieval (BM25 + FAISS + RRF), ms-marco cross-encoder reranking, strict citation enforcement, and custom telemetry tracing for full system observability.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Llama 3.1</span>
+              <span class="tech-tag">FAISS</span>
+              <span class="tech-tag">React</span>
+            </div>
+            <div class="project-actions">
+              <a href="querydoc.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+              <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="stat-block">
-            <div class="stat-number">94%</div>
-            <div class="stat-label">Gesture recognition accuracy — HOLORACT</div>
+
+        <!-- Project 2: HOLORACT -->
+        <div class="project-showcase reveal">
+          <div class="project-image-wrapper">
+            <img src="./holoract_interface.png" alt="HOLORACT — Gesture-Based Holographic System" loading="lazy">
           </div>
-          <div class="stat-block">
-            <div class="stat-number">60 FPS</div>
-            <div class="stat-label">Real-time CV pipeline, ~68ms latency</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Research Paper Under Review — Springer / CIMA SCRS</div>
+          <div class="project-content">
+            <div class="project-meta">02 · Computer Vision</div>
+            <h3 class="project-name">HOLORACT</h3>
+            <div class="project-tagline">Wearable-free hand tracking for interactive STEM education.</div>
+            <p class="project-desc">Developed a wearable-free hand tracking system using a single RGB camera — no depth sensors or specialized hardware. Achieved 94% gesture recognition accuracy at ~68ms latency and 60 FPS. Research paper submitted to SCRS CIMA Conference (Springer).</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">MediaPipe</span>
+              <span class="tech-tag">Unity</span>
+              <span class="tech-tag">Real-time CV</span>
+            </div>
+            <div class="project-actions">
+              <a href="holoract.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+              <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
+            </div>
           </div>
         </div>
+
+        <!-- Project 3: Nutrix -->
+        <div class="project-showcase reveal">
+          <div class="project-image-wrapper">
+            <img src="./nutrix_logo.png" alt="Nutrix Resynced — AI Diet Planning" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-meta">03 · Full-Stack AI</div>
+            <h3 class="project-name">Nutrix Resynced</h3>
+            <div class="project-tagline">Comprehensive AI platform for personalized nutrition planning on mobile.</div>
+            <p class="project-desc">Architected an end-to-end AI-powered diet planning platform using React Native (Expo) and FastAPI. Engineered a Groq-powered (Llama 3.3 70B) chatbot and dynamic nutritional seeding pipeline integrated with the FatSecret API.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Groq Llama 3.3</span>
+            </div>
+            <div class="project-actions">
+              <a href="nutrix.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+              <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: OllamaBench -->
+        <div class="project-showcase reveal">
+          <div class="project-image-wrapper">
+            <img src="./ollamabench_1.png" alt="OllamaBench — LLM Benchmarking" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-meta">04 · Developer Tools</div>
+            <h3 class="project-name">OllamaBench</h3>
+            <div class="project-tagline">Automated performance and quality evaluation for locally deployed LLMs.</div>
+            <p class="project-desc">Built a full-stack benchmarking platform for evaluating local LLMs with Ollama. Features automated benchmark suites, multi-model comparison, hardware-aware performance analysis, and exportable benchmark reports.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Ollama</span>
+            </div>
+            <div class="project-actions">
+              <a href="ollamabench.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+              <a href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- More Projects -->
+      <div class="projects-more section" style="padding-top: 80px;">
+        <div class="more-heading">More Projects</div>
+
+        <a href="industrial-vision.html" class="more-project-item reveal">
+          <span class="more-project-num">05</span>
+          <div class="more-project-info">
+            <h4>AI-Powered Industrial Vision</h4>
+            <p>Real-time machine vision simulation for industrial conveyor belt inspection using Unity, FastAPI, and OpenCV.</p>
+          </div>
+          <span class="more-project-arrow">→</span>
+        </a>
+
+        <a href="video-recipe.html" class="more-project-item reveal">
+          <span class="more-project-num">06</span>
+          <div class="more-project-info">
+            <h4>AI Video Recipe Extraction</h4>
+            <p>Automated recipe extraction from cooking videos using Google Gemini AI with fuzzy deduplication.</p>
+          </div>
+          <span class="more-project-arrow">→</span>
+        </a>
+
+        <a href="scrapflow.html" class="more-project-item reveal">
+          <span class="more-project-num">07</span>
+          <div class="more-project-info">
+            <h4>ScrapFlow</h4>
+            <p>Automated ETL and web-scraping workflow for downstream AI/ML analysis with a full business dashboard.</p>
+          </div>
+          <span class="more-project-arrow">→</span>
+        </a>
+
+        <a href="yolo-detection.html" class="more-project-item reveal">
+          <span class="more-project-num">08</span>
+          <div class="more-project-info">
+            <h4>YOLO Video Object Detection</h4>
+            <p>Real-time object detection and tracking on video streams with bounding boxes and labels.</p>
+          </div>
+          <span class="more-project-arrow">→</span>
+        </a>
+
+        <a href="text-emotion.html" class="more-project-item reveal">
+          <span class="more-project-num">09</span>
+          <div class="more-project-info">
+            <h4>Text Emotion Detection</h4>
+            <p>Multi-class emotion classification using fine-tuned HuggingFace Transformer models.</p>
+          </div>
+          <span class="more-project-arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section id="experience" class="section">
-    <div class="wrap">
+  <section class="section" id="experience">
+    <div class="container">
       <div class="section-label reveal">Experience</div>
-      <h2 class="section-title reveal">Where he's worked.</h2>
-      <div class="timeline reveal">
-        <div class="tl-item">
-          <div class="tl-date">Aug 2025 – Sep 2025</div>
-          <h3>Southern Alloys</h3>
-          <div class="tl-role">Software Development Intern</div>
-          <ul>
-            <li>Translated business requirements into clear technical workflows and documented system architecture for a Business Management Software project</li>
-            <li>Developed and optimized interactive web applications using React with TypeScript, using AI-assisted tools to speed up iteration</li>
-            <li>Identified repetitive manual processes and built Python scripts to automate them, improving system performance</li>
-            <li>Collaborated with the technical team on testing, debugging, and quality checks to enhance overall application functionality</li>
-          </ul>
-          <div class="tl-impact">→ Delivered core modules of a business platform within 2 weeks; recognised as a dedicated, proactive, and quick learner</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Nov 2024</div>
-          <h3>Ybi Foundation</h3>
-          <div class="tl-role">Data Science &amp; AI/ML Intern</div>
-          <ul>
-            <li>Completed a structured, instructor-led Data Science and AI/ML training program covering core concepts in data analysis, machine learning algorithms, and applied model-building</li>
-            <li>Built a movie recommendation system as the program's capstone project, applying data preprocessing and recommendation algorithm concepts learned during the internship</li>
-            <li>Worked through guided exercises and assignments to reinforce practical machine learning and data analysis skills</li>
-          </ul>
-          <div class="tl-impact">→ Demonstrated strong analytical and problem-solving skills, completing all project tasks with a high level of professionalism</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-heading reveal">Where I've Worked</h2>
+      <div class="experience-list">
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="section">
-    <div class="wrap">
-      <div class="section-label reveal">Projects</div>
-      <h2 class="section-title reveal">Featured work.</h2>
-      <p class="section-subtitle reveal">Eight builds spanning computer vision, NLP, LLM platforms, and full-stack product engineering.</p>
-      <div class="proj-list">
-
-        <!-- 1. Nutrix -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./nutrix_logo.png" alt="Nutrix"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 01</div>
-            <h3>Nutrix Resynced — AI Diet Planning App</h3>
-            <div class="proj-tagline">Comprehensive AI platform for personalized nutrition planning on mobile.</div>
-            <p class="proj-desc">Architected an end-to-end AI-powered diet planning platform using React Native (Expo) and FastAPI. Engineered a Groq-powered (Llama 3.3 70B) chatbot and dynamic nutritional seeding pipeline integrated with the FatSecret API. Deployed on Render with a robust PostgreSQL and Redis backend.</p>
-            <div class="proj-chips"><span class="chip">React Native</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Groq Llama 3.3</span><span class="chip">Expo</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-nutrix')">View Details →</button>
-            </div>
+        <div class="experience-item reveal">
+          <div class="exp-date">Aug – Sep 2025</div>
+          <div>
+            <h3 class="exp-company">Southern Alloys</h3>
+            <div class="exp-role">Software Development Intern</div>
+            <ul class="exp-details">
+              <li>Translated business requirements into clear technical workflows and documented system architecture for a Business Management Software project</li>
+              <li>Developed and optimized interactive web applications using React with TypeScript, using AI-assisted tools to speed up iteration</li>
+              <li>Identified repetitive manual processes and built Python scripts to automate them, improving system performance</li>
+              <li>Collaborated with the technical team on testing, debugging, and quality checks to enhance overall application functionality</li>
+            </ul>
+            <div class="exp-impact">Delivered core modules of a business platform within 2 weeks; recognised as a dedicated, proactive, and quick learner</div>
           </div>
         </div>
 
-        <!-- 2. HOLORACT -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./holoract_interface.png" alt="HOLORACT Interface"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 02</div>
-            <h3>HOLORACT — Gesture-Based Holographic System</h3>
-            <div class="proj-tagline">Wearable-free hand tracking framework for interactive STEM education.</div>
-            <p class="proj-desc">Developed a wearable-free hand tracking system using a single standard RGB camera, requiring no depth sensors or specialised hardware. Achieved 94% gesture recognition accuracy at approximately 68ms latency and 60 FPS. Submitted as a paper to SCRS CIMA Conference (Springer), currently under review.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">MediaPipe</span><span class="chip">Unity</span><span class="chip">Real-time CV</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-holoract')">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. QueryDoc -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./QueryDoc_UI_1.png" alt="QueryDoc"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 03</div>
-            <h3>QueryDoc — Enterprise RAG System</h3>
-            <div class="proj-tagline">Production-grade AI document intelligence platform for highly accurate, hallucination-free Q&amp;A.</div>
-            <p class="proj-desc">Architected an enterprise Retrieval-Augmented Generation (RAG) pipeline to ingest local files and solve the "hidden 70%" of production AI problems. Features hybrid search retrieval (BM25 + FAISS + RRF), ms-marco cross-encoder reranking, strict citation enforcement, and a custom telemetry tracer for system observability.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">Llama 3.1</span><span class="chip">FAISS</span><span class="chip">React</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-querydoc')">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. OllamaBench -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./ollamabench_1.png" alt="OllamaBench Dashboard"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 04</div>
-            <h3>OllamaBench — Local LLM Benchmarking</h3>
-            <div class="proj-tagline">Automated performance and quality evaluation for locally deployed LLMs.</div>
-            <p class="proj-desc">Built a full-stack AI benchmarking platform for evaluating local Large Language Models (LLMs) with Ollama. Developed automated benchmark suites, multi-model comparison, hardware-aware performance analysis, offline response quality evaluation, interactive dashboards, and exportable benchmark reports using FastAPI, React, TypeScript, and Python.</p>
-            <div class="proj-chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">Ollama</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/OllamaBench?utm_source=chatgpt.com" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="window.location.href='ollamabench.html'">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. AI-Powered Industrial Vision -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./pis_cover.png" alt="AI-Powered Industrial Vision"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 05</div>
-            <h3>AI-Powered Industrial Vision Inspection System</h3>
-            <div class="proj-tagline">Real-time machine vision simulation for industrial conveyor belt inspection.</div>
-            <p class="proj-desc">A real-time machine vision simulation replicating an industrial conveyor belt inspection station. Combines Unity for digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based PASS/FAIL classification. Defective packages are automatically rejected via a simulated reject mechanism.</p>
-            <div class="proj-chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenCV</span><span class="chip">REST API</span><span class="chip">Machine Vision</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-pis')">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. AI Video Recipe Extraction -->
-        <div class="proj-entry reveal">
-          <div class="proj-image">
-            <div class="proj-image-placeholder">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>
-              <span>Preview</span>
-            </div>
-          </div>
-          <div class="proj-content">
-            <div class="proj-num">Project 06</div>
-            <h3>AI Video Recipe Extraction</h3>
-            <div class="proj-tagline">Automated recipe extraction from cooking videos using Gemini AI.</div>
-            <p class="proj-desc">An AI-powered recipe extraction and database management system that automatically analyzes cooking videos and converts them into structured recipe data. Uses Google's Gemini AI model with fuzzy string matching to deduplicate ingredients and build a searchable recipe database from video content.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">Gemini AI</span><span class="chip">SQLAlchemy</span><span class="chip">SQLite</span><span class="chip">Fuzzy Matching</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7. ScrapFlow -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./scrapflow_dashboard.png" alt="ScrapFlow Dashboard"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 07</div>
-            <h3>ScrapFlow — Business Intelligence Platform</h3>
-            <div class="proj-tagline">Automated ETL and web-scraping workflow for downstream AI/ML analysis.</div>
-            <p class="proj-desc">Built an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. Features a full business dashboard with purchase management, inventory tracking, and performance analytics.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">Web Scraping</span><span class="chip">Data Pipeline</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-scrapflow')">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. YOLO Video Object Detection -->
-        <div class="proj-entry reveal">
-          <div class="proj-image"><img src="./yolo_thumbnail.png" alt="YOLO Detection"></div>
-          <div class="proj-content">
-            <div class="proj-num">Project 08</div>
-            <h3>YOLO Video Object Detection</h3>
-            <div class="proj-tagline">Real-time object detection and tracking on video streams.</div>
-            <p class="proj-desc">Implemented real-time object detection on video streams using YOLO, capable of tracking and identifying objects with bounding boxes and labels. Processes video frames at high speed for live detection scenarios.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Computer Vision</span></div>
-            <div class="proj-actions">
-              <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener">GitHub ↗</a>
-              <button onclick="openModal('modal-yolo')">View Details →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Text Emotion Detection -->
-        <div class="proj-entry reveal">
-          <div class="proj-image">
-            <div class="proj-image-placeholder">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              <span>Preview</span>
-            </div>
-          </div>
-          <div class="proj-content">
-            <div class="proj-num">Project 09</div>
-            <h3>Text Emotion Detection</h3>
-            <div class="proj-tagline">Multi-class emotion classification using fine-tuned Transformers.</div>
-            <p class="proj-desc">Fine-tuned a HuggingFace Transformer model for multi-class text emotion classification, improving model generalization across varied writing styles. Classifies text into distinct emotional categories with high accuracy.</p>
-            <div class="proj-chips"><span class="chip">Python</span><span class="chip">HuggingFace</span><span class="chip">Transformers</span><span class="chip">NLP</span><span class="chip">Fine-tuning</span></div>
-            <div class="proj-actions">
-              <a href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
+        <div class="experience-item reveal">
+          <div class="exp-date">Nov 2024</div>
+          <div>
+            <h3 class="exp-company">Ybi Foundation</h3>
+            <div class="exp-role">Data Science & AI/ML Intern</div>
+            <ul class="exp-details">
+              <li>Completed a structured Data Science and AI/ML training program covering core concepts in data analysis, machine learning algorithms, and applied model-building</li>
+              <li>Built a movie recommendation system as the capstone project, applying data preprocessing and recommendation algorithm concepts</li>
+              <li>Worked through guided exercises and assignments to reinforce practical machine learning and data analysis skills</li>
+            </ul>
+            <div class="exp-impact">Demonstrated strong analytical and problem-solving skills, completing all project tasks with a high level of professionalism</div>
           </div>
         </div>
 
@@ -293,101 +319,145 @@
   </section>
 
   <!-- ===== SKILLS ===== -->
-  <section id="skills" class="section">
-    <div class="wrap">
+  <section class="section" id="skills">
+    <div class="container">
       <div class="section-label reveal">Skills</div>
-      <h2 class="section-title reveal">Toolkit.</h2>
-      <div class="skill-groups reveal">
-        <div class="skill-group">
-          <div class="skill-group-title">Programming</div>
-          <div class="chip-row"><span class="chip">Python</span><span class="chip">MySQL</span><span class="chip">C</span><span class="chip">R</span></div>
+      <h2 class="section-heading reveal">Toolkit</h2>
+      <div class="skills-grid">
+
+        <div class="skill-category reveal">
+          <h4>Programming</h4>
+          <div class="skill-items-text">
+            <span>Python</span> · <span>MySQL</span> · <span>C</span> · <span>R</span>
+          </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">AI / ML</div>
-          <div class="chip-row"><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">NLP</span><span class="chip">Transformers</span><span class="chip">YOLO</span><span class="chip">LLMs</span></div>
+
+        <div class="skill-category reveal reveal-delay-1">
+          <h4>AI / Machine Learning</h4>
+          <div class="skill-items-text">
+            <span>Machine Learning</span> · <span>Deep Learning</span> · <span>Computer Vision</span> · <span>NLP</span> · <span>Transformers</span> · <span>YOLO</span> · <span>LLMs</span>
+          </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Frameworks &amp; Tools</div>
-          <div class="chip-row"><span class="chip">TensorFlow</span><span class="chip">HuggingFace</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span><span class="chip">LangChain</span></div>
+
+        <div class="skill-category reveal reveal-delay-2">
+          <h4>Frameworks & Tools</h4>
+          <div class="skill-items-text">
+            <span>TensorFlow</span> · <span>HuggingFace</span> · <span>Scikit-learn</span> · <span>OpenCV</span> · <span>LangChain</span>
+          </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">AI-Assisted Dev</div>
-          <div class="chip-row"><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">LLM Debugging</span><span class="chip">Workflow Automation</span></div>
+
+        <div class="skill-category reveal reveal-delay-1">
+          <h4>AI-Assisted Dev</h4>
+          <div class="skill-items-text">
+            <span>ChatGPT</span> · <span>Claude</span> · <span>LLM Debugging</span> · <span>Workflow Automation</span>
+          </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Web &amp; Mobile</div>
-          <div class="chip-row"><span class="chip">React</span><span class="chip">React Native</span><span class="chip">TypeScript</span></div>
+
+        <div class="skill-category reveal reveal-delay-2">
+          <h4>Web & Mobile</h4>
+          <div class="skill-items-text">
+            <span>React</span> · <span>React Native</span> · <span>TypeScript</span>
+          </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Cloud &amp; Databases</div>
-          <div class="chip-row"><span class="chip">Google Cloud</span><span class="chip">Supabase</span><span class="chip">MySQL</span><span class="chip">Git</span></div>
+
+        <div class="skill-category reveal reveal-delay-3">
+          <h4>Cloud & Databases</h4>
+          <div class="skill-items-text">
+            <span>Google Cloud</span> · <span>Supabase</span> · <span>MySQL</span> · <span>Git</span>
+          </div>
         </div>
+
       </div>
-      <div class="soft-skills reveal">
-        <div class="soft-skills-title">Soft Skills</div>
-        <div class="soft-list">
-          <span class="soft-item">Problem Solving &amp; Analytical Thinking</span>
-          <span class="soft-item">Communication &amp; Teamwork</span>
-          <span class="soft-item">Ownership &amp; Self-Direction</span>
-          <span class="soft-item">Adaptability</span>
-          <span class="soft-item">Time Management</span>
+
+      <div class="skills-soft reveal">
+        <h4>Soft Skills</h4>
+        <div class="skills-soft-list">
+          <span>Problem Solving & Analytical Thinking</span>
+          <span>Communication & Teamwork</span>
+          <span>Ownership & Self-Direction</span>
+          <span>Adaptability</span>
+          <span>Time Management</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EDUCATION & AWARDS ===== -->
-  <section id="awards" class="section">
-    <div class="wrap">
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section class="section" id="achievements">
+    <div class="container">
       <div class="section-label reveal">Recognition</div>
-      <h2 class="section-title reveal">Education &amp; awards.</h2>
-      <div class="two-col reveal">
-        <div>
-          <div class="col-label">Education</div>
-          <div class="edu-item">
-            <div class="a-title">B.Tech, Artificial Intelligence &amp; Data Science</div>
-            <div class="a-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div>
+      <h2 class="section-heading reveal">Education & Achievements</h2>
+      <div class="achievements-grid">
+
+        <div class="reveal">
+          <div class="achievements-col-label">Education</div>
+          <div class="achievement-item">
+            <div class="achievement-title">B.Tech, Artificial Intelligence & Data Science</div>
+            <div class="achievement-meta">B.S. Abdur Rahman Crescent Institute of Science and Technology · 2022–2026</div>
           </div>
-          <div class="edu-item">
-            <div class="a-title">Higher Secondary Education</div>
-            <div class="a-meta">Chettinad Vidyashram High School · 2010–2022</div>
+          <div class="achievement-item">
+            <div class="achievement-title">Higher Secondary Education</div>
+            <div class="achievement-meta">Chettinad Vidyashram High School · 2010–2022</div>
           </div>
         </div>
-        <div>
-          <div class="col-label">Certifications &amp; Achievements</div>
-          <div class="award-item"><div class="a-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div><div class="a-meta">Primary Author &amp; Developer · Presented at CIMA SCRS Conference · Under review for Springer</div></div>
-          <div class="award-item"><div class="a-title">Smart India Hackathon (SIH)</div><div class="a-meta">National-level Hackathon Participant · 2024</div></div>
-          <div class="award-item"><div class="a-title">Data Science and AI/ML Internship Certification</div><div class="a-meta">Ybi Foundation · Nov 2024</div></div>
-          <div class="award-item"><div class="a-title">Java (Basic)</div><div class="a-meta">HackerRank · Apr 2025</div></div>
-          <div class="award-item"><div class="a-title">Arduino Training — Score 95%</div><div class="a-meta">Spoken Tutorial Project, IIT Bombay · Mar 2025</div></div>
-          <div class="award-item"><div class="a-title">English Language for Competitive Exams</div><div class="a-meta">NPTEL Elite, IIT Madras · Jan–Apr 2025</div></div>
-          <div class="award-item"><div class="a-title">E-Business</div><div class="a-meta">NPTEL, IIT Kharagpur · Jul–Oct 2025</div></div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="achievements-col-label">Certifications & Achievements</div>
+          <div class="achievement-item achievement-highlight">
+            <div class="achievement-title">HOLORACT: Gesture-Controlled Holographic Framework for STEM Education</div>
+            <div class="achievement-meta">Primary Author & Developer · Presented at CIMA SCRS Conference · Under review for Springer</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">Smart India Hackathon (SIH)</div>
+            <div class="achievement-meta">National-level Hackathon Participant · 2024</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">Data Science and AI/ML Internship Certification</div>
+            <div class="achievement-meta">Ybi Foundation · Nov 2024</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">Java (Basic)</div>
+            <div class="achievement-meta">HackerRank · Apr 2025</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">Arduino Training — Score 95%</div>
+            <div class="achievement-meta">Spoken Tutorial Project, IIT Bombay · Mar 2025</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">English Language for Competitive Exams</div>
+            <div class="achievement-meta">NPTEL Elite, IIT Madras · Jan–Apr 2025</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">E-Business</div>
+            <div class="achievement-meta">NPTEL, IIT Kharagpur · Jul–Oct 2025</div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section contact-section">
-    <div class="wrap">
+  <section class="contact" id="contact">
+    <div class="container">
       <div class="section-label reveal">Contact</div>
-      <h2 class="contact-headline reveal">Let's build something.</h2>
+      <h2 class="contact-heading reveal">Let's build<br>something.</h2>
       <p class="contact-body reveal">Open to AI Engineer roles and collaborations in computer vision, NLP, and applied ML. Based in Chennai, working with teams anywhere.</p>
       <div class="contact-links reveal">
-        <a class="c-link" href="mailto:thalhaahamedt@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+        <a class="contact-link magnetic" href="mailto:thalhaahamedt@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
           thalhaahamedt@gmail.com
         </a>
-        <a class="c-link" href="tel:+919841879997">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+        <a class="contact-link magnetic" href="tel:+919841879997">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
           +91 98418 79997
         </a>
-        <a class="c-link" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
+        <a class="contact-link magnetic" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>
           github.com/Fortuner47
         </a>
-        <span class="c-link" style="cursor:default">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="contact-link" style="cursor:default">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Chennai, TN, India
         </span>
       </div>
@@ -396,607 +466,353 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="wrap footer-inner">
+    <div class="container footer-inner">
       <span>© 2026 Thalha Ahamed</span>
       <span>AI Engineer — Computer Vision · NLP · LLM Systems</span>
     </div>
   </footer>
 
-  <!-- ===== MODALS ===== -->
-
-  <!-- QueryDoc Modal -->
-  <div class="modal-overlay" id="modal-querydoc">
-    <div class="modal-container">
-      <div class="modal-header"><h2>QueryDoc — Enterprise RAG System</h2><button class="btn-close" onclick="closeModal('modal-querydoc')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">Project Overview</div>
-          <p class="video-desc" style="margin-top:0"><strong>QueryDoc</strong> is a production-grade, AI-powered document intelligence platform designed to ingest local files (PDFs, DOCX, TXT) and provide highly accurate, hallucination-free answers using Retrieval-Augmented Generation (RAG).<br><br>Unlike standard prototype chatbots, QueryDoc was architected to solve the "hidden 70%" of production AI problems, focusing heavily on retrieval precision, strict citations, and system observability.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">User Query Input
-      ↓
-Parallel Hybrid Search (FAISS Dense + BM25 Sparse)
-      ↓
-Reciprocal Rank Fusion (RRF)
-      ↓
-Cross-Encoder Semantic Reranking (ms-marco)
-      ↓
-LLM Prompting with Strict Citations
-      ↓
-Grounded Response Generation</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li><strong>Hybrid Search Retrieval:</strong> Fuses FAISS vector similarity with BM25 sparse search using RRF to perfectly capture semantic meaning and exact keywords.</li>
-            <li><strong>Cross-Encoder Reranking:</strong> Re-orders the top hybrid results using an ms-marco model to surface the most contextually relevant data.</li>
-            <li><strong>Strict Citation Enforcement:</strong> LLM is aggressively prompted to ground answers exclusively in retrieved context, virtually eliminating hallucinations.</li>
-            <li><strong>Telemetry & Observability:</strong> Custom TelemetryTracer tracking latency, chunk count, token usage, and cost per request.</li>
-            <li><strong>Automated Regression Evaluation:</strong> Gated by CI/CD GitHub Actions testing context retrieval accuracy and answer correctness on every push.</li>
-            <li><strong>Developer-Focused Frontend:</strong> Dense React/Vite SPA architecture with Recharts analytics and a 70/30 split view layout.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">Platform Interface</div>
-          <div class="gallery-grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr))">
-            <div class="gallery-item" onclick="openLightbox('./QueryDoc_UI_1.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_UI_1.png" alt="Developer-Focused Workspace"></div><div class="gallery-info"><h4>Developer-Focused Workspace</h4><p>Strict 70/30 split view with a persistent document preview and retrieval metadata panel.</p><span class="feature">Interface</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./QueryDoc_UI_2.png')"><div class="gallery-img-wrapper"><img src="./QueryDoc_UI_2.png" alt="Analytics Dashboard"></div><div class="gallery-info"><h4>Telemetry & Analytics</h4><p>Integrated with Recharts visualizing query volume, active users, and system latency.</p><span class="feature">Observability</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">Vite</span><span class="tech-badge">Framer Motion</span><span class="tech-badge">Recharts</span></div></div>
-            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangChain</span><span class="tech-badge">GitHub Actions</span></div></div>
-            <div><div class="tech-card-title">AI Engine</div><div class="tech-badges"><span class="tech-badge">Llama 3.1 8B (Groq)</span><span class="tech-badge">FAISS</span><span class="tech-badge">PyTorch</span><span class="tech-badge">Cross-Encoders</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nutrix Modal -->
-  <div class="modal-overlay" id="modal-nutrix">
-    <div class="modal-container">
-      <div class="modal-header"><h2>Nutrix Resynced</h2><button class="btn-close" onclick="closeModal('modal-nutrix')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">System Demonstration</div>
-          <div class="video-container portrait"><video src="./Nutrix_Demo.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Demonstration of the Nutrix AI diet planning workflow, showcasing personalized meal plan generation, tracking charts, and Groq-powered conversational AI assistance.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Mobile Client (Expo / React Native)
-      ↓
-Render Load Balancer / Gateway
-      ↓
-FastAPI Backend Services
-      ↓
-Groq Llama 3.3 API / FatSecret API
-      ↓
-Redis Cache & Rate Limiting
-      ↓
-PostgreSQL DB (Async SQLAlchemy)</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li>Cross-platform mobile apps via Expo & React Native</li>
-            <li>FastAPI async backend powered by SQLAlchemy and PostgreSQL</li>
-            <li>Groq Llama 3.3 70B integrated Chatbot for dietary advice</li>
-            <li>Dynamic nutritional seeding and verification using FatSecret API</li>
-            <li>Cloudinary integration for OCR and media storage</li>
-            <li>Interactive Charts and animations with Reanimated & Chart Kit</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">Project Screenshots</div>
-          <div class="gallery-grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
-            <div class="gallery-item" onclick="openLightbox('./nutrix_dashboard.jpg')"><div class="gallery-img-wrapper portrait"><img src="./nutrix_dashboard.jpg" alt="Dashboard"></div><div class="gallery-info"><h4>AI Dashboard</h4><p>Personalized daily meal plan and macronutrient tracking.</p><span class="feature">Core</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./nutrix_explore.jpg')"><div class="gallery-img-wrapper portrait"><img src="./nutrix_explore.jpg" alt="Explore Page"></div><div class="gallery-info"><h4>Social & Discover</h4><p>Explore recipes, communities, and top creators.</p><span class="feature">Community</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Mobile App</div><div class="tech-badges"><span class="tech-badge">Expo</span><span class="tech-badge">React Native</span><span class="tech-badge">Redux</span></div></div>
-            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python / FastAPI</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Redis</span></div></div>
-            <div><div class="tech-card-title">External APIs</div><div class="tech-badges"><span class="tech-badge">Groq (Llama 3.3)</span><span class="tech-badge">FatSecret</span><span class="tech-badge">Cloudinary</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOLORACT Modal -->
-  <div class="modal-overlay" id="modal-holoract">
-    <div class="modal-container">
-      <div class="modal-header"><h2>HOLORACT</h2><button class="btn-close" onclick="closeModal('modal-holoract')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">System Demonstration</div>
-          <div class="video-container"><video src="./Holoract Demo_1.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <div class="video-container" style="margin-top:16px"><video src="./Holoract Demo_2.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Showcasing the hardware-free, gesture-controlled interactive STEM learning environment with real-time hand tracking and holographic projection. Achieved 94% accuracy at ~68ms latency and 60 FPS.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Standard RGB Camera Input
-      ↓
-MediaPipe Hand Landmark Detection
-      ↓
-Custom Python Gesture Recognition Model
-      ↓
-Real-time Socket Data Transmission
-      ↓
-Unity 3D Physics Engine
-      ↓
-Holographic Object Manipulation
-      ↓
-User Visual Feedback</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li>Wearable-free hardware setup (standard camera only)</li>
-            <li>94% recognition accuracy via custom tracking models</li>
-            <li>Low-latency (~68ms) local network communication</li>
-            <li>Interactive 3D STEM holographic rendering</li>
-            <li>Robust hand tracking across diverse lighting conditions</li>
-            <li>Published research pipeline validation</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">System Interface & Rendering</div>
-          <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('./holoract_interface.png')"><div class="gallery-img-wrapper"><img src="./holoract_interface.png" alt="System Interface"></div><div class="gallery-info"><h4>System Interface</h4><p>Real-time hand tracking UI with integrated camera feed and interactive modules.</p><span class="feature">Computer Vision</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./holoract_hologram.png')"><div class="gallery-img-wrapper"><img src="./holoract_hologram.png" alt="Holographic Display"></div><div class="gallery-info"><h4>Holographic Display</h4><p>3D projection showing interactive educational content.</p><span class="feature">3D Rendering</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">OpenCV</span><span class="tech-badge">MediaPipe</span></div></div>
-            <div><div class="tech-card-title">3D Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span></div></div>
-            <div><div class="tech-card-title">Integration</div><div class="tech-badges"><span class="tech-badge">Socket Communication</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ScrapFlow Modal -->
-  <div class="modal-overlay" id="modal-scrapflow">
-    <div class="modal-container">
-      <div class="modal-header"><h2>ScrapFlow</h2><button class="btn-close" onclick="closeModal('modal-scrapflow')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">Project Overview</div>
-          <p class="video-desc" style="margin-top:0">ScrapFlow is an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. It features a full business dashboard for intuitive data exploration and management.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Target Web Sources
-      ↓
-Python Automated Scrapers (BeautifulSoup/Selenium)
-      ↓
-Data Cleaning & Normalization Layer
-      ↓
-Structured Relational Database
-      ↓
-React Frontend Dashboard
-      ↓
-Inventory & Purchase Analytics Visualization
-      ↓
-Clean Datasets Export for ML Pipelines</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li>Automated periodic web data scraping</li>
-            <li>Dynamic data cleaning and structuring</li>
-            <li>Real-time dashboard for inventory & purchase tracking</li>
-            <li>Supplier and supply chain management features</li>
-            <li>Performance analytics and data visualization</li>
-            <li>Export-ready formatting for machine learning models</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">Platform Interface</div>
-          <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('./scrapflow_dashboard.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_dashboard.png" alt="Dashboard"></div><div class="gallery-info"><h4>Business Dashboard</h4><p>Overview of purchases, sales, inventory, and gross profit.</p><span class="feature">Analytics</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./scrapflow_purchases.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_purchases.png" alt="Purchases"></div><div class="gallery-info"><h4>Purchases Management</h4><p>Add and manage new purchase entries with supplier details.</p><span class="feature">Operations</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./scrapflow_inventory.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_inventory.png" alt="Inventory"></div><div class="gallery-info"><h4>Inventory Tracking</h4><p>Real-time tracking of current stock and stock thresholds.</p><span class="feature">Logistics</span></div></div>
-            <div class="gallery-item" onclick="openLightbox('./scrapflow_reports.png')"><div class="gallery-img-wrapper"><img src="./scrapflow_reports.png" alt="Reports"></div><div class="gallery-info"><h4>Reports & Analytics</h4><p>Detailed performance analytics and material distribution.</p><span class="feature">Insights</span></div></div>
-          </div>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Backend</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">Web Scraping</span><span class="tech-badge">Data Pipeline</span></div></div>
-            <div><div class="tech-card-title">Frontend</div><div class="tech-badges"><span class="tech-badge">React</span><span class="tech-badge">Tailwind CSS</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- YOLO Modal -->
-  <div class="modal-overlay" id="modal-yolo">
-    <div class="modal-container">
-      <div class="modal-header"><h2>YOLO Video Object Detection</h2><button class="btn-close" onclick="closeModal('modal-yolo')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">System Demonstration</div>
-          <div class="video-container"><video src="./yolo_output.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">Demonstration of YOLO object detection on a video stream, tracking and identifying objects in real-time with high frame-rate output.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Raw Video Stream Input
-      ↓
-OpenCV Frame Extraction & Preprocessing
-      ↓
-YOLOv8 Neural Network Inference
-      ↓
-Bounding Box & Confidence Score Calculation
-      ↓
-Non-Maximum Suppression (NMS) Filtering
-      ↓
-Annotation Overlay
-      ↓
-Real-time Output Video Stream</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li>High-speed object detection for video streams</li>
-            <li>Multi-class object identification and localization</li>
-            <li>Real-time bounding box and label overlay</li>
-            <li>Integration with standard webcam feeds or video files</li>
-            <li>Highly optimized OpenCV pipeline</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">YOLO</span><span class="tech-badge">OpenCV</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PIS Modal -->
-  <div class="modal-overlay" id="modal-pis">
-    <div class="modal-container">
-      <div class="modal-header"><h2>AI-Powered Industrial Vision</h2><button class="btn-close" onclick="closeModal('modal-pis')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-      <div class="modal-body">
-        <div>
-          <div class="modal-actions">
-            <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg> View on GitHub</a>
-          </div>
-          <div class="modal-section-title">System Demonstration</div>
-          <div class="video-container"><video src="./AI-Powered Industrial Vision Inspection System Demo 2.mp4" controls playsinline>Your browser does not support the video tag.</video></div>
-          <p class="video-desc">AI-Powered Industrial Vision Inspection System is a real-time machine vision simulation that replicates an industrial conveyor belt inspection station. Combines Unity for the digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based inspection.<br><br>Packages travel along a conveyor belt where an industrial inspection camera captures images. These images are sent to a Python FastAPI server, where OpenCV analyzes the package and classifies it as PASS or FAIL. Defective packages are automatically rejected via a simulated reject mechanism.</p>
-        </div>
-        <div>
-          <div class="modal-section-title">Architecture</div>
-          <div class="arch-diagram">Package Spawn
-      ↓
-Conveyor Belt
-      ↓
-Industrial Inspection Camera
-      ↓
-RenderTexture Image Capture
-      ↓
-FastAPI Server
-      ↓
-OpenCV Image Processing
-      ↓
-PASS / FAIL Classification
-      ↓
-Inspection Result Sent Back to Unity
-      ↓
-Status Indicator
-      ↓
-Automatic Reject Mechanism</div>
-        </div>
-        <div>
-          <div class="modal-section-title">Key Features</div>
-          <ul class="feature-list">
-            <li>Real-time conveyor belt simulation</li>
-            <li>Industrial inspection camera simulation</li>
-            <li>Image capture using Unity RenderTexture</li>
-            <li>Computer vision inspection using OpenCV</li>
-            <li>FastAPI REST API integration</li>
-            <li>Real-time Unity ↔ Python communication</li>
-            <li>Automatic PASS / FAIL classification</li>
-            <li>Automated reject mechanism for defective products</li>
-            <li>Live inspection status visualization</li>
-            <li>Modular architecture for future AI model integration</li>
-          </ul>
-        </div>
-        <div>
-          <div class="modal-section-title">Tech Stack</div>
-          <div class="tech-grid">
-            <div><div class="tech-card-title">Simulation Environment</div><div class="tech-badges"><span class="tech-badge">Unity</span><span class="tech-badge">C#</span><span class="tech-badge">RenderTexture</span></div></div>
-            <div><div class="tech-card-title">Backend & API</div><div class="tech-badges"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">REST API</span></div></div>
-            <div><div class="tech-card-title">Computer Vision</div><div class="tech-badges"><span class="tech-badge">OpenCV</span><span class="tech-badge">Machine Vision</span></div></div>
-            <div><div class="tech-card-title">Domain</div><div class="tech-badges"><span class="tech-badge">Industrial Automation</span><span class="tech-badge">Computer Vision</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-    <img src="" alt="Fullscreen preview" id="lightbox-img">
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
   </div>
 
   <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
   <script>
-  /* ---- Reveal on Scroll ---- */
-  const revealItems = document.querySelectorAll('.reveal');
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  revealItems.forEach(el => revealIO.observe(el));
-
-  /* ---- Modal ---- */
-  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = 'auto'; }
-  document.querySelectorAll('.modal-overlay').forEach(o => {
-    o.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); });
-  });
-
-  /* ---- Lightbox ---- */
-  function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('active'); }
-  function closeLightbox(e) { if (e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) document.getElementById('lightbox').classList.remove('active'); }
-
-  /* ---- Active nav link ---- */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const navIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-        });
-      }
-    });
-  }, { rootMargin: '-50% 0px -50% 0px' });
-  sections.forEach(sec => navIO.observe(sec));
-
-  /* ============================================
-     PARTICLE CONSTELLATION SYSTEM
-     ============================================ */
   (function() {
-    /* ---- Color Palette ---- */
-    const COLORS = [
-      '#8052ff', '#8052ff', '#8052ff',   // violet (dominant)
-      '#ffb829', '#ffb829',               // amber
-      '#15846e',                           // teal
-      '#c44dff',                           // purple
-      '#4d8dff',                           // blue
-      '#ff4d8d',                           // magenta
-      '#00c9a7',                           // cyan
-    ];
+    'use strict';
 
-    /* ---- Particle class ---- */
-    class Particle {
-      constructor(tx, ty, color, size, isAmbient) {
-        this.tx = tx;
-        this.ty = ty;
-        this.x = tx + (Math.random() - 0.5) * 60;
-        this.y = ty + (Math.random() - 0.5) * 60;
-        this.color = color;
-        this.size = size;
-        this.isAmbient = isAmbient;
-        this.angle = Math.random() * Math.PI * 2;
-        this.speed = 0.0008 + Math.random() * 0.002;
-        this.amplitude = isAmbient ? (3 + Math.random() * 6) : (1 + Math.random() * 2.5);
-        this.opacity = isAmbient ? (0.15 + Math.random() * 0.3) : (0.35 + Math.random() * 0.55);
-        this.rotation = Math.random() * Math.PI * 2;
-        this.rotSpeed = (Math.random() - 0.5) * 0.012;
-      }
+    /* ========================================================
+       1. LOADING SEQUENCE
+       ======================================================== */
+    const loader = document.getElementById('loader');
 
-      update(time) {
-        this.x = this.tx + Math.sin(time * this.speed + this.angle) * this.amplitude;
-        this.y = this.ty + Math.cos(time * this.speed * 0.8 + this.angle) * this.amplitude;
-        this.rotation += this.rotSpeed;
-      }
-
-      draw(ctx) {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-        ctx.globalAlpha = this.opacity;
-        ctx.strokeStyle = this.color;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        const s = this.size;
-        ctx.moveTo(0, -s);
-        ctx.lineTo(s * 0.866, s * 0.5);
-        ctx.lineTo(-s * 0.866, s * 0.5);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.restore();
-      }
+    function hideLoader() {
+      loader.classList.add('loaded');
+      document.body.classList.remove('loading');
+      setTimeout(initHeroAnimation, 300);
     }
 
-    /* ---- Brain shape test ---- */
-    function isInBrain(x, y, cx, cy, scale) {
-      const nx = (x - cx) / scale;
-      const ny = (y - cy) / scale;
+    // Ensure minimum 1.8s display, then wait for full page load
+    let pageLoaded = false;
+    let minTimePassed = false;
 
-      // Left hemisphere
-      if (Math.pow((nx + 0.24) / 0.44, 2) + Math.pow(ny / 0.52, 2) < 1) return true;
-      // Right hemisphere
-      if (Math.pow((nx - 0.24) / 0.44, 2) + Math.pow(ny / 0.52, 2) < 1) return true;
-      // Frontal connection (top)
-      if (Math.pow(nx / 0.3, 2) + Math.pow((ny + 0.28) / 0.28, 2) < 1) return true;
-      // Brain stem
-      if (Math.pow(nx / 0.12, 2) + Math.pow((ny - 0.42) / 0.16, 2) < 1) return true;
-      return false;
-    }
-
-    /* ---- Photo exclusion zone ---- */
-    function isInPhotoZone(x, y, cx, cy, radius) {
-      const dx = x - cx;
-      const dy = y - cy;
-      return (dx * dx + dy * dy) < (radius * radius);
-    }
-
-    /* ======= HERO CONSTELLATION ======= */
-    const heroCanvas = document.getElementById('constellation-canvas');
-    const heroCtx = heroCanvas.getContext('2d');
-    let heroParticles = [];
-
-    function initHeroConstellation() {
-      const container = heroCanvas.parentElement;
-      const w = container.offsetWidth;
-      const h = container.offsetHeight;
-      heroCanvas.width = w * window.devicePixelRatio;
-      heroCanvas.height = h * window.devicePixelRatio;
-      heroCanvas.style.width = w + 'px';
-      heroCanvas.style.height = h + 'px';
-      heroCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-
-      const cx = w / 2;
-      const cy = h / 2;
-      const brainScale = Math.min(w, h) * 0.9;
-      const photoRadius = 125; // exclusion radius for the profile photo
-
-      heroParticles = [];
-
-      // Brain particles
-      let placed = 0;
-      let attempts = 0;
-      const targetCount = Math.min(1600, Math.floor(w * h / 200));
-      while (placed < targetCount && attempts < targetCount * 10) {
-        attempts++;
-        const px = cx + (Math.random() - 0.5) * brainScale;
-        const py = cy + (Math.random() - 0.5) * brainScale;
-        if (isInBrain(px, py, cx, cy, brainScale) && !isInPhotoZone(px, py, cx, cy, photoRadius)) {
-          heroParticles.push(new Particle(
-            px, py,
-            COLORS[Math.floor(Math.random() * COLORS.length)],
-            1.5 + Math.random() * 2.5,
-            false
-          ));
-          placed++;
-        }
-      }
-
-      // Ambient particles outside the brain
-      for (let i = 0; i < 120; i++) {
-        let px, py;
-        do {
-          px = Math.random() * w;
-          py = Math.random() * h;
-        } while (isInBrain(px, py, cx, cy, brainScale) && Math.random() > 0.1);
-        heroParticles.push(new Particle(
-          px, py,
-          COLORS[Math.floor(Math.random() * COLORS.length)],
-          1 + Math.random() * 2,
-          true
-        ));
-      }
-    }
-
-    /* ======= AMBIENT BACKGROUND ======= */
-    const ambientCanvas = document.getElementById('ambient-canvas');
-    const ambientCtx = ambientCanvas.getContext('2d');
-    let ambientParticles = [];
-
-    function initAmbient() {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      ambientCanvas.width = w * window.devicePixelRatio;
-      ambientCanvas.height = h * window.devicePixelRatio;
-      ambientCanvas.style.width = w + 'px';
-      ambientCanvas.style.height = h + 'px';
-      ambientCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-
-      ambientParticles = [];
-      const count = Math.floor((w * h) / 12000);
-      for (let i = 0; i < count; i++) {
-        ambientParticles.push(new Particle(
-          Math.random() * w,
-          Math.random() * h,
-          COLORS[Math.floor(Math.random() * COLORS.length)],
-          1 + Math.random() * 1.5,
-          true
-        ));
-      }
-    }
-
-    /* ---- Animation loop ---- */
-    let startTime = performance.now();
-
-    function animate(now) {
-      const time = now - startTime;
-
-      // Hero constellation
-      if (heroCanvas.offsetParent !== null) {
-        const hw = heroCanvas.width / window.devicePixelRatio;
-        const hh = heroCanvas.height / window.devicePixelRatio;
-        heroCtx.clearRect(0, 0, hw, hh);
-        for (let i = 0; i < heroParticles.length; i++) {
-          heroParticles[i].update(time);
-          heroParticles[i].draw(heroCtx);
-        }
-      }
-
-      // Ambient background
-      const aw = ambientCanvas.width / window.devicePixelRatio;
-      const ah = ambientCanvas.height / window.devicePixelRatio;
-      ambientCtx.clearRect(0, 0, aw, ah);
-      for (let i = 0; i < ambientParticles.length; i++) {
-        ambientParticles[i].update(time);
-        ambientParticles[i].draw(ambientCtx);
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    /* ---- Init ---- */
-    initHeroConstellation();
-    initAmbient();
-    requestAnimationFrame(animate);
-
-    /* ---- Resize handler ---- */
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        initHeroConstellation();
-        initAmbient();
-      }, 200);
+    window.addEventListener('load', () => {
+      pageLoaded = true;
+      if (minTimePassed) hideLoader();
     });
+
+    setTimeout(() => {
+      minTimePassed = true;
+      if (pageLoaded) hideLoader();
+    }, 2200);
+
+    // Fallback: always hide after 4s
+    setTimeout(() => {
+      if (!loader.classList.contains('loaded')) hideLoader();
+    }, 4000);
+
+    /* ========================================================
+       2. GSAP SETUP
+       ======================================================== */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ========================================================
+       3. HERO ANIMATION
+       ======================================================== */
+    function initHeroAnimation() {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.to('.hero-label', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+      })
+      .to('.hero-title-line span', {
+        y: 0,
+        duration: 1.1,
+        stagger: 0.12,
+        ease: 'power4.out',
+      }, '-=0.35')
+      .to('.hero-subtitle', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+      }, '-=0.5')
+      .to('.hero-chips', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      }, '-=0.4')
+      .to('.hero-cta', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      }, '-=0.3')
+      .to('#scroll-indicator', {
+        opacity: 1,
+        duration: 0.8,
+      }, '-=0.2');
+    }
+
+    /* ========================================================
+       4. MOUSE PARALLAX ON HERO
+       ======================================================== */
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to('.hero-title-line span', {
+          x: x * 15,
+          y: y * 8,
+          duration: 1.2,
+          ease: 'power2.out',
+        });
+
+        gsap.to('.hero-label', {
+          x: x * 8,
+          y: y * 5,
+          duration: 1.4,
+          ease: 'power2.out',
+        });
+      });
+
+      hero.addEventListener('mouseleave', () => {
+        gsap.to('.hero-title-line span, .hero-label', {
+          x: 0,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      });
+    }
+
+    /* ========================================================
+       5. SCROLL REVEAL (IntersectionObserver)
+       ======================================================== */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px',
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ========================================================
+       6. PROJECT IMAGE PARALLAX (ScrollTrigger)
+       ======================================================== */
+    document.querySelectorAll('.project-image-wrapper img').forEach(img => {
+      gsap.fromTo(img, {
+        y: 30,
+      }, {
+        y: -30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img.closest('.project-showcase'),
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+    });
+
+    /* ========================================================
+       7. NAVIGATION — Show/Hide on Scroll
+       ======================================================== */
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+    let scrollTicking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          const current = window.scrollY;
+          // Hide on scroll down, show on scroll up
+          if (current > lastScroll && current > 120) {
+            nav.classList.add('hidden');
+          } else {
+            nav.classList.remove('hidden');
+          }
+          // Solid background after hero
+          if (current > 60) {
+            nav.classList.add('solid');
+          } else {
+            nav.classList.remove('solid');
+          }
+          lastScroll = current;
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    });
+
+    /* ========================================================
+       8. MOBILE NAVIGATION
+       ======================================================== */
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    /* ========================================================
+       9. STAT COUNTER ANIMATION
+       ======================================================== */
+    const statValues = document.querySelectorAll('.stat-value[data-target]');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const suffix = el.dataset.suffix || '';
+          let current = 0;
+          const duration = 1200;
+          const startTime = performance.now();
+
+          function tick(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.round(target * eased);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          statObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statValues.forEach(el => statObserver.observe(el));
+
+    /* ========================================================
+       10. MAGNETIC BUTTONS
+       ======================================================== */
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.25,
+          y: y * 0.25,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: 'elastic.out(1, 0.4)',
+        });
+      });
+    });
+
+    /* ========================================================
+       11. SCROLL INDICATOR — Hide after scrolling
+       ======================================================== */
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    if (scrollIndicator) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          scrollIndicator.style.opacity = '0';
+          scrollIndicator.style.transition = 'opacity 0.5s';
+        }
+      }, { passive: true });
+    }
+
+    /* ========================================================
+       12. LIGHTBOX
+       ======================================================== */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    window.openLightbox = function(src) {
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (lightbox) lightbox.addEventListener('click', closeLightbox);
+    if (lightboxClose) lightboxClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+    /* ========================================================
+       13. SECTION HEADING PARALLAX
+       ======================================================== */
+    document.querySelectorAll('.section-heading, .contact-heading').forEach(heading => {
+      gsap.fromTo(heading, {
+        y: 20,
+      }, {
+        y: -10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heading,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 2,
+        },
+      });
+    });
+
+    /* ========================================================
+       14. EXPERIENCE TIMELINE — Stagger animation
+       ======================================================== */
+    document.querySelectorAll('.experience-item').forEach((item, i) => {
+      gsap.from(item.querySelectorAll('.exp-details li'), {
+        opacity: 0,
+        x: -10,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    });
+
   })();
   </script>
 

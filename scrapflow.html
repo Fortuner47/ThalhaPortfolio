@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OllamaBench — Thalha Ahamed</title>
-  <meta name="description" content="OllamaBench: Full-stack AI benchmarking platform for evaluating local LLMs with automated suites, multi-model comparison, and hardware-aware analysis.">
+  <title>ScrapFlow — Thalha Ahamed</title>
+  <meta name="description" content="ScrapFlow: Automated ETL and web-scraping workflow tool for downstream AI/ML analysis with a full business intelligence dashboard.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,19 +12,16 @@
 </head>
 <body>
 
-  <!-- Grain -->
   <svg class="grain-overlay" aria-hidden="true">
     <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
     <rect width="100%" height="100%" filter="url(#grain-filter)"/>
   </svg>
 
-  <!-- Ambient -->
   <div class="ambient" aria-hidden="true">
     <div class="ambient-orb ambient-orb--1"></div>
     <div class="ambient-orb ambient-orb--2"></div>
   </div>
 
-  <!-- Navigation -->
   <nav class="nav solid">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Thalha Ahamed</a>
@@ -32,143 +29,135 @@
         <a href="index.html#projects">All Projects</a>
         <a href="index.html#contact">Contact</a>
       </div>
-      <a class="nav-cta" href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="nav-cta" href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </nav>
 
-  <!-- Case Study Hero -->
   <section class="case-hero">
     <div class="container">
       <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
-      <div class="case-meta reveal">Project 04 · Developer Tools · AI</div>
-      <h1 class="case-title reveal">OllamaBench</h1>
-      <p class="case-tagline reveal">Automated performance and quality evaluation for locally deployed Large Language Models. Multi-model comparison with hardware-aware analysis.</p>
+      <div class="case-meta reveal">Project 07 · Full-Stack · Data Engineering</div>
+      <h1 class="case-title reveal">ScrapFlow</h1>
+      <p class="case-tagline reveal">Automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis.</p>
       <div class="case-actions reveal">
-        <a href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+        <a href="https://github.com/Fortuner47/ScrapFlow" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
       </div>
       <div class="case-hero-image reveal">
-        <img src="./ollamabench_1.png" alt="OllamaBench Dashboard">
+        <img src="./scrapflow_dashboard.png" alt="ScrapFlow Business Dashboard">
       </div>
     </div>
   </section>
 
-  <!-- Overview -->
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Overview</div>
       <div class="case-section-content">
-        <p class="reveal"><strong>OllamaBench</strong> is a full-stack AI benchmarking platform built for evaluating locally-deployed Large Language Models (LLMs) through Ollama. It provides automated benchmark suites, multi-model comparison, and hardware-aware performance analysis.</p>
-        <p class="reveal">The platform enables developers to run comprehensive quality and performance evaluations entirely offline, with interactive dashboards for analyzing results and exportable benchmark reports for sharing findings.</p>
-        <p class="reveal">Built with a modern stack — React with TypeScript for the frontend, FastAPI with Python for the backend — OllamaBench bridges the gap between simple model testing and production-grade evaluation infrastructure.</p>
+        <p class="reveal"><strong>ScrapFlow</strong> is an automated ETL and web-scraping workflow tool designed to extract, clean, and structure raw web data for downstream AI/ML analysis. It features a full business dashboard for intuitive data exploration and management.</p>
+        <p class="reveal">The platform automates the entire data pipeline — from identifying and scraping target web sources, through data cleaning and normalization, to storing structured results in a relational database. The React-based frontend provides real-time analytics for inventory, purchases, and performance metrics.</p>
       </div>
     </div>
   </section>
 
-  <!-- Architecture -->
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Architecture</div>
-      <div class="case-arch reveal">React + TypeScript Frontend
+      <div class="case-arch reveal">Target Web Sources
       ↓
-FastAPI REST Backend
+Python Automated Scrapers (BeautifulSoup / Selenium)
       ↓
-Ollama Local Model Server
+Data Cleaning & Normalization Layer
       ↓
-Benchmark Suite Engine
+Structured Relational Database
       ↓
-Hardware Metrics Collector
+React Frontend Dashboard
       ↓
-Results Aggregation & Analysis
+Inventory & Purchase Analytics Visualization
       ↓
-Interactive Dashboard & Reports</div>
+Clean Datasets Export for ML Pipelines</div>
     </div>
   </section>
 
-  <!-- Key Features -->
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Key Features</div>
       <ul class="case-features">
-        <li class="reveal"><strong>Automated Benchmark Suites:</strong> Pre-configured test suites covering reasoning, coding, creative writing, and factual accuracy.</li>
-        <li class="reveal"><strong>Multi-Model Comparison:</strong> Side-by-side performance comparison across different locally deployed LLM models.</li>
-        <li class="reveal"><strong>Hardware-Aware Analysis:</strong> Correlates model performance with system hardware metrics including CPU, GPU, and memory utilization.</li>
-        <li class="reveal"><strong>Offline Quality Evaluation:</strong> No cloud dependency — all evaluation runs locally with full data privacy.</li>
-        <li class="reveal"><strong>Interactive Dashboards:</strong> Rich visualization of benchmark results with filtering, sorting, and drill-down capabilities.</li>
-        <li class="reveal"><strong>Exportable Reports:</strong> Generate shareable benchmark reports for team collaboration and model selection decisions.</li>
+        <li class="reveal"><strong>Automated Web Scraping:</strong> Periodic data extraction from target web sources using BeautifulSoup and Selenium.</li>
+        <li class="reveal"><strong>Data Cleaning Pipeline:</strong> Dynamic cleaning and structuring of raw scraped data into normalized formats.</li>
+        <li class="reveal"><strong>Real-time Dashboard:</strong> Interactive React frontend for inventory tracking, purchase management, and analytics.</li>
+        <li class="reveal"><strong>Supplier Management:</strong> Full supplier and supply chain tracking with performance metrics.</li>
+        <li class="reveal"><strong>Analytics Visualization:</strong> Material distribution, cost analysis, and performance reporting charts.</li>
+        <li class="reveal"><strong>ML-Ready Export:</strong> Export-ready formatting for downstream machine learning model training.</li>
       </ul>
     </div>
   </section>
 
-  <!-- Screenshots -->
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Platform Interface</div>
       <div class="case-gallery">
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_1.png')">
-          <img src="./ollamabench_1.png" alt="Dashboard Overview" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./scrapflow_dashboard.png')">
+          <img src="./scrapflow_dashboard.png" alt="Business Dashboard" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Dashboard Overview</h5>
-            <p>Main benchmarking dashboard with model selection and test configuration.</p>
+            <h5>Business Dashboard</h5>
+            <p>Overview of purchases, sales, inventory, and gross profit.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_benchmark.png')">
-          <img src="./ollamabench_benchmark.png" alt="Benchmark Results" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./scrapflow_purchases.png')">
+          <img src="./scrapflow_purchases.png" alt="Purchases Management" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Benchmark Results</h5>
-            <p>Detailed performance metrics with response quality scoring.</p>
+            <h5>Purchases Management</h5>
+            <p>Add and manage purchase entries with supplier details.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_compare.png')">
-          <img src="./ollamabench_compare.png" alt="Model Comparison" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./scrapflow_inventory.png')">
+          <img src="./scrapflow_inventory.png" alt="Inventory Tracking" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Model Comparison</h5>
-            <p>Side-by-side comparison of multiple model performances.</p>
+            <h5>Inventory Tracking</h5>
+            <p>Real-time stock tracking and threshold monitoring.</p>
           </div>
         </div>
-        <div class="case-gallery-item reveal" onclick="openLightbox('./ollamabench_suite.png')">
-          <img src="./ollamabench_suite.png" alt="Test Suites" loading="lazy">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./scrapflow_reports.png')">
+          <img src="./scrapflow_reports.png" alt="Reports & Analytics" loading="lazy">
           <div class="case-gallery-caption">
-            <h5>Test Suite Configuration</h5>
-            <p>Pre-configured and custom benchmark suite management.</p>
+            <h5>Reports & Analytics</h5>
+            <p>Performance analytics and material distribution charts.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tech Stack -->
   <section class="case-section">
     <div class="container">
       <div class="case-section-title reveal">Tech Stack</div>
       <div class="case-tech-grid reveal">
         <div class="case-tech-group">
-          <h5>Frontend</h5>
-          <div class="case-tech-badges">
-            <span class="case-tech-badge">React</span>
-            <span class="case-tech-badge">TypeScript</span>
-            <span class="case-tech-badge">Vite</span>
-          </div>
-        </div>
-        <div class="case-tech-group">
           <h5>Backend</h5>
           <div class="case-tech-badges">
             <span class="case-tech-badge">Python</span>
-            <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">Web Scraping</span>
+            <span class="case-tech-badge">Data Pipeline</span>
           </div>
         </div>
         <div class="case-tech-group">
-          <h5>AI Infrastructure</h5>
+          <h5>Frontend</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">Ollama</span>
-            <span class="case-tech-badge">Local LLMs</span>
-            <span class="case-tech-badge">Benchmark Engine</span>
+            <span class="case-tech-badge">React</span>
+            <span class="case-tech-badge">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Data</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">BeautifulSoup</span>
+            <span class="case-tech-badge">Selenium</span>
+            <span class="case-tech-badge">SQL Database</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Thalha Ahamed</span>
@@ -176,7 +165,6 @@ Interactive Dashboard & Reports</div>
     </div>
   </footer>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
     <img src="" alt="Expanded view" id="lightbox-img">

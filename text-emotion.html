@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Emotion Detection — Thalha Ahamed</title>
+  <meta name="description" content="Multi-class text emotion classification using fine-tuned HuggingFace Transformer models for detecting emotional categories in text.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 09 · NLP · Deep Learning</div>
+      <h1 class="case-title reveal">Text Emotion Detection</h1>
+      <p class="case-tagline reveal">Multi-class emotion classification system using fine-tuned HuggingFace Transformer models, improving generalization across varied writing styles and emotional categories.</p>
+      <div class="case-actions reveal">
+        <a href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>Text Emotion Detection</strong> is a natural language processing system that classifies text into distinct emotional categories using fine-tuned Transformer models from HuggingFace. The model handles nuanced emotional expressions across diverse writing styles.</p>
+        <p class="reveal">The project involved fine-tuning a pre-trained Transformer architecture on emotion-labeled text data, optimizing for multi-class classification accuracy. The training pipeline includes data preprocessing, tokenization, model fine-tuning with custom hyperparameters, and evaluation with standard NLP metrics.</p>
+        <p class="reveal">This demonstrates practical NLP skills — from understanding pre-trained language model architectures to fine-tuning them for domain-specific downstream tasks with measurable improvements in generalization.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <div class="case-arch reveal">Raw Text Input
+      ↓
+Tokenization (HuggingFace Tokenizer)
+      ↓
+Pre-trained Transformer Encoder
+      ↓
+Fine-tuned Classification Head
+      ↓
+Multi-class Emotion Prediction
+      ↓
+Confidence Scores per Category</div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Transformer Fine-tuning:</strong> Custom fine-tuning of HuggingFace pre-trained models for emotion-specific classification.</li>
+        <li class="reveal"><strong>Multi-class Classification:</strong> Distinguishes between multiple distinct emotional categories (joy, sadness, anger, fear, surprise, etc.).</li>
+        <li class="reveal"><strong>Robust Generalization:</strong> Improved model performance across varied writing styles, slang, and informal text.</li>
+        <li class="reveal"><strong>Preprocessing Pipeline:</strong> Complete text cleaning, tokenization, and data augmentation workflow.</li>
+        <li class="reveal"><strong>Evaluation Metrics:</strong> Accuracy, F1-score, precision, and recall tracking across all emotion classes.</li>
+        <li class="reveal"><strong>Inference Ready:</strong> Trained model can classify new text inputs in real-time with confidence scoring.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Challenges & Approach</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>Class Imbalance:</strong> Emotion datasets are inherently imbalanced — joy and sadness are overrepresented while surprise and fear are scarce. Addressed through stratified sampling and class-weighted loss functions.</p>
+        <p class="reveal"><strong>Stylistic Variation:</strong> Emotional expression varies dramatically across formal writing, social media, and conversational text. The fine-tuning process used diverse data sources to improve cross-style generalization.</p>
+        <p class="reveal"><strong>Subtle Emotions:</strong> Distinguishing between closely related emotions (e.g., sadness vs. disappointment) required careful feature engineering in the classification head and targeted training on edge cases.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>NLP Framework</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">HuggingFace</span>
+            <span class="case-tech-badge">Transformers</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Core</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python</span>
+            <span class="case-tech-badge">PyTorch</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Data & Training</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Fine-tuning</span>
+            <span class="case-tech-badge">NLP</span>
+            <span class="case-tech-badge">Text Classification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLO Video Object Detection — Thalha Ahamed</title>
+  <meta name="description" content="Real-time object detection and tracking on video streams using YOLO with bounding boxes and labels at high frame rates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 08 · Computer Vision · Deep Learning</div>
+      <h1 class="case-title reveal">YOLO Video Detection</h1>
+      <p class="case-tagline reveal">Real-time object detection and tracking on video streams using YOLO, capable of identifying multiple object classes with bounding boxes and confidence scores.</p>
+      <div class="case-actions reveal">
+        <a href="http://github.com/Fortuner47/YoloVideoDetection" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+      </div>
+      <div class="case-hero-image reveal">
+        <img src="./yolo_thumbnail.png" alt="YOLO Video Object Detection">
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>YOLO Video Object Detection</strong> implements real-time object detection on video streams using the YOLO (You Only Look Once) architecture. The system processes video frames at high speed, identifying and tracking multiple object classes simultaneously.</p>
+        <p class="reveal">Each detected object is annotated with a bounding box, class label, and confidence score. The pipeline is optimized for real-time performance, making it suitable for live video feed scenarios including surveillance, traffic monitoring, and industrial inspection.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <div class="case-arch reveal">Video Input Stream (File / Camera)
+      ↓
+Frame Extraction & Preprocessing
+      ↓
+YOLO Model Inference
+      ↓
+Non-Maximum Suppression (NMS)
+      ↓
+Bounding Box & Label Overlay
+      ↓
+Annotated Output Video / Display</div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Detection Demo</div>
+      <div class="case-video reveal">
+        <video src="./yolo_output.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal">Real-time YOLO detection output showing multi-class object identification with bounding boxes and confidence scores on video frames.</p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Real-time Inference:</strong> High-speed frame processing enabling live detection scenarios.</li>
+        <li class="reveal"><strong>Multi-class Detection:</strong> Simultaneous identification and classification of multiple object types.</li>
+        <li class="reveal"><strong>Bounding Box Annotation:</strong> Visual overlay with class labels and confidence percentages.</li>
+        <li class="reveal"><strong>Non-Maximum Suppression:</strong> Elimination of overlapping detections for clean, accurate results.</li>
+        <li class="reveal"><strong>Video Stream Support:</strong> Compatible with both pre-recorded video files and live camera feeds.</li>
+        <li class="reveal"><strong>Performance Optimized:</strong> Tuned for high frame-rate processing without sacrificing accuracy.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Core</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python</span>
+            <span class="case-tech-badge">YOLO</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Computer Vision</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">OpenCV</span>
+            <span class="case-tech-badge">NumPy</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Deep Learning</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Darknet</span>
+            <span class="case-tech-badge">Pre-trained Weights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    window.openLightbox = function(src) { lbImg.src = src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    function closeLb() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.getElementById('lightbox-close').addEventListener('click', (e) => { e.stopPropagation(); closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

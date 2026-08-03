@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Recipe Extraction — Thalha Ahamed</title>
+  <meta name="description" content="AI-powered recipe extraction system that analyzes cooking videos using Google Gemini AI and converts them into structured recipe data with fuzzy deduplication.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 06 · AI · Data Engineering</div>
+      <h1 class="case-title reveal">AI Video Recipe Extraction</h1>
+      <p class="case-tagline reveal">Automated recipe extraction and database management system that analyzes cooking videos using Google's Gemini AI and builds a structured, searchable recipe database.</p>
+      <div class="case-actions reveal">
+        <a href="https://github.com/Fortuner47/YOLO-Video-Detection" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>AI Video Recipe Extraction</strong> is an intelligent system that automatically analyzes cooking videos and converts them into structured recipe data. Using Google's Gemini AI model, the system extracts ingredients, quantities, cooking steps, and preparation methods directly from video content.</p>
+        <p class="reveal">The pipeline includes fuzzy string matching to deduplicate ingredients across multiple recipe sources, ensuring a clean and normalized recipe database. All extracted data is stored in a searchable SQLite database via SQLAlchemy ORM.</p>
+        <p class="reveal">This project demonstrates the practical application of multimodal AI — combining video understanding with structured data extraction to solve a real-world content processing challenge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <div class="case-arch reveal">Cooking Video Input
+      ↓
+Google Gemini AI — Video Analysis
+      ↓
+Structured Recipe Data Extraction
+      ↓
+Fuzzy String Matching (Ingredient Dedup)
+      ↓
+Data Normalization & Validation
+      ↓
+SQLAlchemy ORM → SQLite Database
+      ↓
+Searchable Recipe Collection</div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Multimodal AI Analysis:</strong> Google Gemini processes video content to understand cooking techniques, ingredients, and recipe steps.</li>
+        <li class="reveal"><strong>Structured Extraction:</strong> Converts unstructured video content into normalized recipe data with ingredients, quantities, and instructions.</li>
+        <li class="reveal"><strong>Fuzzy Deduplication:</strong> String matching algorithms eliminate duplicate ingredients across recipes for a clean database.</li>
+        <li class="reveal"><strong>Database Management:</strong> SQLAlchemy ORM provides robust data persistence with SQLite for portable storage.</li>
+        <li class="reveal"><strong>Searchable Collection:</strong> Built-in search capabilities across the entire recipe database.</li>
+        <li class="reveal"><strong>Batch Processing:</strong> Process multiple cooking videos to build a comprehensive recipe library.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>AI Engine</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Google Gemini AI</span>
+            <span class="case-tech-badge">Multimodal Processing</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Backend</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python</span>
+            <span class="case-tech-badge">SQLAlchemy</span>
+            <span class="case-tech-badge">SQLite</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Data Processing</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Fuzzy Matching</span>
+            <span class="case-tech-badge">Data Normalization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

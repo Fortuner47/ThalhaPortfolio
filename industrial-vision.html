@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Industrial Vision — Thalha Ahamed</title>
+  <meta name="description" content="Real-time machine vision simulation for industrial conveyor belt inspection using Unity digital twin, FastAPI, and OpenCV-based PASS/FAIL classification.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 05 · Computer Vision · Simulation</div>
+      <h1 class="case-title reveal">AI-Powered Industrial Vision</h1>
+      <p class="case-tagline reveal">Real-time machine vision simulation replicating an industrial conveyor belt inspection station with automated defect detection and rejection.</p>
+      <div class="case-actions reveal">
+        <a href="https://github.com/Fortuner47/AI-Powered-Industrial-Vision-Inspection-System" target="_blank" rel="noopener" class="btn-primary magnetic">View on GitHub ↗</a>
+      </div>
+      <div class="case-hero-image reveal">
+        <img src="./pis_cover.png" alt="AI-Powered Industrial Vision Inspection System">
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>AI-Powered Industrial Vision Inspection System</strong> is a real-time machine vision simulation that replicates an industrial conveyor belt inspection station. It combines Unity for digital twin simulation, FastAPI for backend communication, and OpenCV for computer vision-based classification.</p>
+        <p class="reveal">The system automatically captures frames of packages moving along a simulated conveyor belt, processes them through a computer vision pipeline to determine PASS or FAIL status, and triggers a simulated reject mechanism for defective packages — demonstrating a complete industry-grade inspection workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <div class="case-arch reveal">Unity Digital Twin (Conveyor Simulation)
+      ↓
+Frame Capture & REST API Transmission
+      ↓
+FastAPI Backend Server
+      ↓
+OpenCV Image Processing Pipeline
+      ↓
+PASS / FAIL Classification
+      ↓
+Response to Unity Client
+      ↓
+Automated Reject Mechanism</div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">System Demonstrations</div>
+      <div class="case-video reveal">
+        <video src="./AI-Powered Industrial Vision Inspection System Demo.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal">Full demonstration of the industrial vision inspection pipeline — package detection, classification, and automated rejection.</p>
+      <div class="case-video reveal" style="margin-top: 32px;">
+        <video src="./AI-Powered Industrial Vision Inspection System Demo 2.mp4" controls playsinline>Your browser does not support the video tag.</video>
+      </div>
+      <p class="case-video-desc reveal">Extended demo showing the conveyor belt simulation with multiple package types and real-time PASS/FAIL classification.</p>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Digital Twin Simulation:</strong> Unity-based conveyor belt environment that accurately replicates industrial inspection conditions.</li>
+        <li class="reveal"><strong>Real-time Frame Capture:</strong> Automated screenshot capture of packages as they pass the inspection station.</li>
+        <li class="reveal"><strong>CV-Based Classification:</strong> OpenCV image processing pipeline for analyzing package quality and defect detection.</li>
+        <li class="reveal"><strong>REST API Communication:</strong> FastAPI server bridging the Unity simulation and Python CV backend with low-latency responses.</li>
+        <li class="reveal"><strong>Automated Rejection:</strong> Simulated reject mechanism triggered automatically for packages classified as FAIL.</li>
+        <li class="reveal"><strong>Production Workflow:</strong> End-to-end pipeline demonstrating a realistic industrial quality control workflow.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Simulation</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Unity</span>
+            <span class="case-tech-badge">C#</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Backend</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python</span>
+            <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">REST API</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Computer Vision</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">OpenCV</span>
+            <span class="case-tech-badge">Machine Vision</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    window.openLightbox = function(src) { lbImg.src = src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    function closeLb() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.getElementById('lightbox-close').addEventListener('click', (e) => { e.stopPropagation(); closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>
