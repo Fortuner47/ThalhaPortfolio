@@ -8,7 +8,7 @@
   <meta name="author" content="Thalha Ahamed">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="loading">
@@ -70,32 +70,33 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
+    <div class="hero-bg-wrapper">
+      <div id="neural-canvas-container" style="width: 100%; height: 100vh;"></div>
+      <div class="hero-bg-overlay"></div>
+    </div>
+    
     <div class="container hero-inner">
       <div class="hero-content">
         <div class="hero-label">AI Engineer</div>
-        <div class="hero-title-line"><span>Thalha</span></div>
-        <div class="hero-title-line"><span>Ahamed</span></div>
-        <p class="hero-subtitle">Building systems that see, understand, and create. From real-time computer vision to production-grade LLM platforms — designing and deploying end-to-end AI systems.</p>
+        <div class="hero-title">
+          <div class="hero-title-line"><span>Thalha</span></div>
+          <div class="hero-title-line"><span>Ahamed</span></div>
+        </div>
+        <p class="hero-subtitle">Building systems that see, understand, and create.</p>
+        
         <div class="hero-chips">
           <span class="hero-chip">Computer Vision</span>
           <span class="hero-chip">NLP</span>
           <span class="hero-chip">LLM Systems</span>
         </div>
+        
         <div class="hero-cta">
           <a href="#projects" class="btn-primary magnetic">View Projects</a>
           <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
-          <a href="https://thalhagamedev.github.io/PortFolio-Website/" target="_blank" rel="noopener" class="btn-secondary magnetic" style="background: transparent; border-color: rgba(255, 255, 255, 0.05); color: var(--text-secondary);">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
-            Game Portfolio
-          </a>
         </div>
       </div>
-      
-      <div class="hero-visual reveal" id="hero-visual">
-        <div id="neural-canvas-container" style="width: 100%; height: 500px;"></div>
-      </div>
-      
     </div>
+    
     <div class="scroll-indicator" id="scroll-indicator">
       <span class="scroll-text">Scroll</span>
       <div class="scroll-line"></div>
@@ -106,164 +107,37 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-label reveal">About</div>
-      <div class="about-grid">
-        <div class="about-quote reveal">
-          I build systems that <em>see</em> and <em>understand.</em>
+      <div class="bento-grid">
+        <!-- Box 1: The Bio (Large) -->
+        <div class="bento-box bento-large reveal">
+          <h3 class="bento-title">The Architect</h3>
+          <p><strong>Thalha</strong> is an AI & Data Science graduate (B.Tech, Class of 2026) with hands-on experience building applied AI/ML systems across computer vision and natural language processing.</p>
+          <p>Experienced in developing end-to-end pipelines — from data handling and model development to deployment — including a CNN-based real-time gesture recognition system and a Retrieval-Augmented Generation (RAG) pipeline for grounded document Q&A.</p>
+          <p>Proficient in Python, machine learning fundamentals, and LLM-based system design, with a track record of taking projects from concept to working product.</p>
         </div>
-        <div class="about-bio">
-          <p class="reveal"><strong>Thalha</strong> is an AI & Data Science graduate (B.Tech, Class of 2026) with hands-on experience building applied AI/ML systems across computer vision and natural language processing.</p>
-          <p class="reveal">Experienced in developing end-to-end pipelines — from data handling and model development to deployment — including a CNN-based real-time gesture recognition system and a Retrieval-Augmented Generation (RAG) pipeline for grounded document Q&A.</p>
-          <p class="reveal">Proficient in Python, machine learning fundamentals, and LLM-based system design, with a track record of taking projects from concept to working product.</p>
-          <div class="about-stats reveal">
-            <div class="stat">
-              <div class="stat-value" data-target="94" data-suffix="%">0%</div>
-              <div class="stat-label">Gesture Recognition Accuracy</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" data-target="60" data-suffix=" FPS">0 FPS</div>
-              <div class="stat-label">Real-time CV Pipeline</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" data-target="1" data-suffix="">0</div>
-              <div class="stat-label">Research Paper Under Review</div>
-            </div>
-          </div>
+        
+        <!-- Box 2: Quote (Medium) -->
+        <div class="bento-box bento-medium reveal reveal-delay-1">
+           <div class="bento-quote">
+             I build systems that<br><em>see</em> and <em>understand.</em>
+           </div>
+        </div>
+        
+        <!-- Box 3,4,5: Stats (Small) -->
+        <div class="bento-box bento-small reveal reveal-delay-2">
+           <div class="stat-value" data-target="94" data-suffix="%">0%</div>
+           <div class="stat-label">Gesture Accuracy</div>
+        </div>
+        <div class="bento-box bento-small reveal reveal-delay-3">
+           <div class="stat-value" data-target="60" data-suffix=" FPS">0 FPS</div>
+           <div class="stat-label">Real-time CV</div>
+        </div>
+        <div class="bento-box bento-small reveal reveal-delay-4">
+           <div class="stat-value" data-target="1" data-suffix="">0</div>
+           <div class="stat-label">Paper Under Review</div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ===== FEATURED PROJECTS ===== -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-label reveal">Featured Work</div>
-      <h2 class="section-heading reveal">Selected Projects</h2>
-      <p class="section-desc reveal">Eight builds spanning computer vision, NLP, LLM platforms, and full-stack product engineering.</p>
-
-      <div class="projects-featured">
-
-        <!-- Project 1: DocForge AI -->
-        <div class="project-showcase reveal">
-          <div class="project-image-wrapper">
-            <img src="./docforge_ui_1.png" alt="DocForge AI — AI Document OS" loading="lazy">
-          </div>
-          <div class="project-content">
-            <div class="project-meta">01 · AI-Native Application</div>
-            <h3 class="project-name">DocForge AI</h3>
-            <div class="project-tagline">AI-native document authoring platform that treats AI as the primary author.</div>
-            <p class="project-desc">An AI Document OS designed to generate, edit, format, and refine professional documents from start to finish. Features RAG for context-aware writing, live PDF previews, and automatic continuation to bypass LLM token limits for a seamless authoring experience.</p>
-            <div class="project-tech">
-              <span class="tech-tag">LLMs (Qwen/Gemma)</span>
-              <span class="tech-tag">RAG</span>
-              <span class="tech-tag">AI-Assisted Editing</span>
-              <span class="tech-tag">PDF Generation</span>
-            </div>
-            <div class="project-actions">
-              <a href="docforge.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
-              <a href="https://github.com/Fortuner47/DocForge-AI" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: QueryDoc -->
-        <div class="project-showcase reveal">
-          <div class="project-image-wrapper">
-            <img src="./QueryDoc_UI_1.png" alt="QueryDoc — Enterprise RAG System" loading="lazy">
-          </div>
-          <div class="project-content">
-            <div class="project-meta">02 · Enterprise AI</div>
-            <h3 class="project-name">QueryDoc</h3>
-            <div class="project-tagline">Production-grade AI document intelligence platform for hallucination-free Q&A.</div>
-            <p class="project-desc">Architected an enterprise RAG pipeline with hybrid search retrieval (BM25 + FAISS + RRF), ms-marco cross-encoder reranking, strict citation enforcement, and custom telemetry tracing for full system observability.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">LangChain</span>
-              <span class="tech-tag">Llama 3.1</span>
-              <span class="tech-tag">FAISS</span>
-              <span class="tech-tag">React</span>
-            </div>
-            <div class="project-actions">
-              <a href="querydoc.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
-              <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: HOLORACT -->
-        <div class="project-showcase reveal">
-          <div class="project-image-wrapper">
-            <img src="./holoract_interface.png" alt="HOLORACT — Gesture-Based Holographic System" loading="lazy">
-          </div>
-          <div class="project-content">
-            <div class="project-meta">03 · Computer Vision</div>
-            <h3 class="project-name">HOLORACT</h3>
-            <div class="project-tagline">Wearable-free hand tracking for interactive STEM education.</div>
-            <p class="project-desc">Developed a wearable-free hand tracking system using a single RGB camera — no depth sensors or specialized hardware. Achieved 94% gesture recognition accuracy at ~68ms latency and 60 FPS. Research paper submitted to SCRS CIMA Conference (Springer).</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">OpenCV</span>
-              <span class="tech-tag">MediaPipe</span>
-              <span class="tech-tag">Unity</span>
-              <span class="tech-tag">Real-time CV</span>
-            </div>
-            <div class="project-actions">
-              <a href="holoract.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
-              <a href="https://github.com/Fortuner47/HOLORACT" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Nutrix -->
-        <div class="project-showcase reveal">
-          <div class="project-image-wrapper">
-            <img src="./nutrix_logo.png" alt="Nutrix Resynced — AI Diet Planning" loading="lazy">
-          </div>
-          <div class="project-content">
-            <div class="project-meta">04 · Full-Stack AI</div>
-            <h3 class="project-name">Nutrix Resynced</h3>
-            <div class="project-tagline">Comprehensive AI platform for personalized nutrition planning on mobile.</div>
-            <p class="project-desc">Architected an end-to-end AI-powered diet planning platform using React Native (Expo) and FastAPI. Engineered a Groq-powered (Llama 3.3 70B) chatbot and dynamic nutritional seeding pipeline integrated with the FatSecret API.</p>
-            <div class="project-tech">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Redis</span>
-              <span class="tech-tag">Groq Llama 3.3</span>
-            </div>
-            <div class="project-actions">
-              <a href="nutrix.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
-              <a href="https://github.com/Fortuner47/nutrix-video-recipes" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: OllamaBench -->
-        <div class="project-showcase reveal">
-          <div class="project-image-wrapper">
-            <img src="./ollamabench_1.png" alt="OllamaBench — LLM Benchmarking" loading="lazy">
-          </div>
-          <div class="project-content">
-            <div class="project-meta">05 · Developer Tools</div>
-            <h3 class="project-name">OllamaBench</h3>
-            <div class="project-tagline">Automated performance and quality evaluation for locally deployed LLMs.</div>
-            <p class="project-desc">Built a full-stack benchmarking platform for evaluating local LLMs with Ollama. Features automated benchmark suites, multi-model comparison, hardware-aware performance analysis, and exportable benchmark reports.</p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Ollama</span>
-            </div>
-            <div class="project-actions">
-              <a href="ollamabench.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
-              <a href="https://github.com/Fortuner47/OllamaBench" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
       <!-- More Projects -->
       <div class="projects-more section" style="padding-top: 80px;">
         <div class="more-heading">More Projects</div>
@@ -358,63 +232,55 @@
 
   <!-- ===== SKILLS ===== -->
   <section class="section" id="skills">
-    <div class="container">
-      <div class="section-label reveal">Skills</div>
-      <h2 class="section-heading reveal">Toolkit</h2>
-      <div class="skills-grid">
-
-        <div class="skill-category reveal">
-          <h4>Programming</h4>
-          <div class="skill-items-text">
-            <span>Python</span> · <span>MySQL</span> · <span>C</span> · <span>R</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal reveal-delay-1">
-          <h4>AI / Machine Learning</h4>
-          <div class="skill-items-text">
-            <span>Machine Learning</span> · <span>Deep Learning</span> · <span>Computer Vision</span> · <span>NLP</span> · <span>Transformers</span> · <span>YOLO</span> · <span>LLMs</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal reveal-delay-2">
-          <h4>Frameworks & Tools</h4>
-          <div class="skill-items-text">
-            <span>TensorFlow</span> · <span>HuggingFace</span> · <span>Scikit-learn</span> · <span>OpenCV</span> · <span>LangChain</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal reveal-delay-1">
-          <h4>AI-Assisted Dev</h4>
-          <div class="skill-items-text">
-            <span>ChatGPT</span> · <span>Claude</span> · <span>LLM Debugging</span> · <span>Workflow Automation</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal reveal-delay-2">
-          <h4>Web & Mobile</h4>
-          <div class="skill-items-text">
-            <span>React</span> · <span>React Native</span> · <span>TypeScript</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal reveal-delay-3">
-          <h4>Cloud & Databases</h4>
-          <div class="skill-items-text">
-            <span>Google Cloud</span> · <span>Supabase</span> · <span>MySQL</span> · <span>Git</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="skills-soft reveal">
-        <h4>Soft Skills</h4>
-        <div class="skills-soft-list">
-          <span>Problem Solving & Analytical Thinking</span>
-          <span>Communication & Teamwork</span>
-          <span>Ownership & Self-Direction</span>
-          <span>Adaptability</span>
-          <span>Time Management</span>
+    <div class="container text-center">
+      <div class="section-label reveal">Toolkit</div>
+      <h2 class="section-heading reveal">Arsenal</h2>
+      
+      <div class="skills-marquee-wrapper reveal">
+        <div class="skills-marquee">
+          <div class="skill-chip">Python</div>
+          <div class="skill-chip">C</div>
+          <div class="skill-chip">R</div>
+          <div class="skill-chip">Machine Learning</div>
+          <div class="skill-chip">Deep Learning</div>
+          <div class="skill-chip">Computer Vision</div>
+          <div class="skill-chip">NLP</div>
+          <div class="skill-chip">Transformers</div>
+          <div class="skill-chip">YOLO</div>
+          <div class="skill-chip">LLMs</div>
+          <div class="skill-chip">TensorFlow</div>
+          <div class="skill-chip">HuggingFace</div>
+          <div class="skill-chip">Scikit-learn</div>
+          <div class="skill-chip">OpenCV</div>
+          <div class="skill-chip">LangChain</div>
+          <div class="skill-chip">React</div>
+          <div class="skill-chip">React Native</div>
+          <div class="skill-chip">TypeScript</div>
+          <div class="skill-chip">Google Cloud</div>
+          <div class="skill-chip">Supabase</div>
+          <div class="skill-chip">MySQL</div>
+          <!-- Duplicate for infinite scroll -->
+          <div class="skill-chip">Python</div>
+          <div class="skill-chip">C</div>
+          <div class="skill-chip">R</div>
+          <div class="skill-chip">Machine Learning</div>
+          <div class="skill-chip">Deep Learning</div>
+          <div class="skill-chip">Computer Vision</div>
+          <div class="skill-chip">NLP</div>
+          <div class="skill-chip">Transformers</div>
+          <div class="skill-chip">YOLO</div>
+          <div class="skill-chip">LLMs</div>
+          <div class="skill-chip">TensorFlow</div>
+          <div class="skill-chip">HuggingFace</div>
+          <div class="skill-chip">Scikit-learn</div>
+          <div class="skill-chip">OpenCV</div>
+          <div class="skill-chip">LangChain</div>
+          <div class="skill-chip">React</div>
+          <div class="skill-chip">React Native</div>
+          <div class="skill-chip">TypeScript</div>
+          <div class="skill-chip">Google Cloud</div>
+          <div class="skill-chip">Supabase</div>
+          <div class="skill-chip">MySQL</div>
         </div>
       </div>
     </div>
@@ -477,27 +343,32 @@
 
   <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
-    <div class="container">
+    <div class="container contact-inner text-center">
       <div class="section-label reveal">Contact</div>
-      <h2 class="contact-heading reveal">Let's build<br>something.</h2>
-      <p class="contact-body reveal">Open to AI Engineer roles and collaborations in computer vision, NLP, and applied ML. Based in Chennai, working with teams anywhere.</p>
-      <div class="contact-links reveal">
-        <a class="contact-link magnetic" href="mailto:thalhaahamedt@gmail.com">
+      <h2 class="contact-heading-massive reveal">Let's Build<br>Something.</h2>
+      
+      <div class="contact-cards reveal">
+        <a class="contact-card magnetic" href="mailto:thalhaahamedt@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
-          thalhaahamedt@gmail.com
+          <div class="contact-card-title">Email</div>
+          <div class="contact-card-value">thalhaahamedt@gmail.com</div>
         </a>
-        <a class="contact-link magnetic" href="tel:+919841879997">
+        
+        <a class="contact-card magnetic" href="tel:+919841879997">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-          +91 98418 79997
+          <div class="contact-card-title">Phone</div>
+          <div class="contact-card-value">+91 98418 79997</div>
         </a>
-        <a class="contact-link magnetic" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
+        
+        <a class="contact-card magnetic" href="https://github.com/Fortuner47" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.3 11.3 0 016 0C17.5 5 18.5 5.3 18.5 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>
-          github.com/Fortuner47
+          <div class="contact-card-title">GitHub</div>
+          <div class="contact-card-value">Fortuner47</div>
         </a>
-        <span class="contact-link" style="cursor:default">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Chennai, TN, India
-        </span>
+      </div>
+      
+      <div class="contact-actions reveal">
+        <a href="resume.pdf" class="btn-primary magnetic" target="_blank" style="padding: 18px 48px; font-size: 14px;">Download Resume</a>
       </div>
     </div>
   </section>
@@ -517,6 +388,7 @@
   </div>
 
   <!-- ===== SCRIPTS ===== -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -524,6 +396,26 @@
   <script>
   (function() {
     'use strict';
+
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sync GSAP ScrollTrigger with Lenis
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time)=>{
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     /* ========================================================
        1. LOADING SEQUENCE
@@ -651,22 +543,33 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* ========================================================
-       6. PROJECT IMAGE PARALLAX (ScrollTrigger)
+       6. HORIZONTAL SCROLL FOR SHOWCASE
        ======================================================== */
-    document.querySelectorAll('.project-image-wrapper img').forEach(img => {
-      gsap.fromTo(img, {
-        y: 30,
-      }, {
-        y: -30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: img.closest('.project-showcase'),
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
+    const showcasePin = document.getElementById('showcase-pin');
+    const showcaseTrack = document.getElementById('showcase-track');
+    
+    if (showcasePin && showcaseTrack) {
+      // Calculate how far to move the track
+      function getScrollAmount() {
+        let trackWidth = showcaseTrack.scrollWidth;
+        return -(trackWidth - window.innerWidth);
+      }
+
+      const tween = gsap.to(showcaseTrack, {
+        x: getScrollAmount,
+        ease: 'none'
       });
-    });
+
+      ScrollTrigger.create({
+        trigger: showcasePin,
+        start: 'top top',
+        end: () => `+=${getScrollAmount() * -1}`,
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true
+      });
+    }
 
     /* ========================================================
        7. NAVIGATION — Show/Hide on Scroll
@@ -908,17 +811,23 @@
     });
 
     /* ========================================================
-       17. 3D PERSPECTIVE ON PROJECT CARDS
+       17. 3D PERSPECTIVE & SPOTLIGHT ON PROJECT CARDS
        ======================================================== */
     document.querySelectorAll('.project-showcase').forEach(card => {
       const wrapper = card.querySelector('.project-image-wrapper');
       if (!wrapper) return;
       
+      // Inject spotlight element
+      const spotlight = document.createElement('div');
+      spotlight.classList.add('spotlight');
+      wrapper.appendChild(spotlight);
+      
       card.addEventListener('mousemove', (e) => {
         const rect = wrapper.getBoundingClientRect();
+        
+        // 3D rotation calculation
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
         const rotateX = (y / rect.height) * -15; // Max 15deg
         const rotateY = (x / rect.width) * 15;
         
@@ -929,6 +838,12 @@
           ease: 'power1.out',
           duration: 0.4
         });
+        
+        // Spotlight calculation
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        wrapper.style.setProperty('--mouse-x', `${mouseX}px`);
+        wrapper.style.setProperty('--mouse-y', `${mouseY}px`);
       });
       
       card.addEventListener('mouseleave', () => {
