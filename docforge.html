@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocForge AI — Thalha Ahamed</title>
+  <meta name="description" content="DocForge AI: An AI-native document authoring platform that replaces traditional workflows by acting as the primary author for generating, editing, and formatting documents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Grain -->
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain-filter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <!-- Ambient -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#" target="_blank" rel="noopener" style="visibility: hidden;">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 01 · AI-Native Document OS</div>
+      <h1 class="case-title reveal">DocForge AI</h1>
+      <p class="case-tagline reveal">An AI-native document authoring platform that manages the complete document lifecycle—from planning and writing to formatting, PDF generation, and final export.</p>
+      <div class="case-actions reveal" style="display: flex; gap: 16px; flex-wrap: wrap;">
+      </div>
+      <div class="case-hero-image reveal">
+        <img src="./docforge_ui_1.png" alt="DocForge AI Interface">
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Description</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>DocForge AI</strong> is an AI-native document authoring platform that replaces the traditional workflow of using a chatbot alongside Microsoft Word or Google Docs.</p>
+        <p class="reveal">Instead of simply assisting with writing, the AI acts as the primary author, generating, editing, formatting, and refining professional documents (such as reports, research papers, resumes, proposals, and legal documents) from start to finish.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes It Different -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">What Makes It Different</div>
+      <div class="case-section-content">
+        <p class="reveal">Most AI writing tools treat AI as a chatbot attached to a document. <strong>DocForge AI treats AI as the document author.</strong></p>
+        <p class="reveal">Instead of users constantly prompting, copying, and pasting between chat and an editor, the AI manages the complete document lifecycle—creating a seamless, uninterrupted authoring experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Core Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>AI-First Document Creation:</strong> Designed natively for reports, research papers, resumes, proposals, and legal documents.</li>
+        <li class="reveal"><strong>Context-Aware Writing (RAG):</strong> Retrieval-Augmented Generation over uploaded documents ensures factually grounded and highly contextual drafts.</li>
+        <li class="reveal"><strong>Live PDF Preview:</strong> Instantly updates the visual output as the document is generated.</li>
+        <li class="reveal"><strong>Automatic Continuation:</strong> When the LLM reaches its token limit, it auto-continues seamlessly, so users never have to press "Continue".</li>
+        <li class="reveal"><strong>Advanced AI Capabilities:</strong> Built-in tools for editing, rewriting, formatting, citations, tables, and document restructuring.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Vision -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Long-Term Vision</div>
+      <div class="case-section-content">
+        <p class="reveal">The platform currently uses powerful open-source foundation models like Qwen and Gemma.</p>
+        <p class="reveal">Moving forward, it will evolve into a specialized document authoring model through fine-tuning on high-quality document datasets and anonymized user-approved edits, continuously improving its mastery over formatting, tone, and professional structures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Platform Interface</div>
+      <div class="case-gallery" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./docforge_ui_1.png')">
+          <img src="./docforge_ui_1.png" alt="DocForge Document View" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Document Generation & Preview</h5>
+            <p>Live PDF preview updates automatically as the AI writes and formats the document.</p>
+          </div>
+        </div>
+        <div class="case-gallery-item reveal" onclick="openLightbox('./docforge_ui_2.png')">
+          <img src="./docforge_ui_2.png" alt="DocForge AI Start" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>AI-Native Editor</h5>
+            <p>Start from scratch or import existing documents for local-first, privacy-focused edits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html" style="color: var(--accent); transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+  (function() {
+    // Reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    window.openLightbox = function(src) { lbImg.src = src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    function closeLb() { lb.classList.remove('active'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.getElementById('lightbox-close').addEventListener('click', (e) => { e.stopPropagation(); closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    // Magnetic
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.25, y: (e.clientY - r.top - r.height/2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }); });
+    });
+  })();
+  </script>
+
+</body>
+</html>

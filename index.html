@@ -84,6 +84,10 @@
         <div class="hero-cta">
           <a href="#projects" class="btn-primary magnetic">View Projects</a>
           <a href="#contact" class="btn-secondary magnetic">Get in Touch</a>
+          <a href="https://thalhagamedev.github.io/PortFolio-Website/" target="_blank" rel="noopener" class="btn-secondary magnetic" style="background: transparent; border-color: rgba(255, 255, 255, 0.05); color: var(--text-secondary);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg>
+            Game Portfolio
+          </a>
         </div>
       </div>
       
@@ -138,13 +142,35 @@
 
       <div class="projects-featured">
 
-        <!-- Project 1: QueryDoc -->
+        <!-- Project 1: DocForge AI -->
+        <div class="project-showcase reveal">
+          <div class="project-image-wrapper">
+            <img src="./docforge_ui_1.png" alt="DocForge AI — AI Document OS" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-meta">01 · AI-Native Application</div>
+            <h3 class="project-name">DocForge AI</h3>
+            <div class="project-tagline">AI-native document authoring platform that treats AI as the primary author.</div>
+            <p class="project-desc">An AI Document OS designed to generate, edit, format, and refine professional documents from start to finish. Features RAG for context-aware writing, live PDF previews, and automatic continuation to bypass LLM token limits for a seamless authoring experience.</p>
+            <div class="project-tech">
+              <span class="tech-tag">LLMs (Qwen/Gemma)</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">AI-Assisted Editing</span>
+              <span class="tech-tag">PDF Generation</span>
+            </div>
+            <div class="project-actions">
+              <a href="docforge.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: QueryDoc -->
         <div class="project-showcase reveal">
           <div class="project-image-wrapper">
             <img src="./QueryDoc_UI_1.png" alt="QueryDoc — Enterprise RAG System" loading="lazy">
           </div>
           <div class="project-content">
-            <div class="project-meta">01 · Enterprise AI</div>
+            <div class="project-meta">02 · Enterprise AI</div>
             <h3 class="project-name">QueryDoc</h3>
             <div class="project-tagline">Production-grade AI document intelligence platform for hallucination-free Q&A.</div>
             <p class="project-desc">Architected an enterprise RAG pipeline with hybrid search retrieval (BM25 + FAISS + RRF), ms-marco cross-encoder reranking, strict citation enforcement, and custom telemetry tracing for full system observability.</p>
@@ -157,20 +183,19 @@
               <span class="tech-tag">React</span>
             </div>
             <div class="project-actions">
-              <a href="https://querydoc-ai.onrender.com/" target="_blank" rel="noopener" class="btn-primary magnetic">Try it now <span class="arrow">↗</span></a>
-              <a href="querydoc.html" class="btn-secondary magnetic">Case Study <span class="arrow">→</span></a>
+              <a href="querydoc.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
               <a href="https://github.com/Fortuner47/QueryDoc" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
             </div>
           </div>
         </div>
 
-        <!-- Project 2: HOLORACT -->
+        <!-- Project 3: HOLORACT -->
         <div class="project-showcase reveal">
           <div class="project-image-wrapper">
             <img src="./holoract_interface.png" alt="HOLORACT — Gesture-Based Holographic System" loading="lazy">
           </div>
           <div class="project-content">
-            <div class="project-meta">02 · Computer Vision</div>
+            <div class="project-meta">03 · Computer Vision</div>
             <h3 class="project-name">HOLORACT</h3>
             <div class="project-tagline">Wearable-free hand tracking for interactive STEM education.</div>
             <p class="project-desc">Developed a wearable-free hand tracking system using a single RGB camera — no depth sensors or specialized hardware. Achieved 94% gesture recognition accuracy at ~68ms latency and 60 FPS. Research paper submitted to SCRS CIMA Conference (Springer).</p>
@@ -188,13 +213,13 @@
           </div>
         </div>
 
-        <!-- Project 3: Nutrix -->
+        <!-- Project 4: Nutrix -->
         <div class="project-showcase reveal">
           <div class="project-image-wrapper">
             <img src="./nutrix_logo.png" alt="Nutrix Resynced — AI Diet Planning" loading="lazy">
           </div>
           <div class="project-content">
-            <div class="project-meta">03 · Full-Stack AI</div>
+            <div class="project-meta">04 · Full-Stack AI</div>
             <h3 class="project-name">Nutrix Resynced</h3>
             <div class="project-tagline">Comprehensive AI platform for personalized nutrition planning on mobile.</div>
             <p class="project-desc">Architected an end-to-end AI-powered diet planning platform using React Native (Expo) and FastAPI. Engineered a Groq-powered (Llama 3.3 70B) chatbot and dynamic nutritional seeding pipeline integrated with the FatSecret API.</p>
@@ -212,13 +237,13 @@
           </div>
         </div>
 
-        <!-- Project 4: OllamaBench -->
+        <!-- Project 5: OllamaBench -->
         <div class="project-showcase reveal">
           <div class="project-image-wrapper">
             <img src="./ollamabench_1.png" alt="OllamaBench — LLM Benchmarking" loading="lazy">
           </div>
           <div class="project-content">
-            <div class="project-meta">04 · Developer Tools</div>
+            <div class="project-meta">05 · Developer Tools</div>
             <h3 class="project-name">OllamaBench</h3>
             <div class="project-tagline">Automated performance and quality evaluation for locally deployed LLMs.</div>
             <p class="project-desc">Built a full-stack benchmarking platform for evaluating local LLMs with Ollama. Features automated benchmark suites, multi-model comparison, hardware-aware performance analysis, and exportable benchmark reports.</p>
