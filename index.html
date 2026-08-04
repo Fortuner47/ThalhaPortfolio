@@ -140,16 +140,13 @@
     </div>
   </section>
 
-  <!-- ===== FEATURED PROJECTS (HORIZONTAL SCROLL) ===== -->
-  <section class="showcase-section" id="projects">
-    <div class="showcase-pin" id="showcase-pin">
-      <div class="container showcase-header">
-        <div class="section-label">Featured Work</div>
-        <h2 class="section-heading">Selected Projects</h2>
-      </div>
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-label reveal">Featured Work</div>
+      <h2 class="section-heading reveal">Selected Projects</h2>
       
-      <div class="showcase-wrapper">
-        <div class="showcase-track" id="showcase-track">
+      <div class="projects-grid">
           
           <!-- Project 1 -->
           <div class="showcase-panel">
@@ -240,8 +237,24 @@
               </div>
             </div>
           </div>
+          <!-- Project 6 -->
+          <div class="showcase-panel">
+            <div class="project-cinematic">
+              <div class="project-image-wrapper">
+                <img src="./pis_cover.png" alt="Industrial Vision" loading="lazy">
+              </div>
+              <div class="project-content-glass">
+                <div class="project-meta">06 · Computer Vision</div>
+                <h3 class="project-name">Industrial Vision</h3>
+                <p class="project-desc">Real-time machine vision simulation for industrial conveyor belt inspection using Unity, FastAPI, and OpenCV.</p>
+                <div class="project-actions">
+                  <a href="industrial-vision.html" class="btn-primary magnetic">Case Study <span class="arrow">→</span></a>
+                  <a href="https://github.com/Fortuner47/Unity-Vision-Simulation" target="_blank" rel="noopener" class="btn-text">GitHub <span class="arrow">↗</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        </div>
       </div>
     </div>
   </section>
@@ -252,17 +265,8 @@
       <div class="projects-more section" style="padding-top: 80px;">
         <div class="more-heading">More Projects</div>
 
-        <a href="industrial-vision.html" class="more-project-item reveal">
-          <span class="more-project-num">05</span>
-          <div class="more-project-info">
-            <h4>AI-Powered Industrial Vision</h4>
-            <p>Real-time machine vision simulation for industrial conveyor belt inspection using Unity, FastAPI, and OpenCV.</p>
-          </div>
-          <span class="more-project-arrow">→</span>
-        </a>
-
         <a href="video-recipe.html" class="more-project-item reveal">
-          <span class="more-project-num">06</span>
+          <span class="more-project-num">07</span>
           <div class="more-project-info">
             <h4>AI Video Recipe Extraction</h4>
             <p>Automated recipe extraction from cooking videos using Google Gemini AI with fuzzy deduplication.</p>
@@ -271,7 +275,7 @@
         </a>
 
         <a href="scrapflow.html" class="more-project-item reveal">
-          <span class="more-project-num">07</span>
+          <span class="more-project-num">08</span>
           <div class="more-project-info">
             <h4>ScrapFlow</h4>
             <p>Automated ETL and web-scraping workflow for downstream AI/ML analysis with a full business dashboard.</p>
@@ -280,7 +284,7 @@
         </a>
 
         <a href="yolo-detection.html" class="more-project-item reveal">
-          <span class="more-project-num">08</span>
+          <span class="more-project-num">09</span>
           <div class="more-project-info">
             <h4>YOLO Video Object Detection</h4>
             <p>Real-time object detection and tracking on video streams with bounding boxes and labels.</p>
@@ -289,7 +293,7 @@
         </a>
 
         <a href="text-emotion.html" class="more-project-item reveal">
-          <span class="more-project-num">09</span>
+          <span class="more-project-num">10</span>
           <div class="more-project-info">
             <h4>Text Emotion Detection</h4>
             <p>Multi-class emotion classification using fine-tuned HuggingFace Transformer models.</p>
@@ -346,7 +350,8 @@
       <div class="section-label reveal">Toolkit</div>
       <h2 class="section-heading reveal">Arsenal</h2>
       
-      <div class="skills-marquee-wrapper reveal">
+      <div class="skills-marquee-wrapper reveal" style="flex-direction: column; gap: 24px;">
+        <!-- ROW 1 -->
         <div class="skills-marquee">
           <div class="skill-chip">Python</div>
           <div class="skill-chip">C</div>
@@ -355,20 +360,6 @@
           <div class="skill-chip">Deep Learning</div>
           <div class="skill-chip">Computer Vision</div>
           <div class="skill-chip">NLP</div>
-          <div class="skill-chip">Transformers</div>
-          <div class="skill-chip">YOLO</div>
-          <div class="skill-chip">LLMs</div>
-          <div class="skill-chip">TensorFlow</div>
-          <div class="skill-chip">HuggingFace</div>
-          <div class="skill-chip">Scikit-learn</div>
-          <div class="skill-chip">OpenCV</div>
-          <div class="skill-chip">LangChain</div>
-          <div class="skill-chip">React</div>
-          <div class="skill-chip">React Native</div>
-          <div class="skill-chip">TypeScript</div>
-          <div class="skill-chip">Google Cloud</div>
-          <div class="skill-chip">Supabase</div>
-          <div class="skill-chip">MySQL</div>
           <!-- Duplicate for infinite scroll -->
           <div class="skill-chip">Python</div>
           <div class="skill-chip">C</div>
@@ -377,6 +368,10 @@
           <div class="skill-chip">Deep Learning</div>
           <div class="skill-chip">Computer Vision</div>
           <div class="skill-chip">NLP</div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="skills-marquee reverse">
           <div class="skill-chip">Transformers</div>
           <div class="skill-chip">YOLO</div>
           <div class="skill-chip">LLMs</div>
@@ -384,6 +379,26 @@
           <div class="skill-chip">HuggingFace</div>
           <div class="skill-chip">Scikit-learn</div>
           <div class="skill-chip">OpenCV</div>
+          <!-- Duplicate for infinite scroll -->
+          <div class="skill-chip">Transformers</div>
+          <div class="skill-chip">YOLO</div>
+          <div class="skill-chip">LLMs</div>
+          <div class="skill-chip">TensorFlow</div>
+          <div class="skill-chip">HuggingFace</div>
+          <div class="skill-chip">Scikit-learn</div>
+          <div class="skill-chip">OpenCV</div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="skills-marquee">
+          <div class="skill-chip">LangChain</div>
+          <div class="skill-chip">React</div>
+          <div class="skill-chip">React Native</div>
+          <div class="skill-chip">TypeScript</div>
+          <div class="skill-chip">Google Cloud</div>
+          <div class="skill-chip">Supabase</div>
+          <div class="skill-chip">MySQL</div>
+          <!-- Duplicate for infinite scroll -->
           <div class="skill-chip">LangChain</div>
           <div class="skill-chip">React</div>
           <div class="skill-chip">React Native</div>
@@ -477,9 +492,6 @@
         </a>
       </div>
       
-      <div class="contact-actions reveal">
-        <a href="resume.pdf" class="btn-primary magnetic" target="_blank" style="padding: 18px 48px; font-size: 14px;">Download Resume</a>
-      </div>
     </div>
   </section>
 
@@ -498,7 +510,6 @@
   </div>
 
   <!-- ===== SCRIPTS ===== -->
-  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -507,19 +518,7 @@
   (function() {
     'use strict';
 
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      smoothWheel: true,
-    });
-
-    // Sync GSAP ScrollTrigger with Lenis
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time)=>{
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    // Removed Lenis for native scroll
 
     /* ========================================================
        1. LOADING SEQUENCE
@@ -647,36 +646,7 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* ========================================================
-       6. HORIZONTAL SCROLL FOR SHOWCASE
-       ======================================================== */
-    const showcasePin = document.getElementById('showcase-pin');
-    const showcaseTrack = document.getElementById('showcase-track');
-    
-    if (showcasePin && showcaseTrack) {
-      // Calculate how far to move the track
-      function getScrollAmount() {
-        let trackWidth = showcaseTrack.scrollWidth;
-        return -(trackWidth - window.innerWidth);
-      }
-
-      const tween = gsap.to(showcaseTrack, {
-        x: getScrollAmount,
-        ease: 'none'
-      });
-
-      ScrollTrigger.create({
-        trigger: showcasePin,
-        start: 'top top',
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: tween,
-        scrub: 1,
-        invalidateOnRefresh: true
-      });
-    }
-
-    /* ========================================================
-       7. NAVIGATION — Show/Hide on Scroll
+       6. NAVIGATION — Show/Hide on Scroll
        ======================================================== */
     const nav = document.getElementById('nav');
     let lastScroll = 0;
