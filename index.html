@@ -514,12 +514,6 @@
       smoothWheel: true,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Sync GSAP ScrollTrigger with Lenis
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time)=>{
