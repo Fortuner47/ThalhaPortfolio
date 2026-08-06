@@ -45,7 +45,7 @@
   /* ========================================================
      16. BUTTON RIPPLE EFFECT
      ======================================================== */
-  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+  document.querySelectorAll('.btn-primary, .btn-secondary, .btn-gamedev').forEach(btn => {
     btn.addEventListener('click', function(e) {
       let x = e.clientX - e.target.getBoundingClientRect().left;
       let y = e.clientY - e.target.getBoundingClientRect().top;
