@@ -1841,8 +1841,8 @@ ul, ol { list-style: none; }
 .case-actions {
   display: flex;
   gap: 16px;
-  margin-top: 36px;
-  margin-bottom: 48px;
+  margin-top: 40px;
+  margin-bottom: 72px;
   flex-wrap: wrap;
 }
 
@@ -1928,7 +1928,7 @@ ul, ol { list-style: none; }
 .project-desc {
   font-size: 18px;
   font-weight: var(--fw-light);
-  line-height: 1.6;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.8);
   max-width: 600px;
   margin-bottom: 32px;
@@ -1949,7 +1949,11 @@ ul, ol { list-style: none; }
 .case-hero-image {
   width: 100%;
   display: block;
-  margin-top: 16px;
+  margin-top: 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
 }
 
 .case-hero-image img {
