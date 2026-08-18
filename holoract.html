@@ -64,7 +64,7 @@
       <div class="case-section-title reveal">Overview</div>
       <div class="case-section-content">
         <p class="reveal"><strong>HOLORACT</strong> is a gesture-controlled holographic framework designed for interactive STEM education. It enables students to manipulate 3D educational content through natural hand gestures — without requiring any wearable devices, depth sensors, or specialized hardware.</p>
-        <p class="reveal">The system uses a single standard RGB camera for hand landmark detection, a custom Python gesture recognition pipeline, and Unity 3D for holographic rendering — all communicating through low-latency socket connections.</p>
+        <p class="reveal">The system uses a single standard RGB camera for hand landmark detection, a custom Python gesture recognition pipeline, and Three.js & React for WebGL holographic rendering — all communicating through low-latency socket connections.</p>
         <p class="reveal">This project resulted in a research paper submitted to the SCRS CIMA Conference (Springer), currently under review.</p>
       </div>
     </div>
@@ -82,7 +82,7 @@ Custom Python Gesture Recognition Model
       ↓
 Real-time Socket Data Transmission
       ↓
-Unity 3D Physics Engine
+Three.js 3D Rendering Engine
       ↓
 Holographic Object Manipulation
       ↓
@@ -113,7 +113,7 @@ User Visual Feedback</div>
         <li class="reveal"><strong>Wearable-Free Setup:</strong> Requires only a standard RGB camera — no depth sensors, gloves, or specialized hardware.</li>
         <li class="reveal"><strong>94% Recognition Accuracy:</strong> Custom gesture recognition model achieving high accuracy across diverse hand shapes and lighting conditions.</li>
         <li class="reveal"><strong>Low-Latency Pipeline:</strong> End-to-end processing at approximately 68ms latency, enabling real-time interaction at 60 FPS.</li>
-        <li class="reveal"><strong>Interactive 3D Rendering:</strong> Unity-based holographic environment for manipulating educational 3D models.</li>
+        <li class="reveal"><strong>Interactive 3D Rendering:</strong> Three.js and React-based WebGL holographic environment for manipulating educational 3D models.</li>
         <li class="reveal"><strong>Robust Tracking:</strong> MediaPipe hand landmark detection performs reliably across varied lighting conditions.</li>
         <li class="reveal"><strong>Research Validation:</strong> Full pipeline validated through published research methodology.</li>
       </ul>
@@ -172,8 +172,9 @@ User Visual Feedback</div>
         <div class="case-tech-group">
           <h5>Frontend & 3D UI</h5>
           <div class="case-tech-badges">
-            <span class="case-tech-badge">Unity 3D</span>
-            <span class="case-tech-badge">C#</span>
+            <span class="case-tech-badge">Three.js</span>
+            <span class="case-tech-badge">React</span>
+            <span class="case-tech-badge">WebGL</span>
             <span class="case-tech-badge">Holographic HUD</span>
           </div>
         </div>
