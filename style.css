@@ -1030,9 +1030,14 @@ body.cursor-ready .cursor-outline { opacity: 1; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.3);
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s;
 }
 
-.spline-stage.is-ready .spline-status { display: none; }
+.spline-stage.is-ready .spline-status {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
 
 @media (max-width: 767px) {
   .spline-card { height: auto; min-height: 560px; }
@@ -1931,6 +1936,10 @@ a.cc-detail:hover .cc-icon { border-color: var(--input); background: #FFFFFF; }
    columns, and touch targets that clear 44px.
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
+  /* Background — disable vibrating micro-line grid on mobile and soften noise */
+  #flow-grid { display: none !important; }
+  #simplex-bg { opacity: 0.12; }
+
   /* Hero — the Hero 04 stack needs breathing room, not desktop scale. */
   .hero { padding: 6rem var(--gutter) 2.5rem; }
   .h4-stage { margin-top: 1rem; }

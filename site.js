@@ -389,13 +389,25 @@
         var viewer = document.createElement('spline-viewer');
         viewer.setAttribute('url', url);
         viewer.setAttribute('loading-anim-type', 'none');
-        viewer.addEventListener('load', function () { stage.classList.add('is-ready'); });
+
+        function markReady() {
+          stage.classList.add('is-ready');
+          var status = stage.querySelector('.spline-status');
+          if (status) {
+            status.style.opacity = '0';
+            status.style.pointerEvents = 'none';
+            setTimeout(function () { status.style.display = 'none'; }, 400);
+          }
+        }
+
+        viewer.addEventListener('load', markReady);
+        viewer.addEventListener('load-complete', markReady);
         stage.appendChild(viewer);
 
-        // Hide the viewer's attribution anchor. It must be HIDDEN, not
-        // removed: Spline keeps a reference to #logo and writes to its
-        // .style during init, so deleting the node throws
-        // "Cannot read properties of null" and the scene never renders.
+        // Fallback: guaranteed dismissal after 2.5s once viewer script is mounted
+        setTimeout(markReady, 2500);
+
+        // Hide the viewer's attribution anchor and dismiss loading label as soon as canvas mounts.
         (function hideBadge() {
           var tries = 0;
 
@@ -403,10 +415,13 @@
             var root = viewer.shadowRoot;
             if (!root) return false;
             var logo = root.getElementById('logo');
-            if (!logo) return false;
-            if (logo.style.display !== 'none') {
+            if (logo && logo.style.display !== 'none') {
               logo.style.display = 'none';
               logo.style.pointerEvents = 'none';
+            }
+            var canvas = root.querySelector('canvas');
+            if (canvas) {
+              markReady();
             }
             return true;
           }
@@ -414,7 +429,7 @@
           var timer = setInterval(function () {
             hide();
             if (++tries > 40) clearInterval(timer);
-          }, 250);
+          }, 200);
 
           if ('MutationObserver' in window) {
             var start = setInterval(function () {
