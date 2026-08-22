@@ -1740,8 +1740,9 @@ a.cc-detail:hover .cc-icon { border-color: var(--input); background: #FFFFFF; }
 
 .cc-submit:hover { opacity: 0.88; transform: translateY(-1px); }
 
-.cc-note { min-height: 1.2rem; font-size: 0.8125rem; color: var(--muted-foreground); }
-.cc-note.is-error { color: #C0392B; }
+.cc-note { min-height: 1.4rem; font-size: 0.8125rem; color: var(--muted-foreground); margin-top: 0.25rem; transition: color 0.3s; }
+.cc-note.is-error { color: #C0392B; font-weight: 500; }
+.cc-note.is-success { color: #1E824C; font-weight: 600; }
 
 /* --------------------------------------------------------------------------
    18. FOOTER

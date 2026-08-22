@@ -650,4 +650,75 @@
     if (img) { img.addEventListener('error', miss); img.addEventListener('load', hit); }
   })();
 
+  /* ------------------------------------------------------------------
+     Contact form — AJAX submission with live feedback (Formspree)
+     ------------------------------------------------------------------ */
+  (function contactForm() {
+    var form = document.querySelector('[data-contact]');
+    if (!form) return;
+
+    var endpoint = form.getAttribute('data-endpoint') || 'https://formspree.io/f/meajdlrq';
+    var note = form.querySelector('.cc-note');
+    var submitBtn = form.querySelector('.cc-submit') || form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = (form.querySelector('[name="name"]') || {}).value || '';
+      var email = (form.querySelector('[name="email"]') || {}).value || '';
+      var phone = (form.querySelector('[name="phone"]') || {}).value || '';
+      var message = (form.querySelector('[name="message"]') || {}).value || '';
+
+      if (!name.trim() || !email.trim() || !message.trim()) {
+        if (note) {
+          note.className = 'cc-note is-error';
+          note.textContent = 'Please fill in all required fields (Name, Email, and Message).';
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      if (note) {
+        note.className = 'cc-note';
+        note.textContent = 'Sending message…';
+      }
+
+      var data = new FormData(form);
+
+      fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (note) {
+            note.className = 'cc-note is-success';
+            note.textContent = 'Thank you! Your message has been sent successfully.';
+          }
+        } else {
+          return response.json().then(function (errData) {
+            var msg = (errData && errData.errors && errData.errors.map(function (err) { return err.message; }).join(', ')) || 'Submission failed';
+            throw new Error(msg);
+          });
+        }
+      }).catch(function (error) {
+        if (note) {
+          note.className = 'cc-note is-error';
+          note.textContent = 'Oops! ' + (error.message || 'There was a problem submitting your message. Please try again or email directly.');
+        }
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+        }
+      });
+    });
+  })();
+
 })();
