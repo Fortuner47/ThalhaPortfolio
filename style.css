@@ -876,8 +876,8 @@ body.cursor-ready .cursor-outline { opacity: 1; }
 }
 
 @media (max-width: 700px) {
-  .h4-meta { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-  .h4-location { writing-mode: horizontal-tb; }
+  .h4-meta { flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
+  .h4-location { writing-mode: horizontal-tb; text-align: center; }
   .h4-title { letter-spacing: -0.045em; }
 }
 
@@ -1946,8 +1946,10 @@ a.cc-detail:hover .cc-icon { border-color: var(--input); background: #FFFFFF; }
   .h4-photo { width: min(58vw, 240px); }
   .h4-title { font-size: clamp(2.4rem, 13vw, 4.5rem); top: 64%; }
   .h4-name { letter-spacing: 0.3em; text-indent: 0.3em; font-size: 0.8rem; }
-  .h4-meta { margin-top: 2rem; }
-  .h4-blurb { margin-top: 1.75rem; font-size: 0.8125rem; line-height: 1.8; text-align: left; }
+  .h4-meta { margin-top: 2rem; align-items: center; text-align: center; }
+  .h4-services-block { align-items: center; text-align: center; margin-inline: auto; }
+  .h4-location { text-align: center; margin-inline: auto; }
+  .h4-blurb { margin-top: 1.75rem; font-size: 0.8125rem; line-height: 1.8; text-align: center; }
   .h4-cta { margin-top: 1.5rem; }
   .hero-scroll { display: none; }
 
