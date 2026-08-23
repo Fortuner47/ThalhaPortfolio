@@ -1449,6 +1449,29 @@ body.cursor-ready .cursor-outline { opacity: 1; }
   color: var(--foreground);
 }
 
+.exp-cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.exp-cert-link:hover {
+  background: var(--foreground);
+  color: #fff;
+  border-color: var(--foreground);
+  transform: translateY(-1px);
+}
+.exp-cert-link svg { flex-shrink: 0; }
+
 @media (max-width: 520px) {
   .track-step { grid-template-columns: 1.5rem 1fr; gap: 0 0.9rem; }
   .track-step::before { left: 0.75rem; top: 1.5rem; }
