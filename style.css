@@ -1142,7 +1142,7 @@ body.cursor-ready .cursor-outline { opacity: 1; }
 
 /* On hover the tile expands dramatically */
 .ig-tile:hover,
-.ig-tile:focus-visible { flex-grow: 4; }
+.ig-tile:focus-visible { flex-grow: 7; }
 
 .ig-tile img {
   width: 100%;
@@ -1160,6 +1160,34 @@ body.cursor-ready .cursor-outline { opacity: 1; }
 .ig-tile[href="nutrix.html"]:hover img { filter: brightness(1); }
 
 /* Overlay — stays hidden by default, appears on hover with the expanded tile */
+/* Typographic stand-in shown by site.js when a tile has no screenshot yet. */
+.ig-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  background: linear-gradient(160deg, #1A1A1A 0%, #2C2C2C 60%, #3A3A3A 100%);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.ig-fallback svg { width: 34px; height: 34px; }
+
+.ig-fallback > span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ig-tile.no-image img { display: none; }
+.ig-tile.no-image .ig-fallback { display: flex; }
+
 .ig-overlay {
   position: absolute;
   inset: 0;

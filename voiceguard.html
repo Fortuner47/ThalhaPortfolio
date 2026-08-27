@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F5F5">
+  <title>VoiceGuard — Thalha Ahamed</title>
+  <meta name="description" content="VoiceGuard: on-device, multimodal defence against voice-cloning impersonation. Fuses synthetic-speech detection, speaker verification and prosody forensics into an explainable 0–100 live risk score.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>
+    .loader{display:none!important}
+    body.loading{overflow:auto!important;height:auto!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .nav-toggle{display:none!important}
+  </style></noscript>
+</head>
+<body>
+
+  <div class="page-gradient" aria-hidden="true"></div>
+  <canvas id="simplex-bg" aria-hidden="true"></canvas>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav-cta-group">
+        <a class="nav-cta" href="https://www.linkedin.com/in/thalha-ahamed-01144142b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="nav-cta" href="https://github.com/Fortuner47" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 07 · Audio Forensics &amp; Security</div>
+      <h1 class="case-title reveal">VoiceGuard</h1>
+      <p class="case-tagline reveal">Continuous acoustic verification and deepfake synthesis detection for live calls, streams, and virtual conferences — using a fine-tuned self-supervised speech encoder, entirely on-device.</p>
+
+      <div class="case-hero-image reveal">
+        <img src="./voiceguard.png" alt="VoiceGuard overview — Autonomous Neural Voice Clone Detection">
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal"><strong>VoiceGuard</strong> detects deepfake and synthetic voice attacks in real time, across both live voice streams and recorded audio files. It defends voice channels against impersonation and against synthetic voice generators such as ElevenLabs, ChatTTS and Edge-TTS.</p>
+        <p class="reveal">Rather than returning an opaque verdict, it produces a transparent <strong>0–100 Live Risk Score</strong> built from three independent forensic signals — so a reviewer can see <em>why</em> a sample was flagged, not just that it was.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key numbers -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">At a Glance</div>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <div class="stat-value">~13<span style="font-size:0.5em"> ms</span></div>
+          <div class="stat-label">Inference per 4s window</div>
+          <div class="stat-src">On GPU</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">&lt;200<span style="font-size:0.5em"> ms</span></div>
+          <div class="stat-label">Inference per 4s window</div>
+          <div class="stat-src">On CPU</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">98.9<span style="font-size:0.5em">%</span></div>
+          <div class="stat-label">Unseen TTS detection</div>
+          <div class="stat-src">Held-out generators</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">16<span style="font-size:0.5em"> kHz</span></div>
+          <div class="stat-label">Live PCM stream, mono</div>
+          <div class="stat-src">Sliding 4s analysis</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100<span style="font-size:0.5em">%</span></div>
+          <div class="stat-label">Local, on-device inference</div>
+          <div class="stat-src">No persistent storage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tri-Signal Architecture</div>
+      <p class="case-video-desc reveal" style="margin-top:0;margin-bottom:1.5rem">Three independent forensic signals are computed in parallel, then fused into one explainable score.</p>
+      <div class="case-arch reveal">           Raw Audio Stream / File
+                      ↓
+           Preprocessing (16 kHz mono)
+                      ↓
+     ┌────────────────┼────────────────┐
+     ↓                ↓                ↓
+ wav2vec2         ECAPA-TDNN       Praat / Parselmouth
+ (fine-tuned)     (SpeechBrain)    Prosody forensics
+ Synthetic        Speaker          Naturalness
+ speech detect    verification     F0 · jitter · shimmer · HNR
+     │                │                │
+ Bonafide (0-1)   Cosine sim (0-1)  Naturalness (0-1)
+     └────────────────┼────────────────┘
+                      ↓
+          Explainable Fusion Scorer
+                      ↓
+            Risk Score (0-100)
+                      ↓
+        Live Risk Dashboard &amp; Alerts</div>
+    </div>
+  </section>
+
+  <!-- Fusion -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Fusion Engine</div>
+      <div class="case-section-content">
+        <p class="reveal">The three signals combine through transparent, configurable weights. No hidden ensemble — the contribution of each signal is inspectable and tunable at runtime via the config endpoint.</p>
+      </div>
+      <div class="case-arch reveal" style="margin-top:1.5rem">Risk = ( w_spoof   · (1 − S_bonafide)
+       + w_speaker · (1 − S_speaker)
+       + w_prosody · (1 − S_naturalness) ) × 100</div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Synthetic Voice Detection:</strong> a fine-tuned <code>wav2vec2</code> model (with AASIST-L support) trained across multiple TTS systems to catch synthesis artifacts.</li>
+        <li class="reveal"><strong>Speaker Verification:</strong> ECAPA-TDNN 192-dimensional embeddings compare the incoming voiceprint against an enrolled identity profile.</li>
+        <li class="reveal"><strong>Clinical Prosody Forensics:</strong> Praat/Parselmouth measures acoustic micro-variation — F0 pitch variability, jitter, shimmer, and harmonics-to-noise ratio.</li>
+        <li class="reveal"><strong>Explainable Weighted Fusion:</strong> the three signals combine through transparent, configurable weights rather than an opaque ensemble.</li>
+        <li class="reveal"><strong>Real-Time Streaming:</strong> live 16 kHz PCM over WebSockets with a rolling buffer — roughly 13 ms inference per 4-second window on GPU, sub-200 ms on CPU.</li>
+        <li class="reveal"><strong>Privacy by Design:</strong> 100% local, on-device inference. Audio is processed in memory and discarded immediately, with no persistent storage.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- API -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">API Surface</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Analysis</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">POST /analyze</span>
+            <span class="case-tech-badge">WS /ws/analyze</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Identity</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">POST /enroll</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Configuration</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">/config</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Backend</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python 3.10+</span>
+            <span class="case-tech-badge">PyTorch</span>
+            <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">WebSockets</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Audio &amp; Models</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">wav2vec2</span>
+            <span class="case-tech-badge">AASIST-L</span>
+            <span class="case-tech-badge">ECAPA-TDNN</span>
+            <span class="case-tech-badge">SpeechBrain</span>
+            <span class="case-tech-badge">Librosa</span>
+            <span class="case-tech-badge">Praat / Parselmouth</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Frontend</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Next.js 16</span>
+            <span class="case-tech-badge">React</span>
+            <span class="case-tech-badge">TypeScript</span>
+            <span class="case-tech-badge">Tailwind CSS</span>
+            <span class="case-tech-badge">Lucide Icons</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interface -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Interface</div>
+      <div class="case-gallery">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./voiceguard.png')">
+          <img src="./voiceguard.png" alt="VoiceGuard overview" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Overview</h5>
+            <p>Headline detection claim, live capability figures, and entry points into the detector and docs.</p>
+          </div>
+        </div>
+        <div class="case-gallery-item reveal" onclick="openLightbox('./voiceguard_detector.png')">
+          <img src="./voiceguard_detector.png" alt="VoiceGuard live detector" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Live Detector</h5>
+            <p>Real-time waveform with the verdict, a 0–100 risk score, and a confidence band as audio streams in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="simplex-bg.js" defer></script>
+  <script src="site.js" defer></script>
+
+</body>
+</html>

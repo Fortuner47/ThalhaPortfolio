@@ -635,6 +635,29 @@
      Drop portrait tiles whose image is missing, so a not-yet-added
      photo never leaves an empty frame in the hero.
      ------------------------------------------------------------------ */
+  /* ------------------------------------------------------------------
+     Gallery tiles with no screenshot yet fall back to a typographic card,
+     so a missing asset never renders as a broken image.
+     ------------------------------------------------------------------ */
+  (function galleryFallbacks() {
+    document.querySelectorAll('.case-gallery-item img').forEach(function (img) {
+      function miss() {
+        var item = img.closest('.case-gallery-item');
+        if (item && item.parentNode) item.parentNode.removeChild(item);
+      }
+      if (img.complete && img.naturalWidth === 0) miss();
+      img.addEventListener('error', miss);
+    });
+
+    document.querySelectorAll('.ig-tile[data-fallback] img').forEach(function (img) {
+      var tile = img.closest('.ig-tile');
+      function miss() { tile.classList.add('no-image'); }
+      // `error` has already fired for anything that failed during parse.
+      if (img.complete && img.naturalWidth === 0) miss();
+      img.addEventListener('error', miss);
+    });
+  })();
+
   (function heroPortrait() {
     var fig = document.querySelector('.h4-photo');
     var src = fig && fig.getAttribute('data-portrait');
