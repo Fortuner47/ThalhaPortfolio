@@ -1142,7 +1142,7 @@ body.cursor-ready .cursor-outline { opacity: 1; }
 
 /* On hover the tile expands dramatically */
 .ig-tile:hover,
-.ig-tile:focus-visible { flex-grow: 7; }
+.ig-tile:focus-visible { flex-grow: 9; }
 
 .ig-tile img {
   width: 100%;

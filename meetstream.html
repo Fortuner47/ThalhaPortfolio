@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F5F5">
+  <title>MeetStream Companion — Thalha Ahamed</title>
+  <meta name="description" content="MeetStream Companion: a persistent AI meeting companion that deploys a live in-meeting agent, remembers every call in PostgreSQL + pgvector, and serves that memory back through an MCP server.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>
+    .loader{display:none!important}
+    body.loading{overflow:auto!important;height:auto!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .nav-toggle{display:none!important}
+  </style></noscript>
+</head>
+<body>
+
+  <div class="page-gradient" aria-hidden="true"></div>
+  <canvas id="simplex-bg" aria-hidden="true"></canvas>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Thalha Ahamed</a>
+      <div class="nav-links">
+        <a href="index.html#projects">All Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav-cta-group">
+        <a class="nav-cta" href="https://www.linkedin.com/in/thalha-ahamed-01144142b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="nav-cta" href="https://github.com/Fortuner47/MeetStream-Companion" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html#projects" class="case-back">← Back to Portfolio</a>
+      <div class="case-meta reveal">Project 05 · Agentic AI &amp; RAG</div>
+      <h1 class="case-title reveal">MeetStream<br>Companion</h1>
+      <p class="case-tagline reveal">A persistent AI meeting companion — it deploys a voice agent into your calls, remembers everything across every meeting in PostgreSQL + pgvector, and serves that memory back to the live agent through MCP.</p>
+      <div class="case-actions reveal">
+        <a href="https://github.com/Fortuner47/MeetStream-Companion" target="_blank" rel="noopener" class="btn-primary">View on GitHub <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Overview</div>
+      <div class="case-section-content">
+        <p class="reveal">Most meeting bots hand you a transcript and forget everything the moment the call ends. <strong>MeetStream Companion</strong> deploys a bot that joins the call, records and transcribes it, runs the transcript through an LLM to extract structured memory — decisions, commitments, action items, concerns — and then makes that memory queryable.</p>
+        <p class="reveal">Queryable by two consumers: a <strong>live in-meeting agent</strong> that can answer "what did we decide about pricing three weeks ago?" mid-call, and a <strong>web dashboard</strong> for browsing meetings, searching memory, and configuring the agent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- At a glance -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">At a Glance</div>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <div class="stat-value">8</div>
+          <div class="stat-label">MCP tools exposed</div>
+          <div class="stat-src">4 read · 4 write</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">384<span style="font-size:0.5em">-d</span></div>
+          <div class="stat-label">Embedding dimension</div>
+          <div class="stat-src">pgvector</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Memory categories extracted</div>
+          <div class="stat-src">Decisions → open questions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1</div>
+          <div class="stat-label">Command to boot the stack</div>
+          <div class="stat-src">start.ps1</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Architecture</div>
+      <p class="case-video-desc reveal" style="margin-top:0;margin-bottom:1.5rem">The platform reaches the companion two ways — webhooks after a call, and MCP during one.</p>
+      <div class="case-arch reveal">                    MeetStream Platform
+        ┌──────────────┬────────────────┬──────────────┐
+        │ Bots (Calls) │ MIA Agent (AI) │  Transcripts │
+        └──────┬───────┴───────┬────────┴──────┬───────┘
+               │               │               │
+           Webhooks       MCP (HTTP)       Webhooks
+               ▼               ▼               ▼
+     ┌───────────────────────────────────────────────────┐
+     │            FastAPI Companion Server               │
+     │                                                   │
+     │   Webhook API      MCP Server      Meeting API    │
+     │        │                │               │         │
+     │        └────────────────┼───────────────┘         │
+     │                         ▼                         │
+     │   Services:  MeetStream Client · Memory Extractor │
+     │              Ingestion Pipeline · Embeddings      │
+     │                         ▼                         │
+     │   PostgreSQL 17 + pgvector                        │
+     │     meetings · participants · memories            │
+     │     transcript_segments · action_items            │
+     │     meeting_memory_embeddings (vector 384)        │
+     │     company_knowledge_embeddings                  │
+     └───────────────────────────────────────────────────┘
+                         ▲
+                    REST API
+                         │
+              React + Vite Dashboard</div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Key Features</div>
+      <ul class="case-features">
+        <li class="reveal"><strong>Live in-meeting agent:</strong> a MIA agent joins the Google Meet / Zoom / Teams call, listens, and speaks or replies in chat with full historical context pulled from past meetings.</li>
+        <li class="reveal"><strong>Hybrid RAG memory:</strong> transcripts and extracted memories are embedded and indexed with <em>Reciprocal Rank Fusion</em> — vector similarity fused with Postgres full-text search, so exact terms like names and dates aren't lost to embedding-only ranking.</li>
+        <li class="reveal"><strong>MCP server, 8 tools:</strong> four read (search memory, get a meeting, list/count previous meetings, list action items) and four write (add memory, add note, create action item, update action item) — all org-scoped and audit-logged.</li>
+        <li class="reveal"><strong>Automated memory extraction:</strong> post-call transcripts are analysed by an LLM into categorised memories — decisions, requirements, commitments, concerns, facts, unresolved questions — plus tracked action items.</li>
+        <li class="reveal"><strong>Company knowledge RAG:</strong> PDFs and docs can be uploaded as a separate knowledge base the agent also draws on.</li>
+        <li class="reveal"><strong>Multi-tenant by construction:</strong> every table is scoped by <code>organization_id</code>, webhooks are HMAC-signed with replay protection, and secrets are redacted server-side before any MeetStream response reaches the browser.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Engineering note -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Debugging Note — Agent Silence</div>
+      <div class="case-section-content">
+        <p class="reveal">The bot would join, record and transcribe perfectly, but the agent itself never produced output — across three different model providers. That pattern pointed hard at a platform bug.</p>
+        <p class="reveal">It wasn't. <code>create_bot()</code> was manually injecting <code>socket_connection_url</code> and <code>live_audio_required</code> into the bot-creation payload whenever an agent config was set. Those look like internal bridge endpoints that MeetStream wires up server-side; overriding them broke the agent's audio/text bridge <em>silently</em>. The tell was that the same agent config deployed fine through MeetStream's own API Playground — so the difference had to be in our request, not their platform. Removing both fields fixed it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Tech Stack</div>
+      <div class="case-tech-grid reveal">
+        <div class="case-tech-group">
+          <h5>Backend</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">Python 3.12</span>
+            <span class="case-tech-badge">FastAPI</span>
+            <span class="case-tech-badge">Uvicorn</span>
+            <span class="case-tech-badge">SQLAlchemy (async)</span>
+            <span class="case-tech-badge">Alembic</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Data &amp; Retrieval</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">PostgreSQL 17</span>
+            <span class="case-tech-badge">pgvector</span>
+            <span class="case-tech-badge">asyncpg</span>
+            <span class="case-tech-badge">sentence-transformers</span>
+            <span class="case-tech-badge">Reciprocal Rank Fusion</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Agent &amp; LLM</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">MCP (JSON-RPC 2.0)</span>
+            <span class="case-tech-badge">MeetStream MIA</span>
+            <span class="case-tech-badge">Groq</span>
+            <span class="case-tech-badge">OpenAI</span>
+          </div>
+        </div>
+        <div class="case-tech-group">
+          <h5>Frontend &amp; Ops</h5>
+          <div class="case-tech-badges">
+            <span class="case-tech-badge">React 19</span>
+            <span class="case-tech-badge">Vite</span>
+            <span class="case-tech-badge">Docker Compose</span>
+            <span class="case-tech-badge">Cloudflare Tunnel</span>
+            <span class="case-tech-badge">pytest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interface -->
+  <section class="case-section">
+    <div class="container">
+      <div class="case-section-title reveal">Interface</div>
+      <div class="case-gallery">
+        <div class="case-gallery-item reveal" onclick="openLightbox('./meetstream.png')">
+          <img src="./meetstream.png" alt="MeetStream Companion day view" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Day View</h5>
+            <p>Every meeting captured on a given day, with its generated summary, participants, and tabs into decisions, action items, and the raw transcript.</p>
+          </div>
+        </div>
+        <div class="case-gallery-item reveal" onclick="openLightbox('./meetstream_memories.png')">
+          <img src="./meetstream_memories.png" alt="MeetStream Companion decisions and memories" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Decisions &amp; Memories</h5>
+            <p>Structured memory extracted from the transcript — each item typed as a fact, decision, or commitment and attributed to the speaker it came from.</p>
+          </div>
+        </div>
+        <div class="case-gallery-item reveal" onclick="openLightbox('./meetstream_agent.png')">
+          <img src="./meetstream_agent.png" alt="MeetStream Companion agent configuration" loading="lazy">
+          <div class="case-gallery-caption">
+            <h5>Agent Configuration</h5>
+            <p>Saved agents with their provider, model, voice, and system prompt — switch the active companion without touching the backend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Thalha Ahamed</span>
+      <a href="index.html">← Back to Portfolio</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <script src="simplex-bg.js" defer></script>
+  <script src="site.js" defer></script>
+
+</body>
+</html>
