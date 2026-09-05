@@ -1213,6 +1213,44 @@ body.cursor-ready .cursor-outline { opacity: 1; }
   color: rgba(255, 255, 255, 0.65);
 }
 
+/* "Live" marker — the tile itself is one <a>, so this is a badge, not a
+   nested link; the case page carries the actual Try-it-now button. */
+.ig-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-bottom: 0.15rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.ig-live i {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: none;
+  border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.65);
+  animation: ig-live-pulse 2s var(--ease-out) infinite;
+}
+
+@keyframes ig-live-pulse {
+  70%  { box-shadow: 0 0 0 0.35rem rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-live i { animation: none; }
+}
+
 .ig-title {
   font-size: 1.25rem;
   font-weight: 500;
